@@ -34,12 +34,20 @@ git commit -m "Build Laravel portfolio with Filament studio"
 git branch -M main
 ```
 
-Create an empty repository on GitHub (for example `portfolio`), then:
+Create an empty repository on GitHub (the current one is `portofolio`), then:
 
 ```bash
-git remote add origin https://github.com/Bisminee/portfolio.git
+git remote add origin https://github.com/Bisminee/portofolio.git
 git push -u origin main
 ```
+
+If `origin` already exists, check it rather than adding a second one:
+
+```bash
+git remote -v
+```
+
+The remote must point to the repository that actually exists. The current project uses `Bisminee/portofolio`.
 
 Before committing, confirm that `git status` does **not** list `.env` or `database/database.sqlite`. Both are ignored. If `.env` was ever committed elsewhere, rotate the credentials.
 
