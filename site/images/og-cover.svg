@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
+  <title id="title">Bisma Adhiaksa — Mobile and Web Developer portfolio cover</title>
+  <defs>
+    <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.3" fill="#F0E6D2"/>
+    </pattern>
+    <pattern id="dotsInk" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.3" fill="#101010"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#101010"/>
+  <rect x="26" y="26" width="1148" height="578" fill="none" stroke="#B99A63" stroke-width="2"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#F0E6D2" stroke-width="1" opacity="0.3"/>
+  <rect x="820" y="40" width="340" height="250" fill="url(#dots)" opacity="0.08"/>
+
+  <!-- right seal -->
+  <g transform="translate(985 315)">
+    <circle r="170" fill="#171616" stroke="#B99A63" stroke-width="2"/>
+    <circle r="158" fill="none" stroke="#F0E6D2" stroke-width="1" opacity="0.25" stroke-dasharray="3 8"/>
+    <path d="M-108 92V-24c0-62 48-102 108-102s108 40 108 102v116Z" fill="#242323" stroke="#F0E6D2" stroke-width="3"/>
+    <circle cx="28" cy="-30" r="46" fill="#9F252D" stroke="#101010" stroke-width="4"/>
+    <rect x="-108" y="-124" width="216" height="216" fill="url(#dotsInk)" opacity="0.14"/>
+    <path d="M-66 92c8-40 32-58 60-70l24 1c28 12 52 30 60 69Z" fill="#0A0A0A" stroke="#101010" stroke-width="4"/>
+    <path d="M-6 22c-22-22-22-62 0-82 20-18 48-10 60 12 10 20 6 48-8 62Z" fill="#0A0A0A" stroke="#101010" stroke-width="3"/>
+    <circle cx="14" cy="-30" r="3" fill="#C03540"/>
+    <path d="M-150 108v34M150 108v34" stroke="#9F252D" stroke-width="3"/>
+    <path d="M-84 -140c18-10 34-10 50 0M46 -158c16-8 30-6 42 4" fill="none" stroke="#B99A63" stroke-width="2"/>
+    <text x="0" y="148" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" letter-spacing="4" fill="#B99A63">PUBLIC WORK</text>
+  </g>
+
+  <!-- copy -->
+  <g transform="translate(82 112)">
+    <path d="M0 0h54" stroke="#9F252D" stroke-width="4"/>
+    <text x="70" y="5" font-family="'Courier New', monospace" font-size="14" letter-spacing="5" fill="#B99A63">CASE FILES · 2026 · INDONESIA</text>
+
+    <text x="-4" y="126" font-family="Impact, 'Arial Narrow', sans-serif" font-size="112" letter-spacing="1" fill="#F0E6D2">BISMA</text>
+    <text x="-4" y="236" font-family="Impact, 'Arial Narrow', sans-serif" font-size="112" letter-spacing="1" fill="#9F252D">ADHIAKSA</text>
+    <text x="4" y="230" font-family="Impact, 'Arial Narrow', sans-serif" font-size="112" letter-spacing="1" fill="#F0E6D2">ADHIAKSA</text>
+
+    <rect x="0" y="266" width="356" height="38" fill="#9F252D"/>
+    <text x="14" y="292" font-family="'Courier New', monospace" font-size="15" letter-spacing="3" fill="#F0E6D2">MOBILE &amp; WEB DEVELOPER</text>
+
+    <text x="0" y="350" font-family="Georgia, serif" font-size="20" fill="#D8CBB2">Flutter interfaces. Laravel back offices.</text>
+    <text x="0" y="380" font-family="Georgia, serif" font-size="20" fill="#D8CBB2">The data layers that keep both honest.</text>
+
+    <path d="M0 424h560" stroke="#B99A63" stroke-width="1" opacity="0.45"/>
+    <text x="0" y="458" font-family="'Courier New', monospace" font-size="14" letter-spacing="2" fill="#B99A63">github.com/Bisminee</text>
+    <text x="0" y="492" font-family="'Courier New', monospace" font-size="11" letter-spacing="2" fill="#A99E8B">NO INVENTED METRICS · TEAM WORK MARKED AS TEAM WORK</text>
+  </g>
+
+  <path d="M28 92h40M28 92v40M1172 538v40h-40M1172 538h-40" stroke="#9F252D" stroke-width="4"/>
+</svg>

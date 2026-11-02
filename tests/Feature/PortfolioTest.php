@@ -6,6 +6,7 @@ use App\Models\BeyondSkill;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class PortfolioTest extends TestCase
@@ -93,6 +94,47 @@ class PortfolioTest extends TestCase
         $this->get('/a-panel-that-does-not-exist')
             ->assertNotFound()
             ->assertSee('This page has vanished into the fog.');
+    }
+
+    public function test_static_export_creates_pages_and_assets(): void
+    {
+        $output = 'site-test';
+
+        try {
+            $this->artisan('portfolio:export', [
+                '--base-url' => 'https://example.test/portfolio/',
+                '--output' => $output,
+            ])->assertSuccessful();
+
+            $root = base_path($output);
+
+            $this->assertFileExists($root.'/index.html');
+            $this->assertFileExists($root.'/404.html');
+            $this->assertFileExists($root.'/favicon.svg');
+            $this->assertFileExists($root.'/css/portfolio.css');
+            $this->assertFileExists($root.'/js/site.js');
+            $this->assertFileExists($root.'/images/hero-portrait.svg');
+            $this->assertFileExists($root.'/fonts/anton-latin.woff2');
+            $this->assertFileExists($root.'/.nojekyll');
+
+            $html = File::get($root.'/index.html');
+            $notFound = File::get($root.'/404.html');
+
+            $this->assertStringContainsString(
+                '<link rel="canonical" href="https://example.test/portfolio/">',
+                $html,
+            );
+            $this->assertStringContainsString(
+                'https://example.test/portfolio/css/portfolio.css',
+                $html,
+            );
+            $this->assertStringContainsString('POS Tahu Morojoyo', $html);
+            $this->assertStringContainsString('This panel is intentionally blank.', $html);
+            $this->assertStringNotContainsString('beyond-card', $html);
+            $this->assertStringContainsString('This page has vanished into the fog.', $notFound);
+        } finally {
+            File::deleteDirectory(base_path($output));
+        }
     }
 
     public function test_studio_requires_authentication(): void

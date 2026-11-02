@@ -6,6 +6,7 @@
 /storage/*.key
 /storage/pail
 /vendor
+/dist
 /database/*.sqlite
 /database/*.sqlite-journal
 /database/*.sqlite-shm

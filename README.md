@@ -83,14 +83,14 @@ Static copy lives in `config/site.php`. Update the profile name, email, location
 ## Tests and quality checks
 
 ```bash
-php artisan test                  # 9 tests, 39 assertions
+php artisan test                  # 10 tests, 54 assertions
 vendor/bin/pint --test            # code style
 composer audit                    # dependency advisories
 php artisan optimize              # production caches
 php artisan optimize:clear
 ```
 
-Feature tests cover the public page, seeded projects, the empty Beyond Code state, adding a Beyond Code entry, unpublished projects, the 404 page, studio authentication, and studio access.
+Feature tests cover the public page, seeded projects, the empty Beyond Code state, adding a Beyond Code entry, unpublished projects, the 404 page, the static export, studio authentication, and studio access.
 
 Static checks and browser checks performed during the build are listed in [docs/QA-REPORT.md](docs/QA-REPORT.md).
 
@@ -113,8 +113,9 @@ public/
   js/site.js                   Mobile navigation + active section state
   images/                      Original illustrations, OG image, favicon
   fonts/                       Self-hosted WOFF2 files
+site/                          Committed static export for GitHub Pages
 docs/                          Audit, assets, deployment, QA report
-Dockerfile, render.yaml        Free Render deployment
+Dockerfile                     Optional self-hosted/paid Docker deployment
 ```
 
 ## Content provenance
@@ -127,9 +128,20 @@ Dockerfile, render.yaml        Free Render deployment
 
 ## Deployment
 
-Primary target: **Render free web service** using the included Dockerfile and `render.yaml`. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for exact steps, environment variables, troubleshooting, and the free-tier limitations.
+Primary target: **GitHub Pages**, served as a free static snapshot. Laravel and Filament run locally; the public HTML is generated with:
 
-GitHub Pages cannot host this build because Laravel and Filament require PHP. Vercel and Netlify are not used as the primary target because PHP support there is not a first-class runtime for a Filament/SQLite application.
+```bash
+php artisan portfolio:export --base-url=https://bisminee.github.io/portofolio/
+git add site
+git commit -m "Publish static portfolio"
+git push
+```
+
+The Pages workflow deploys `site/`. The online site has no PHP server and no live studio; edit locally, export, and push. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the one-time Pages setup, the exact update loop, alternatives (Netlify, Cloudflare Pages, Vercel), and troubleshooting.
+
+Render no longer offers a free web-service tier, so it is not the chosen host. The Dockerfile remains available for optional self-hosting or a paid Docker host.
+
+GitHub Pages cannot run Laravel or Filament directly. The static export is the free compromise; the studio stays local.
 
 ## Licence and assets
 

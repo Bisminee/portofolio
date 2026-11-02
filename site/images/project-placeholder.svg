@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Artwork placeholder</title>
+  <desc id="desc">A bone-paper panel with a red diagonal band and an ink frame, awaiting project artwork.</desc>
+  <defs>
+    <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.2" fill="#101010"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F0E6D2"/>
+  <rect x="14" y="14" width="772" height="572" fill="none" stroke="#101010" stroke-width="5"/>
+  <rect x="28" y="28" width="744" height="544" fill="none" stroke="#101010" stroke-width="1" stroke-dasharray="5 7"/>
+  <rect x="28" y="28" width="744" height="544" fill="url(#dots)" opacity="0.12"/>
+  <path d="M80 520L720 80" stroke="#9F252D" stroke-width="26"/>
+  <path d="M80 520L720 80" stroke="#101010" stroke-width="2" stroke-dasharray="10 8"/>
+  <path d="M250 300h300M400 150v300" stroke="#101010" stroke-width="2" opacity="0.35"/>
+  <circle cx="400" cy="300" r="62" fill="#F0E6D2" stroke="#101010" stroke-width="4"/>
+  <path d="M400 270v60M370 300h60" stroke="#9F252D" stroke-width="4"/>
+  <g fill="none" stroke="#101010" stroke-width="2">
+    <path d="M60 90h44M60 90v44M740 510v-44M740 510h-44"/>
+  </g>
+</svg>

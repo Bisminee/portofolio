@@ -12,6 +12,8 @@ storage/framework/views/*
 bootstrap/cache/*
 database/*.sqlite
 database/*.sqlite-*
+site
+dist
 README.md
 docs
 qa

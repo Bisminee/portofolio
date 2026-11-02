@@ -1,186 +1,180 @@
-# Deployment guide — Render (free)
+# Deployment guide — GitHub Pages (free)
 
-This project is a dynamic Laravel 12 + Filament 4 application. It cannot be hosted on GitHub Pages, which only serves static files. The included Dockerfile targets **Render's free web service**, which provides a free `*.onrender.com` URL.
+The public portfolio is deployed as a **static snapshot** to GitHub Pages. Laravel 12 and Filament 4 remain the authoring environment on your computer: the studio manages the case files, and `php artisan portfolio:export` writes the public HTML into `site/`.
+
+This keeps hosting genuinely free and avoids PHP server costs. The trade-off is that the Filament studio is **not available online**; it runs locally only.
 
 ## What is already done
 
-- `Dockerfile` with PHP 8.3, Apache, SQLite, Composer dependencies, and production caches.
-- `docker/entrypoint.sh` runs migrations, the idempotent seeders, and `php artisan optimize` on boot.
-- `render.yaml` Blueprint with the free plan, health check at `/up`, and required environment variables.
-- `.github/workflows/tests.yml` runs Pint and the test suite on every push.
-- `.dockerignore` and `.gitignore` keep secrets, the SQLite database, and local files out of the image and repository.
-- The site was built and tested locally, including production caches (`php artisan optimize`).
+- Laravel + Filament application and studio.
+- `php artisan portfolio:export` renders `site/index.html`, `site/404.html`, CSS, JS, images, and fonts.
+- `site/` is a complete static snapshot, committed to the repository.
+- `.github/workflows/pages.yml` uploads `site/` to GitHub Pages on every push to `main`.
+- `.github/workflows/tests.yml` runs Pint and PHPUnit on every push.
+- Repository pushed to `https://github.com/Bisminee/portofolio`.
+- A 404 page and `.nojekyll` are included in the export.
 
 ## What requires your account or approval
 
-- Creating the GitHub repository and pushing the code.
-- Creating a Render account and authorising Render to read the repository.
-- Generating and entering production secrets (`APP_KEY`, `ADMIN_PASSWORD`, `APP_URL`).
-- Approving the Blueprint / first deploy.
-- Optional: buying a custom domain (not free and not required).
+- Enabling GitHub Pages for the repository (one-time): **Settings → Pages → Source: GitHub Actions**.
+- Approving the first workflow run if GitHub asks.
+- Optional: connecting a custom domain (normally paid).
 
-No deployment has been performed on your behalf because those steps require your login.
+## URLs
+
+The free project URL is:
+
+```text
+https://bisminee.github.io/portofolio/
+```
+
+A custom domain such as `bisminee.dev` requires a registrar payment and is not included. HTTPS on `github.io` is provided by GitHub.
 
 ---
 
-## 1. Push the project to GitHub
+## 1. Publish the current static site
 
-From `D:\Kuliah\portfolio`:
+The current snapshot has already been exported with the correct base URL:
 
 ```bash
-git init
-git add .
-git commit -m "Build Laravel portfolio with Filament studio"
-git branch -M main
+php artisan portfolio:export --base-url=https://bisminee.github.io/portofolio/
 ```
 
-Create an empty repository on GitHub (the current one is `portofolio`), then:
+Then:
 
 ```bash
-git remote add origin https://github.com/Bisminee/portofolio.git
-git push -u origin main
-```
-
-If `origin` already exists, check it rather than adding a second one:
-
-```bash
-git remote -v
-```
-
-The remote must point to the repository that actually exists. The current project uses `Bisminee/portofolio`.
-
-Before committing, confirm that `git status` does **not** list `.env` or `database/database.sqlite`. Both are ignored. If `.env` was ever committed elsewhere, rotate the credentials.
-
-## 2. Generate the production application key
-
-Run locally:
-
-```bash
-php artisan key:generate --show
-```
-
-Copy the output (`base64:...`). You will paste it into Render as `APP_KEY`. Do not commit it.
-
-## 3. Deploy on Render
-
-1. Sign in at <https://render.com> with GitHub.
-2. Choose **New → Blueprint**.
-3. Select the repository you just pushed. Render reads `render.yaml`.
-4. Apply the Blueprint. The service name will be `bisma-portfolio` unless you change it.
-5. When prompted, fill the secret variables:
-   - `APP_URL` — the final URL Render shows, for example `https://bisma-portfolio.onrender.com` (include `https://`, no trailing slash).
-   - `APP_KEY` — the `base64:...` value from step 2.
-   - `ADMIN_EMAIL` — the email you want for the studio login.
-   - `ADMIN_PASSWORD` — a long, unique password (16+ characters).
-6. Wait for the Docker build and the health check at `/up` to pass.
-
-`PORT=80` is already set in `render.yaml`; the Dockerfile exposes port 80. Do not change the service to a static site.
-
-### Build and output settings
-
-Render's Docker runtime does not use separate “build command” and “publish directory” fields. The Dockerfile is the build definition:
-
-- Build: `docker build` using `Dockerfile`
-- Serve: Apache with `DocumentRoot /var/www/html/public`
-- Health check: `/up`
-
-If you create the service manually instead of using the Blueprint, choose **Web Service → Docker**, point it at the repository, set the same environment variables, and set the health check path to `/up`.
-
-## 4. Verify the deployment
-
-Visit:
-
-- `https://YOUR-SERVICE.onrender.com/` — portfolio loads.
-- `https://YOUR-SERVICE.onrender.com/up` — returns HTTP 200.
-- `https://YOUR-SERVICE.onrender.com/studio` — Filament login.
-- `https://YOUR-SERVICE.onrender.com/studio/projects` — case-file list after login.
-
-Sign in with `ADMIN_EMAIL` and `ADMIN_PASSWORD`, open **Beyond Code**, and confirm the table is empty. Do not add sample entries unless they are real.
-
-Then test:
-- Mobile navigation and the “Beyond Code” anchor.
-- At least one project link and the Sera-Z APK link.
-- The browser console and the 404 page (`/does-not-exist`).
-
-## 5. Updating the site
-
-Render auto-deploys every push to `main`:
-
-```bash
-git add .
-git commit -m "Update case file"
+git add site
+git commit -m "Publish static portfolio"
 git push
 ```
 
-The entrypoint re-runs migrations and seeding. The project seeder skips existing rows, so studio edits persist **within the life of the instance**.
+The Pages workflow deploys `site/` automatically.
 
-### Important free-tier limitation: ephemeral SQLite
+## 2. Enable GitHub Pages once
 
-Render's free tier does not include a persistent disk. The SQLite file lives inside the container and is reset on every redeploy or restart. Consequences:
+1. Open <https://github.com/Bisminee/portofolio/settings/pages>.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Open the **Actions** tab and run **Deploy static portfolio to GitHub Pages** if it did not start automatically.
+4. Wait for the `deploy` job to finish.
+5. Visit <https://bisminee.github.io/portofolio/>.
 
-- Seeded case files return automatically.
-- Edits made in the Filament studio, including Beyond Code entries, are lost on redeploy/restart.
-- The studio session is cleared.
+No build command, output directory, or base-path setting is needed in the Pages UI — the workflow supplies the `site/` artifact.
 
-Options:
+## 3. Editing content later
 
-1. Edit content and accept that it resets (fine for a demo).
-2. Put the canonical content in `database/seeders/ProjectSeeder.php` or `config/site.php` and redeploy.
-3. Add a paid persistent disk or an external database (not configured here; this is not a free guarantee).
+Because Pages only serves static files, content changes are a three-step loop:
 
-Do not assume the free instance keeps data forever.
+```bash
+# 1. Edit content in the local studio
+php artisan serve
+# open http://127.0.0.1:8000/studio
 
-### Cold starts
+# 2. Rebuild the static snapshot
+php artisan portfolio:export --base-url=https://bisminee.github.io/portofolio/
 
-Free Render services spin down after inactivity and take roughly 30–60 seconds to wake. This is normal. The first visitor may see a delay; the page is not broken.
+# 3. Publish it
+git add site
+git commit -m "Update case files"
+git push
+```
+
+**Important:** if you edit a case file or add a Beyond Code entry in the studio but forget to re-export, the live site will not change. `site/` is the deployed copy; `database/database.sqlite` is local only and is never committed.
+
+To preview the exported static files locally, run:
+
+```bash
+php artisan serve
+```
+
+That previews the Laravel version. To preview the actual static folder, use any local static server pointed at `site/`, for example:
+
+```bash
+php -S 127.0.0.1:8081 -t site
+```
+
+## 4. How the export works
+
+```bash
+php artisan portfolio:export \
+  --base-url=https://bisminee.github.io/portofolio/ \
+  --output=site
+```
+
+It renders:
+
+- `site/index.html` — the full single-page portfolio.
+- `site/404.html` — the custom not-found page.
+- `site/css/`, `site/js/`, `site/images/`, `site/fonts/` — public assets.
+- `site/favicon.svg`, `site/robots.txt`, `site/.nojekyll`.
+
+All asset and canonical URLs use the supplied base URL. If you rename the repository or move to another host, re-export with the new URL. Leaving the old base URL is the most common cause of a site with no CSS.
+
+## 5. Updating after a repository rename
+
+If `portofolio` is renamed to `portfolio`:
+
+```bash
+git remote set-url origin https://github.com/Bisminee/portfolio.git
+php artisan portfolio:export --base-url=https://bisminee.github.io/portfolio/
+git add site
+git commit -m "Update base URL after repository rename"
+git push
+```
+
+Then re-check **Settings → Pages**. GitHub normally keeps the old URL redirecting, but the generated HTML must use the new base URL.
 
 ## 6. Troubleshooting
 
 | Symptom | Cause | Fix |
 | --- | --- | --- |
-| `500` on every page | Missing/invalid `APP_KEY` | Set a valid `base64:` key and redeploy |
-| Links or assets point to `http://` | `APP_URL` wrong | Set the exact `https://...onrender.com` URL |
-| `403` at `/studio` | Not signed in, or user missing | Check `ADMIN_EMAIL`, redeploy, then seed/login |
-| `404` on `/studio/projects` | Stale route cache in the image | Redeploy; the entrypoint runs `php artisan optimize` |
-| CSS or images 404 | Apache document root or rewrite problem | Confirm the Dockerfile and `docker/apache-vhost.conf` are used |
-| Build fails at Composer | `composer.lock` out of sync | Run `composer update --lock` locally, commit, push |
-| Build fails on extensions | Dockerfile edited | Keep `pdo_sqlite`, `sqlite3`, `intl`, and `zip` |
-| Login works, then logs out | Free instance restarted | Expected; sign in again |
-| Blank page, no logs | PHP fatal | Check Render logs; set `APP_DEBUG=true` temporarily, then remove it |
+| Page has no CSS or fonts | Wrong `--base-url` during export | Re-export with the exact Pages URL including `/portofolio/` |
+| 404 on every page except `/` | Pages source is not “GitHub Actions” | Settings → Pages → Source → GitHub Actions |
+| Workflow fails at upload | `site/index.html` missing | Run the export locally, commit `site/`, push |
+| Workflow permission error | Pages not enabled, or token permissions | Enable Pages; keep `pages: write` and `id-token: write` in the workflow |
+| Old content still live | Forgot to re-export | Run `portfolio:export`, commit `site/`, push |
+| Beyond Code still empty | No visible entry saved in studio | Add one, export, commit, push |
+| Links use `http://127.0.0.1:8000` | Exported without `--base-url` | Re-export with the production URL |
+| Custom 404 not used | `site/404.html` missing or Pages not deployed | Check the file and the workflow run |
+| Studio URL 404 online | Expected — the static site has no PHP | Use the studio locally |
 
-View logs in Render → your service → **Logs**. Run `php artisan about` locally to compare configuration.
+Check the workflow log under **Actions → Deploy static portfolio to GitHub Pages**.
 
-After changing environment variables, trigger **Manual Deploy → Clear build cache & deploy** if the old values persist.
+## 7. Alternatives
 
-## 7. Alternatives considered
+### Netlify — free static hosting
 
-### GitHub Pages — not viable for this build
+Netlify’s free tier can host the same `site/` folder:
 
-GitHub Pages serves static files only. Laravel routes, the Filament studio, SQLite, and server-side sessions require PHP. A static export would remove the studio entirely. If a static-only portfolio is required later, a separate Vite/React build could be published to Pages, but it would not be this application.
+1. Run the export with your Netlify URL, for example:
+   `php artisan portfolio:export --base-url=https://YOUR-SITE.netlify.app/`
+2. Go to <https://app.netlify.com/drop> and drag the `site` folder onto the page.
+3. Or connect the repository and set **Publish directory** to `site`, with no build command.
 
-### Vercel — possible only with a community PHP runtime
+Free subdomain: `YOUR-SITE.netlify.app`. A custom domain is optional and normally paid.
 
-Vercel has no first-class PHP runtime. Community runtimes can serve Laravel, but the filesystem is read-only except `/tmp`, Filament sessions and SQLite are awkward, and every cold start can lose data. Not selected.
+### Cloudflare Pages — free static hosting
 
-### Netlify — static/functions first
+Use the same exported `site/` directory. Cloudflare Pages supports direct upload or Git integration, with a free `*.pages.dev` subdomain. Re-export with the final base URL.
 
-Netlify can host static output or serverless functions, not a conventional Laravel/Apache process. Porting Filament and SQLite would add fragility without improving the result. Not selected.
+### Vercel — free static hosting
 
-### Render — selected
+Create a project and upload/deploy the `site/` folder as a static site. Free `*.vercel.app` subdomain. Re-export with the final base URL.
 
-Free web service, Docker support, managed HTTPS on a free `onrender.com` subdomain, health checks, and Git-based deploys. The trade-offs are cold starts and an ephemeral filesystem, documented above.
+### Render — no longer a free web-service option
 
-### Custom domain
+Render’s free web-service tier is not available as a reliable free target. The included `Dockerfile` can still be used on a paid Docker host or for self-hosting, but it is no longer the recommended deployment path. No Render Blueprint is included.
 
-A custom domain is optional and normally requires payment to a registrar. This project uses the free Render subdomain and does not promise a free custom domain. HTTPS on `onrender.com` is provided by Render.
+### If you need the Filament studio online
+
+That requires a PHP host with persistent storage (and usually a database). This project does not configure a free PHP host because free PHP tiers are restrictive, often ad-supported, and not guaranteed to support Laravel 12 + Filament 4. A small paid PHP host or VPS is the honest option. The static GitHub Pages deployment is the free path.
 
 ## 8. Rollback
 
-Render keeps previous deploys. Open the service → **Deploys**, select the last healthy deploy, and choose **Rollback**. For code-level rollback:
+GitHub Pages deployments are recorded under **Actions**. Re-run an older successful deployment, or revert the `site/` change:
 
 ```bash
 git revert <commit>
 git push
 ```
 
-Rolling back also resets the ephemeral database to the seed state.
+If only content changed, revert the `site/` commit and re-deploy.
