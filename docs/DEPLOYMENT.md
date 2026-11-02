@@ -12,7 +12,9 @@ This keeps hosting genuinely free and avoids PHP server costs. The trade-off is 
 - `.github/workflows/pages.yml` uploads `site/` to GitHub Pages on every push to `main`.
 - `.github/workflows/tests.yml` runs Pint and PHPUnit on every push.
 - Repository pushed to `https://github.com/Bisminee/portofolio`.
-- A 404 page and `.nojekyll` are included in the export.
+- GitHub Pages enabled with **Source: GitHub Actions**.
+- First deployment successful and verified at <https://bisminee.github.io/portofolio/>.
+- A custom 404 page and `.nojekyll` are included in the export.
 
 ## What requires your account or approval
 
@@ -51,6 +53,8 @@ git push
 The Pages workflow deploys `site/` automatically.
 
 ## 2. Enable GitHub Pages once
+
+This step is already complete for `Bisminee/portofolio`. For reference, or after moving to another repository:
 
 1. Open <https://github.com/Bisminee/portofolio/settings/pages>.
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.

@@ -9,7 +9,7 @@ Environment: Windows, PHP 8.3.30, Composer 2.9.5, Laravel 12.70.2, Filament 4.16
 
 Command: `php artisan test`
 
-Result: **9 passed, 39 assertions**, 0 failures.
+Result: **10 passed, 54 assertions**, 0 failures.
 
 Coverage of:
 
@@ -19,8 +19,30 @@ Coverage of:
 - A temporary Beyond Code row renders correctly (proves the future data path works) — not seeded in production.
 - Unpublished projects are hidden.
 - Custom 404 page returns 404 and shows the intended copy.
+- Static export writes `index.html`, `404.html`, assets, and the correct canonical URL.
 - `/studio` redirects unauthenticated visitors to the login page.
 - A seeded admin can open the Filament dashboard.
+
+### Static deployment
+
+Command:
+
+```bash
+php artisan portfolio:export --base-url=https://bisminee.github.io/portofolio/
+```
+
+Then pushed to `main`; the Pages workflow completed successfully.
+
+Live verification:
+
+- `https://bisminee.github.io/portofolio/` — **200**, correct title, CSS and fonts applied.
+- `https://bisminee.github.io/portofolio/css/portfolio.css` — **200**, `text/css`.
+- `https://bisminee.github.io/portofolio/images/og-cover.png` — **200**, `image/png`.
+- `https://bisminee.github.io/portofolio/does-not-exist` — **404** with the custom page.
+- Canonical URL: `https://bisminee.github.io/portofolio/`.
+- Live axe audit: **0 violations**.
+- Live Chrome test: **0 console errors**, **0 failed requests**, no horizontal overflow at 1440 px or 390 px.
+- Mobile “Beyond Code” anchor lands at **84 px** with the menu closed.
 
 ### Code style
 
@@ -120,8 +142,7 @@ Fixes made during review:
 
 ## Not tested / not claimed
 
-- No Docker build was executed locally (Docker is not installed in this environment). The Dockerfile follows the official PHP Apache pattern; Render must be treated as the first real container build.
-- No deployment was performed (requires the owner's GitHub and Render accounts).
+- No Docker build was executed locally (Docker is not installed in this environment). The Dockerfile is optional for self-hosting or a paid Docker host.
 - No real mobile device or Safari test.
 - No automated visual-regression baseline.
 - No load/performance budget test beyond local asset sizes.
@@ -130,10 +151,13 @@ Fixes made during review:
 
 | Command | Result |
 | --- | --- |
-| `php artisan test` | 9 passed, 39 assertions |
+| `php artisan test` | 10 passed, 54 assertions |
 | `vendor/bin/pint --test` | passed |
 | `composer audit` | no advisories |
 | `php artisan optimize` | config, routes, views, events, Blade icons, Filament cached |
+| `php artisan portfolio:export` | 21 files, 334 KB |
+| GitHub Actions Pages deploy | success |
+| Live site | 200; CSS, images, custom 404 verified |
 | Headless Chrome QA | 0 console errors, 0 axe violations, 0 broken links |
 | SQLite state after tests | 5 projects, 0 Beyond Code entries |
 

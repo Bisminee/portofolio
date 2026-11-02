@@ -2,6 +2,8 @@
 
 A dark-fantasy graphic-novel portfolio built with **Laravel 12** and **Filament 4**. The public site is a single-page Blade view; the case files and the “Beyond Code” entries are managed in a private Filament studio at `/studio`.
 
+**Live site:** <https://bisminee.github.io/portofolio/> — a free static snapshot deployed via GitHub Pages. The Filament studio runs locally; see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
 The content is based on the public GitHub profile [github.com/Bisminee](https://github.com/Bisminee) and its repositories, reviewed in October 2026. Team projects are labelled as team projects, coursework as coursework, and no metrics or testimonials are invented.
 
 ## Stack
