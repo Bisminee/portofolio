@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Flutter Architecture Lab — case-file illustration</title>
+  <desc id="desc">An ink illustration of layered architecture panels, a phone, and a test flask.</desc>
+  <defs>
+    <pattern id="halftone" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.3" fill="#101010"/>
+    </pattern>
+    <pattern id="goldDots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.2" fill="#B99A63"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#F0E6D2"/>
+  <rect x="14" y="14" width="772" height="572" fill="none" stroke="#101010" stroke-width="5"/>
+  <rect x="26" y="26" width="748" height="548" fill="none" stroke="#101010" stroke-width="1"/>
+  <rect x="26" y="26" width="250" height="160" fill="url(#halftone)" opacity="0.2"/>
+  <rect x="540" y="430" width="234" height="144" fill="url(#goldDots)" opacity="0.25"/>
+
+  <!-- layered panels -->
+  <g stroke="#101010" stroke-width="4">
+    <path d="M70 176l250-70 250 70-250 70Z" fill="#B99A63"/>
+    <path d="M70 230l250-70 250 70-250 70Z" fill="#9F252D"/>
+    <path d="M70 284l250-70 250 70-250 70Z" fill="#F0E6D2"/>
+  </g>
+  <g fill="none" stroke="#101010" stroke-width="2" opacity="0.55">
+    <path d="M120 186l200-56 200 56M120 240l200-56 200 56M120 294l200-56 200 56"/>
+    <path d="M320 106v70M320 160v70M320 214v70"/>
+  </g>
+  <g fill="#101010">
+    <path d="M154 196l30-8 30 8-30 8Z"/>
+    <path d="M154 250l30-8 30 8-30 8Z"/>
+    <path d="M154 304l30-8 30 8-30 8Z"/>
+    <path d="M456 196l30-8 30 8-30 8Z"/>
+    <path d="M456 250l30-8 30 8-30 8Z"/>
+    <path d="M456 304l30-8 30 8-30 8Z"/>
+  </g>
+
+  <!-- phone -->
+  <g>
+    <rect x="500" y="92" width="222" height="366" rx="20" fill="#101010" stroke="#101010" stroke-width="4"/>
+    <rect x="514" y="106" width="194" height="338" rx="8" fill="#F0E6D2" stroke="#B99A63" stroke-width="2"/>
+    <rect x="570" y="108" width="82" height="10" rx="5" fill="#101010"/>
+    <rect x="530" y="138" width="162" height="30" fill="#101010"/>
+    <path d="M548 153h60M664 153h10" stroke="#F0E6D2" stroke-width="3"/>
+    <g stroke="#101010" stroke-width="3">
+      <rect x="530" y="184" width="162" height="50" fill="#F0E6D2"/>
+      <rect x="530" y="246" width="162" height="50" fill="#F0E6D2"/>
+      <rect x="530" y="308" width="162" height="50" fill="#9F252D"/>
+    </g>
+    <g fill="#101010">
+      <rect x="544" y="198" width="10" height="10"/><rect x="544" y="260" width="10" height="10"/>
+      <rect x="562" y="200" width="80" height="5"/><rect x="562" y="262" width="62" height="5"/>
+      <rect x="544" y="322" width="10" height="10"/>
+    </g>
+    <path d="M562 324h80" stroke="#F0E6D2" stroke-width="5"/>
+    <circle cx="611" cy="414" r="9" fill="#B99A63"/>
+  </g>
+
+  <!-- flask -->
+  <g>
+    <path d="M142 388h44v54l40 74H102l40-74Z" fill="#F0E6D2" stroke="#101010" stroke-width="4"/>
+    <path d="M136 388h56" stroke="#101010" stroke-width="6"/>
+    <path d="M126 470h76l24 46H102Z" fill="#9F252D" stroke="#101010" stroke-width="3"/>
+    <path d="M150 438c10-8 20-8 30 0M138 456c14-10 28-10 42 0" fill="none" stroke="#101010" stroke-width="2"/>
+    <circle cx="142" cy="424" r="4" fill="#B99A63"/>
+    <circle cx="188" cy="440" r="3" fill="#B99A63"/>
+    <circle cx="160" cy="408" r="3" fill="#B99A63"/>
+  </g>
+
+  <!-- check panel -->
+  <g>
+    <rect x="86" y="120" width="184" height="178" fill="#101010" stroke="#101010" stroke-width="3"/>
+    <path d="M104 148l14 14 26-30M104 190l14 14 26-30M104 232l14 14 26-30" fill="none" stroke="#B99A63" stroke-width="4"/>
+    <path d="M162 152h86M162 194h64M162 236h74" stroke="#F0E6D2" stroke-width="3" opacity="0.6"/>
+    <path d="M86 120h184" stroke="#9F252D" stroke-width="8"/>
+  </g>
+
+  <!-- arrow -->
+  <g fill="none" stroke="#101010" stroke-width="3">
+    <path d="M650 480c34 40 10 76-38 76H520"/>
+    <path d="M528 544l-20 12 20 12"/>
+  </g>
+
+  <path d="M60 530h40M60 530v-40" stroke="#9F252D" stroke-width="4"/>
+  <path d="M744 72v40h-40" stroke="#9F252D" stroke-width="4"/>
+</svg>

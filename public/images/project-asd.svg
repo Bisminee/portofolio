@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Java Data Structures Lab — case-file illustration</title>
+  <desc id="desc">An ink schematic of linked-list nodes, a stack of blocks, and a queue.</desc>
+  <defs>
+    <pattern id="halftone" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.3" fill="#101010"/>
+    </pattern>
+    <pattern id="goldDots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.2" fill="#B99A63"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#F0E6D2"/>
+  <rect x="14" y="14" width="772" height="572" fill="none" stroke="#101010" stroke-width="5"/>
+  <rect x="26" y="26" width="748" height="548" fill="none" stroke="#101010" stroke-width="1"/>
+  <rect x="26" y="430" width="220" height="144" fill="url(#halftone)" opacity="0.18"/>
+  <rect x="520" y="26" width="254" height="180" fill="url(#goldDots)" opacity="0.22"/>
+
+  <!-- linked list -->
+  <g>
+    <g stroke="#101010" stroke-width="4" fill="#F0E6D2">
+      <rect x="70" y="112" width="126" height="74"/>
+      <rect x="238" y="112" width="126" height="74"/>
+      <rect x="406" y="112" width="126" height="74"/>
+      <rect x="574" y="112" width="126" height="74"/>
+    </g>
+    <g stroke="#101010" stroke-width="2">
+      <path d="M70 136h126M70 162h126M238 136h126M238 162h126M406 136h126M406 162h126M574 136h126M574 162h126"/>
+      <path d="M164 112v74M332 112v74M500 112v74M668 112v74"/>
+    </g>
+    <g fill="#101010">
+      <circle cx="100" cy="149" r="8"/><circle cx="268" cy="149" r="8"/><circle cx="436" cy="149" r="8"/><circle cx="604" cy="149" r="8"/>
+    </g>
+    <g fill="#9F252D">
+      <circle cx="181" cy="149" r="5"/><circle cx="349" cy="149" r="5"/><circle cx="517" cy="149" r="5"/>
+    </g>
+    <g fill="none" stroke="#101010" stroke-width="3">
+      <path d="M196 149h28M364 149h28M532 149h28M700 149h24"/>
+      <path d="M216 142l10 7-10 7M384 142l10 7-10 7M552 142l10 7-10 7"/>
+    </g>
+  </g>
+
+  <!-- stack -->
+  <g>
+    <path d="M596 250v238M724 250v238" stroke="#101010" stroke-width="3"/>
+    <g stroke="#101010" stroke-width="4">
+      <rect x="600" y="432" width="120" height="44" fill="#101010"/>
+      <rect x="600" y="382" width="120" height="44" fill="#F0E6D2"/>
+      <rect x="600" y="332" width="120" height="44" fill="#B99A63"/>
+      <rect x="600" y="282" width="120" height="44" fill="#9F252D"/>
+    </g>
+    <g fill="none" stroke="#101010" stroke-width="2" opacity="0.5">
+      <path d="M616 404h88M616 354h88M616 304h88M616 454h88"/>
+    </g>
+    <path d="M660 254v-22M648 244l12-14 12 14" stroke="#101010" stroke-width="3" fill="none"/>
+    <path d="M596 510h128" stroke="#101010" stroke-width="4"/>
+  </g>
+
+  <!-- queue -->
+  <g>
+    <path d="M70 504h460" stroke="#101010" stroke-width="4"/>
+    <path d="M70 486v36M530 486v36" stroke="#101010" stroke-width="3"/>
+    <g fill="#F0E6D2" stroke="#101010" stroke-width="4">
+      <circle cx="128" cy="504" r="22"/>
+      <circle cx="198" cy="504" r="22"/>
+      <circle cx="268" cy="504" r="22"/>
+      <circle cx="338" cy="504" r="22"/>
+    </g>
+    <g fill="#9F252D">
+      <circle cx="128" cy="504" r="7"/>
+      <circle cx="198" cy="504" r="7"/>
+      <circle cx="268" cy="504" r="7"/>
+      <circle cx="338" cy="504" r="7"/>
+    </g>
+    <path d="M414 504h84" stroke="#101010" stroke-width="3" stroke-dasharray="6 6"/>
+    <path d="M490 496l12 8-12 8" fill="none" stroke="#101010" stroke-width="3"/>
+    <path d="M70 548h460" stroke="#B99A63" stroke-width="2"/>
+  </g>
+
+  <!-- binary tree -->
+  <g fill="none" stroke="#101010" stroke-width="3">
+    <circle cx="210" cy="268" r="22" fill="#9F252D"/>
+    <circle cx="150" cy="338" r="22" fill="#F0E6D2"/>
+    <circle cx="270" cy="338" r="22" fill="#F0E6D2"/>
+    <circle cx="112" cy="404" r="22" fill="#F0E6D2"/>
+    <circle cx="188" cy="404" r="22" fill="#B99A63"/>
+    <path d="M196 288l-36 30M224 288l36 30M138 356l-18 30M162 356l18 30"/>
+  </g>
+  <g fill="#101010">
+    <circle cx="210" cy="268" r="5"/><circle cx="150" cy="338" r="5"/><circle cx="270" cy="338" r="5"/>
+    <circle cx="112" cy="404" r="5"/><circle cx="188" cy="404" r="5"/>
+  </g>
+
+  <path d="M62 70h44M62 70v44" stroke="#9F252D" stroke-width="4"/>
+  <path d="M746 526v44h-44" stroke="#9F252D" stroke-width="4"/>
+</svg>

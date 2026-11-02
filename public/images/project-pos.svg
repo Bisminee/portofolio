@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">POS Tahu Morojoyo — case-file illustration</title>
+  <desc id="desc">An ink illustration of a receipt, point-of-sale terminal, tofu cubes, and connected branch nodes.</desc>
+  <defs>
+    <pattern id="halftone" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.3" fill="#101010"/>
+    </pattern>
+    <pattern id="goldDots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.2" fill="#B99A63"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="#F0E6D2"/>
+  <rect x="14" y="14" width="772" height="572" fill="none" stroke="#101010" stroke-width="5"/>
+  <rect x="26" y="26" width="748" height="548" fill="none" stroke="#101010" stroke-width="1"/>
+
+  <rect x="560" y="26" width="214" height="150" fill="url(#halftone)" opacity="0.22"/>
+  <rect x="26" y="470" width="180" height="104" fill="url(#goldDots)" opacity="0.25"/>
+
+  <!-- red sun -->
+  <circle cx="628" cy="152" r="86" fill="#9F252D" stroke="#101010" stroke-width="5"/>
+  <circle cx="628" cy="152" r="96" fill="none" stroke="#101010" stroke-width="1" stroke-dasharray="3 6"/>
+
+  <!-- receipt -->
+  <g>
+    <path d="M104 92h258v378l-21-15-20 15-21-15-20 15-21-15-20 15-21-15-20 15-21-15-20 15-21-15-20 15-22-15Z" fill="#F0E6D2" stroke="#101010" stroke-width="5"/>
+    <path d="M126 122h214M126 150h152M126 178h182M126 206h130" stroke="#101010" stroke-width="4"/>
+    <path d="M126 248h86M126 272h120M126 296h70" stroke="#101010" stroke-width="2" opacity="0.6"/>
+    <path d="M126 340h214" stroke="#101010" stroke-width="2" stroke-dasharray="7 6"/>
+    <rect x="126" y="362" width="214" height="38" fill="#9F252D" stroke="#101010" stroke-width="3"/>
+    <path d="M142 381h96M276 381h46" stroke="#F0E6D2" stroke-width="4"/>
+    <g fill="#101010">
+      <circle cx="126" cy="438" r="6"/><circle cx="146" cy="438" r="6"/><circle cx="166" cy="438" r="6"/><circle cx="186" cy="438" r="6"/><circle cx="206" cy="438" r="6"/><circle cx="226" cy="438" r="6"/><circle cx="246" cy="438" r="6"/><circle cx="266" cy="438" r="6"/><circle cx="286" cy="438" r="6"/><circle cx="306" cy="438" r="6"/><circle cx="326" cy="438" r="6"/>
+    </g>
+  </g>
+
+  <!-- terminal -->
+  <g>
+    <path d="M452 218h236v274H452Z" fill="#101010" stroke="#101010" stroke-width="5"/>
+    <path d="M470 238h200v100H470Z" fill="#B99A63" stroke="#F0E6D2" stroke-width="2"/>
+    <path d="M470 238h200v28H470Z" fill="#9F252D"/>
+    <path d="M486 286h94M486 306h128M486 322h64" stroke="#101010" stroke-width="3"/>
+    <g fill="#F0E6D2">
+      <rect x="470" y="360" width="40" height="30"/>
+      <rect x="522" y="360" width="40" height="30"/>
+      <rect x="574" y="360" width="40" height="30"/>
+      <rect x="626" y="360" width="40" height="30"/>
+      <rect x="470" y="402" width="40" height="30"/>
+      <rect x="522" y="402" width="40" height="30"/>
+      <rect x="574" y="402" width="40" height="30"/>
+      <rect x="626" y="402" width="40" height="30"/>
+    </g>
+    <rect x="470" y="444" width="92" height="30" fill="#9F252D" stroke="#F0E6D2" stroke-width="2"/>
+    <rect x="574" y="444" width="92" height="30" fill="#F0E6D2"/>
+    <path d="M482 459h58M596 459h46" stroke="#101010" stroke-width="3"/>
+    <path d="M452 492h236" stroke="#B99A63" stroke-width="2"/>
+  </g>
+
+  <!-- coin -->
+  <g>
+    <circle cx="660" cy="520" r="42" fill="#B99A63" stroke="#101010" stroke-width="4"/>
+    <circle cx="660" cy="520" r="31" fill="none" stroke="#101010" stroke-width="2"/>
+    <path d="M660 502v36M650 509h14c9 0 9 12 0 12h-8c-9 0-9 12 0 12h14" fill="none" stroke="#101010" stroke-width="3"/>
+  </g>
+
+  <!-- tofu cubes -->
+  <g stroke="#101010" stroke-width="4">
+    <path d="M96 526l46-26 46 26v44l-46 26-46-26Z" fill="#F0E6D2"/>
+    <path d="M96 526l46 26 46-26M142 552v44" fill="none"/>
+    <path d="M172 548l38-22 38 22v36l-38 22-38-22Z" fill="#B99A63"/>
+    <path d="M172 548l38 22 38-22M210 570v36" fill="none"/>
+    <path d="M56 474l34-20 34 20v32l-34 20-34-20Z" fill="#9F252D"/>
+    <path d="M56 474l34 20 34-20M90 494v32" fill="none"/>
+  </g>
+
+  <!-- branches -->
+  <g fill="none" stroke="#101010" stroke-width="3">
+    <path d="M516 546h36M576 546h32M636 546h32"/>
+    <path d="M552 546v-22M612 546v-22M672 546v-22"/>
+  </g>
+  <g fill="#F0E6D2" stroke="#101010" stroke-width="3">
+    <circle cx="534" cy="546" r="14"/>
+    <circle cx="594" cy="546" r="14"/>
+    <circle cx="654" cy="546" r="14"/>
+  </g>
+  <g fill="#9F252D">
+    <circle cx="534" cy="546" r="5"/>
+    <circle cx="594" cy="546" r="5"/>
+    <circle cx="654" cy="546" r="5"/>
+  </g>
+
+  <path d="M84 82h44M84 82v44" stroke="#9F252D" stroke-width="4"/>
+  <path d="M716 518v44h-44" stroke="#9F252D" stroke-width="4"/>
+</svg>
