@@ -419,7 +419,7 @@
                             <div class="case-meta">
                                 <span class="case-no">Case 01</span>
                                 <span class="tag tag--team">Team project</span>
-                                <span class="case-year">2026</span>
+                                                                <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-pos-tahu-morojoyo">POS Tahu Morojoyo</h3>
@@ -562,12 +562,15 @@
                             <div class="case-meta">
                                 <span class="case-no">Case 02</span>
                                 <span class="tag tag--team">Team project</span>
-                                <span class="case-year">2026</span>
+                                                                    <span class="tag tag--progress">
+                                        In progress
+                                    </span>
+                                                                <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-sera-z">Sera-Z</h3>
                             <p class="case-subtitle">A Flutter wardrobe assistant that reads clothing from a photograph</p>
-                            <p class="case-summary">A two-person Flutter project: photograph a garment, identify its type and colour, then receive outfit suggestions. A v1.0.0 Android build is published.</p>
+                            <p class="case-summary">A two-person Flutter project: photograph a garment, identify its type and colour, then receive outfit suggestions. A v1.0.0 Android build is published, while the ML pipeline and on-device integration are still in progress on the dev branch.</p>
 
                             <ul class="tech-tags" aria-label="Technologies used">
                                                                     <li>Flutter</li>
@@ -576,6 +579,8 @@
                                                                     <li>go_router</li>
                                                                     <li>camera</li>
                                                                     <li>Material 3</li>
+                                                                    <li>SQLite</li>
+                                                                    <li>TFLite</li>
                                                                     <li>Android</li>
                                                             </ul>
 
@@ -630,7 +635,7 @@
                                         <span class="sr-only">(opens in a new tab)</span>
                                     </a>
                                 
-                                                                    <span class="demo-note">Android 7.0+; sideloading required.</span>
+                                                                    <span class="demo-note">Android 7.0+; sideloading required. Foundation release; ML features are still in progress.</span>
                                                             </div>
 
                             <details class="case-details">
@@ -663,7 +668,7 @@
 
                                     <div class="case-block">
                                         <h4>The solution</h4>
-                                        <p>A Flutter client with a feature-first structure and a planned on-device pipeline: a clothing classifier, a dominant-colour module, and a compatibility scorer. The public v1.0.0 release ships the app foundation and camera flow while the model work is tracked openly in the repository&#039;s epic documents.</p>
+                                        <p>A Flutter client with a feature-first structure and an on-device pipeline under active development: a clothing classifier, a dominant-colour module, and a compatibility scorer. The v1.0.0 release shipped the app foundation and camera flow; the current dev branch adds SQLite and a YOLO11n classifier export while the remaining integration work is tracked openly.</p>
                                     </div>
 
                                                                             <div class="case-block">
@@ -671,7 +676,8 @@
                                             <ul class="case-list">
                                                                                                     <li>Contributed the feat/app-foundation branch, merged through pull request #4: app shell, go_router navigation, Riverpod state, Material 3 theme, camera capture, and a refreshed widget smoke test.</li>
                                                                                                     <li>The Flutter app declares go_router 17.5.0, flutter_riverpod 2.6.1, and camera 0.12.1 in pubspec.yaml.</li>
-                                                                                                    <li>The repository documents ten epics with explicit acceptance criteria; the foundation epic is marked complete and the model, storage, and cloud epics are marked not started.</li>
+                                                                                                    <li>The repository documents ten epics with explicit acceptance criteria. As of 2 November 2026, E1 is complete and E2–E10 are marked partially complete; remaining work stays on the public task board.</li>
+                                                                                                    <li>The dev branch includes SQLite integration and a YOLO11n classifier export (assets/models/yolo11n_cls.tflite), alongside an ML pipeline of dataset preparation, training, evaluation, and export scripts. These are work-in-progress, not presented as finished features.</li>
                                                                                                     <li>The README publishes a signed APK download and installation notes for Android 7.0 and above.</li>
                                                                                             </ul>
                                         </div>
@@ -688,7 +694,7 @@
                                                                             <div class="case-block">
                                             <h4>Challenges</h4>
                                             <ul class="case-list">
-                                                                                                    <li>The v1.0.0 app foundation and the ML pipeline are at different maturity levels. This portfolio separates the shipped foundation from the planned classifier rather than presenting the full concept as finished.</li>
+                                                                                                    <li>The v1.0.0 APK is a foundation release. The classifier, colour extraction, compatibility scoring, on-device wiring, and QA remain in progress; this case file does not claim a finished end-to-end flow or model accuracy.</li>
                                                                                             </ul>
                                         </div>
                                     
@@ -696,13 +702,13 @@
                                             <h4>Verifiable results</h4>
                                             <ul class="case-list">
                                                                                                     <li>v1.0.0 release published with an installable sera-z.apk.</li>
-                                                                                                    <li>Public epic tracker records E1 (app foundation) as complete; E6 and E8–E10 as partial; E2–E5 and E7 as not started at the time of review.</li>
+                                                                                                    <li>As of 2 November 2026 the public epic tracker marks E1 complete and E2–E10 partially complete, with the remaining work still tracked in the repository.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     <div class="evidence-note">
                                         <span class="evidence-label">Evidence note</span>
-                                        <p>Team project by Kelompok 2. This case file credits the app-foundation branch and pull request visible under the Bisminee account; it does not claim the classifier or the entire application as solo work.</p>
+                                        <p>Team project by Kelompok 2. The app-foundation contribution is visible under the Bisminee account. The dev-branch ML integration is a team effort and remains in progress; this case file does not claim it as complete or solo work.</p>
                                     </div>
                                 </div>
                             </details>
@@ -730,7 +736,7 @@
                             <div class="case-meta">
                                 <span class="case-no">Case 03</span>
                                 <span class="tag tag--course">Coursework</span>
-                                <span class="case-year">2026</span>
+                                                                <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-flutter-architecture-lab">Flutter Architecture Lab</h3>
@@ -866,7 +872,7 @@
                             <div class="case-meta">
                                 <span class="case-no">Case 04</span>
                                 <span class="tag tag--course">Coursework</span>
-                                <span class="case-year">2026</span>
+                                                                <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-machine-learning-practicals">Machine Learning Practicals</h3>
@@ -1001,7 +1007,7 @@
                             <div class="case-meta">
                                 <span class="case-no">Case 05</span>
                                 <span class="tag tag--course">Coursework</span>
-                                <span class="case-year">2024–2025</span>
+                                                                <span class="case-year">2024–2025</span>
                             </div>
 
                             <h3 class="case-title" id="project-java-data-structures">Java Data Structures Lab</h3>

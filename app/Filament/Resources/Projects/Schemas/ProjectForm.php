@@ -50,6 +50,15 @@ class ProjectForm
                                 'Personal project' => 'Personal project',
                             ])
                             ->default('Personal project'),
+                        Select::make('status')
+                            ->required()
+                            ->options([
+                                'Published' => 'Published',
+                                'In progress' => 'In progress',
+                                'Archived' => 'Archived',
+                            ])
+                            ->default('Published')
+                            ->helperText('“In progress” adds a visible badge to the public case file.'),
                         TextInput::make('year')
                             ->required()
                             ->maxLength(20),

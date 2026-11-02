@@ -32,6 +32,8 @@ class PortfolioTest extends TestCase
             ->assertSee('Beyond Code')
             ->assertSee('A dedicated space for skills beyond programming.')
             ->assertSee('This panel is intentionally blank.')
+            ->assertSee('In progress')
+            ->assertDontSee('not started')
             ->assertSee('github.com/Bisminee');
     }
 

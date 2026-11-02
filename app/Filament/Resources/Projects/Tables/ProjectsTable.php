@@ -31,6 +31,13 @@ class ProjectsTable
                         'Coursework' => 'warning',
                         default => 'gray',
                     }),
+                TextColumn::make('status')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'Published' => 'success',
+                        'In progress' => 'warning',
+                        default => 'gray',
+                    }),
                 TextColumn::make('year')
                     ->sortable(),
                 IconColumn::make('featured')

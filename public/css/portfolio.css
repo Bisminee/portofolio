@@ -1095,6 +1095,19 @@ summary {
     border-color: var(--bone);
 }
 
+.tag--progress {
+    color: var(--ink);
+    background: var(--gold);
+    border-color: var(--gold);
+    font-weight: 700;
+}
+
+.tag--archived {
+    color: var(--muted);
+    border-color: var(--muted);
+    border-style: dashed;
+}
+
 .case-title {
     margin: 0.75rem 0 0.4rem;
     font-family: var(--font-display);

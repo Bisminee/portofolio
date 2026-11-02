@@ -45,6 +45,11 @@
                             <div class="case-meta">
                                 <span class="case-no">Case {{ $project->case_no }}</span>
                                 <span class="tag {{ $ownershipClass[$project->ownership] ?? '' }}">{{ $project->ownership }}</span>
+                                @if ($project->status && $project->status !== 'Published')
+                                    <span class="tag {{ $project->status === 'In progress' ? 'tag--progress' : 'tag--archived' }}">
+                                        {{ $project->status }}
+                                    </span>
+                                @endif
                                 <span class="case-year">{{ $project->year }}</span>
                             </div>
 

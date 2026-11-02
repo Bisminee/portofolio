@@ -13,6 +13,7 @@ class Project extends Model
         'title',
         'subtitle',
         'ownership',
+        'status',
         'year',
         'summary',
         'problem',

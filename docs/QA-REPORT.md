@@ -9,7 +9,7 @@ Environment: Windows, PHP 8.3.30, Composer 2.9.5, Laravel 12.70.2, Filament 4.16
 
 Command: `php artisan test`
 
-Result: **10 passed, 54 assertions**, 0 failures.
+Result: **10 passed, 56 assertions**, 0 failures.
 
 Coverage of:
 
@@ -17,6 +17,7 @@ Coverage of:
 - All five seeded case files are published and their repository URLs appear.
 - Beyond Code table is empty after seeding; no `.beyond-card` or `.beyond-grid` is rendered.
 - A temporary Beyond Code row renders correctly (proves the future data path works) — not seeded in production.
+- The Sera-Z case shows **In progress** and no longer contains the stale "not started" claim.
 - Unpublished projects are hidden.
 - Custom 404 page returns 404 and shows the intended copy.
 - Static export writes `index.html`, `404.html`, assets, and the correct canonical URL.
@@ -151,7 +152,7 @@ Fixes made during review:
 
 | Command | Result |
 | --- | --- |
-| `php artisan test` | 10 passed, 54 assertions |
+| `php artisan test` | 10 passed, 56 assertions |
 | `vendor/bin/pint --test` | passed |
 | `composer audit` | no advisories |
 | `php artisan optimize` | config, routes, views, events, Blade icons, Filament cached |
