@@ -310,6 +310,52 @@ summary {
     background: rgba(185, 154, 99, 0.08);
 }
 
+.nav-lang {
+    display: flex;
+    align-items: center;
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.1rem;
+    padding: 0.12rem;
+    border: 1px solid var(--line);
+    background: rgba(16, 16, 16, 0.55);
+}
+
+.lang-btn {
+    min-width: 28px;
+    padding: 0.28rem 0.38rem;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    cursor: pointer;
+    transition:
+        background 150ms ease,
+        color 150ms ease;
+}
+
+.lang-btn:hover {
+    color: var(--bone);
+}
+
+.lang-btn.is-active {
+    background: var(--gold);
+    color: var(--ink);
+}
+
+.lang-sep {
+    color: var(--line);
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    line-height: 1;
+}
+
 .nav-toggle {
     display: none;
     align-items: center;
@@ -357,13 +403,27 @@ summary {
 
 .hero-halftone {
     position: absolute;
-    inset: auto 0 0 auto;
-    width: 38vw;
-    height: 46vh;
-    background-image: radial-gradient(rgba(240, 230, 210, 0.14) 1px, transparent 1px);
+    top: 0;
+    left: 0;
+    width: min(62vw, 900px);
+    height: min(58vh, 560px);
+    background-image: radial-gradient(rgba(240, 230, 210, 0.16) 1.1px, transparent 1.35px);
     background-size: 7px 7px;
-    mask-image: linear-gradient(135deg, transparent 20%, #000 85%);
-    opacity: 0.45;
+    -webkit-mask-image: radial-gradient(
+        ellipse 82% 82% at 0% 0%,
+        #000 0%,
+        rgba(0, 0, 0, 0.85) 30%,
+        rgba(0, 0, 0, 0.35) 54%,
+        transparent 78%
+    );
+    mask-image: radial-gradient(
+        ellipse 82% 82% at 0% 0%,
+        #000 0%,
+        rgba(0, 0, 0, 0.85) 30%,
+        rgba(0, 0, 0, 0.35) 54%,
+        transparent 78%
+    );
+    opacity: 0.75;
     pointer-events: none;
 }
 
@@ -416,13 +476,13 @@ summary {
 
 .hero-line {
     display: block;
+    text-shadow:
+        5px 5px 0 var(--blood),
+        10px 10px 0 rgba(0, 0, 0, 0.65);
 }
 
 .hero-line--accent {
     color: var(--bone);
-    text-shadow:
-        5px 5px 0 var(--blood),
-        10px 10px 0 rgba(0, 0, 0, 0.65);
 }
 
 .hero-role {
@@ -431,6 +491,31 @@ summary {
     align-items: center;
     gap: 0.75rem 1rem;
     margin-top: 1.6rem;
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.9rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero-tags li {
+    padding: 0.28rem 0.52rem;
+    border: 1px solid var(--line);
+    background: rgba(185, 154, 99, 0.06);
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero-tags li:first-child {
+    border-color: rgba(159, 37, 45, 0.8);
+    color: var(--bone);
 }
 
 .role-box {
@@ -677,11 +762,18 @@ summary {
 
 .ticker-track {
     display: flex;
+    align-items: stretch;
+    width: max-content;
+    animation: ticker-scroll 120s linear infinite;
+    will-change: transform;
+}
+
+.ticker-group {
+    display: flex;
+    flex: none;
     align-items: center;
     gap: 1.6rem;
-    width: max-content;
-    padding: 0.72rem 0;
-    animation: ticker-scroll 44s linear infinite;
+    padding: 0.72rem 1.6rem 0.72rem 0;
 }
 
 .ticker:hover .ticker-track {
@@ -703,10 +795,10 @@ summary {
 
 @keyframes ticker-scroll {
     from {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
     to {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
@@ -1637,6 +1729,7 @@ summary {
 /* Journey ------------------------------------------------------------------ */
 
 .timeline {
+    --rail: 160px;
     position: relative;
     margin: 0;
     padding: 0;
@@ -1648,14 +1741,14 @@ summary {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 178px;
+    left: calc(var(--rail) / 2);
     width: 1px;
     background: var(--line);
 }
 
 .timeline-item {
     display: grid;
-    grid-template-columns: 160px 36px minmax(0, 1fr);
+    grid-template-columns: var(--rail) minmax(0, 1fr);
     padding: 1.35rem 0;
     border-bottom: 1px solid var(--line-soft);
 }
@@ -1665,29 +1758,25 @@ summary {
 }
 
 .timeline-period {
-    padding-right: 1.1rem;
-    text-align: right;
+    position: relative;
+    z-index: 1;
+    justify-self: center;
+    align-self: start;
+    max-width: 94%;
+    padding: 0.2rem 0.42rem;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    text-align: center;
     font-family: var(--font-mono);
-    font-size: 0.66rem;
+    font-size: 0.64rem;
     letter-spacing: 0.06em;
+    line-height: 1.4;
     color: var(--gold);
     white-space: nowrap;
 }
 
-.timeline-dot {
-    position: relative;
-    z-index: 1;
-    justify-self: center;
-    width: 9px;
-    height: 9px;
-    margin-top: 0.38rem;
-    background: var(--blood);
-    border: 1px solid var(--gold);
-    transform: rotate(45deg);
-}
-
 .timeline-body {
-    padding-left: 1.5rem;
+    padding-left: 1.4rem;
 }
 
 .timeline-body h3 {
@@ -2084,6 +2173,14 @@ summary {
         border-bottom: 1px solid var(--line-soft);
     }
 
+    .nav-lang {
+        padding: 0.8rem 0;
+    }
+
+    .nav-lang .lang-switch {
+        margin-left: 0;
+    }
+
     .nav-link {
         display: flex;
         justify-content: space-between;
@@ -2152,12 +2249,8 @@ summary {
         margin-top: 0;
     }
 
-    .timeline::before {
-        left: 138px;
-    }
-
-    .timeline-item {
-        grid-template-columns: 120px 36px minmax(0, 1fr);
+    .timeline {
+        --rail: 132px;
     }
 }
 
@@ -2231,13 +2324,18 @@ summary {
 
     .hero-title {
         font-size: clamp(3.35rem, 16.5vw, 5.4rem);
-        text-shadow: none;
     }
 
-    .hero-line--accent {
+    .hero-line {
         text-shadow:
             3px 3px 0 var(--blood),
             6px 6px 0 rgba(0, 0, 0, 0.65);
+    }
+
+    .hero-halftone {
+        width: 100%;
+        height: 48vh;
+        opacity: 0.65;
     }
 
     .hero-role {
@@ -2275,10 +2373,6 @@ summary {
         display: none;
     }
 
-    .ticker-track {
-        animation-duration: 36s;
-    }
-
     .fact dd {
         font-size: 1.45rem;
     }
@@ -2296,31 +2390,18 @@ summary {
         padding: 2rem 1rem;
     }
 
-    .timeline::before {
-        left: 4px;
-    }
-
-    .timeline-item {
-        display: block;
-        position: relative;
-        padding: 1.15rem 0 1.15rem 1.6rem;
-    }
-
-    .timeline-dot {
-        position: absolute;
-        left: 0;
-        top: 1.45rem;
-        margin-top: 0;
+    .timeline {
+        --rail: 96px;
     }
 
     .timeline-period {
-        display: block;
-        padding: 0 0 0.3rem;
-        text-align: left;
+        max-width: 96%;
+        padding: 0.18rem 0.28rem;
+        font-size: 0.56rem;
     }
 
     .timeline-body {
-        padding-left: 0;
+        padding-left: 0.9rem;
     }
 
     .contact-plate {

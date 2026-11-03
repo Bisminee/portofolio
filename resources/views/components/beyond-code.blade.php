@@ -7,9 +7,12 @@
         <x-section-head
             number="04"
             eyebrow="{{ $content['eyebrow'] }}"
+            eyebrow-key="beyond.eyebrow"
             title="{{ $content['title'] }}"
+            title-key="beyond.title"
             id="beyond-title"
             lead="{{ $content['subtitle'] }}"
+            lead-key="beyond.subtitle"
         />
 
         @if ($skills->isEmpty())
@@ -25,8 +28,8 @@
                     </span>
                 </div>
 
-                <p class="blank-note">{{ $content['empty_note'] }}</p>
-                <p class="blank-hint">{{ $content['empty_hint'] }}</p>
+                <p class="blank-note" data-i18n="beyond.empty">{{ $content['empty_note'] }}</p>
+                <p class="blank-hint" data-i18n="beyond.hint">{{ $content['empty_hint'] }}</p>
             </div>
         @else
             <ul class="beyond-grid">

@@ -27,7 +27,15 @@
     <link rel="icon" type="image/svg+xml" href="https://bisminee.github.io/portofolio/favicon.svg">
     <link rel="preload" href="https://bisminee.github.io/portofolio/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://bisminee.github.io/portofolio/fonts/lora-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://bisminee.github.io/portofolio/css/portfolio.css?v=1.0.0">
+    <link rel="stylesheet" href="https://bisminee.github.io/portofolio/css/portfolio.css?v=1.1.0">
+
+    <script>
+        try {
+            if (localStorage.getItem('portfolio-language') === 'id') {
+                document.documentElement.lang = 'id';
+            }
+        } catch (error) {}
+    </script>
 
     <script type="application/ld+json">
     {
@@ -42,8 +50,8 @@
     }
     </script>
 </head>
-<body>
-    <a class="skip-link" href="#main">Skip to content</a>
+<body data-page="home">
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
     <div class="grain" aria-hidden="true"></div>
 
     <header class="site-header" data-header>
@@ -52,7 +60,7 @@
             <span class="brand-mark" aria-hidden="true">BA</span>
             <span class="brand-copy">
                 <span class="brand-name">Bisma Adhiaksa</span>
-                <span class="brand-sub">Case files · 2026</span>
+                <span class="brand-sub" data-i18n="brand.sub">Case files · 2026</span>
             </span>
         </a>
 
@@ -96,27 +104,46 @@
 </svg>
         </button>
 
-        <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-nav>
+        <nav
+            id="primary-navigation"
+            class="primary-nav"
+            aria-label="Primary"
+            data-i18n-aria-label="nav.primary"
+            data-nav
+        >
             <ul class="nav-list">
                                     <li>
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about" data-i18n="nav.about">About</a>
                     </li>
                                     <li>
-                        <a class="nav-link" href="#projects">Case Files</a>
+                        <a class="nav-link" href="#projects" data-i18n="nav.projects">Case Files</a>
                     </li>
                                     <li>
-                        <a class="nav-link" href="#skills">Arsenal</a>
+                        <a class="nav-link" href="#skills" data-i18n="nav.skills">Arsenal</a>
                     </li>
                                     <li>
-                        <a class="nav-link" href="#beyond">Beyond Code</a>
+                        <a class="nav-link" href="#beyond" data-i18n="nav.beyond">Beyond Code</a>
                     </li>
                                     <li>
-                        <a class="nav-link" href="#journey">Chronicle</a>
+                        <a class="nav-link" href="#journey" data-i18n="nav.journey">Chronicle</a>
                     </li>
                                     <li>
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a>
                     </li>
-                                <li>
+                                <li class="nav-lang">
+                    <div
+                        class="lang-switch"
+                        role="group"
+                        aria-label="Language"
+                        data-i18n-aria-label="nav.language"
+                        data-lang-switch
+                    >
+                        <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true" lang="en">EN</button>
+                        <span class="lang-sep" aria-hidden="true">/</span>
+                        <button type="button" class="lang-btn" data-lang="id" aria-pressed="false" lang="id">ID</button>
+                    </div>
+                </li>
+                <li>
                     <a
                         class="nav-link nav-link--github"
                         href="https://github.com/Bisminee"
@@ -138,8 +165,8 @@
 >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
 </svg>
-                        <span>GitHub</span>
-                        <span class="sr-only">(opens in a new tab)</span>
+                        <span data-i18n="nav.github">GitHub</span>
+                        <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                     </a>
                 </li>
             </ul>
@@ -155,11 +182,11 @@
         <div class="hero-copy">
             <div class="hero-meta">
                 <span class="meta-rule" aria-hidden="true"></span>
-                <span>Case file no. 001</span>
+                <span data-i18n="hero.case">Case file no. 001</span>
                 <span class="meta-dot" aria-hidden="true">◆</span>
-                <span>Indonesia</span>
+                <span data-i18n="hero.location">Indonesia</span>
                 <span class="meta-dot" aria-hidden="true">◆</span>
-                <span>2026</span>
+                <span data-i18n="hero.year">2026</span>
             </div>
 
             <h1 class="hero-title" id="hero-title">
@@ -168,15 +195,21 @@
             </h1>
 
             <div class="hero-role">
-                <span class="role-box">Mobile &amp; Web Developer</span>
-                <span class="role-note">Flutter · Laravel · PHP · Dart</span>
+                <span class="role-box" data-i18n="hero.role">Mobile &amp; Web Developer</span>
+                <span class="role-note" data-i18n="hero.roleNote">Flutter · Laravel · PHP · Dart</span>
             </div>
 
-            <p class="hero-lede">I build working software across mobile and web: Flutter interfaces, Laravel back offices, and the data layers that keep both honest.</p>
+            <ul class="hero-tags" aria-label="IoT, C, C++" data-i18n-aria-label="hero.tagsLabel">
+                <li>IoT</li>
+                <li>C</li>
+                <li>C++</li>
+            </ul>
+
+            <p class="hero-lede" data-i18n="hero.lede">I build working software across mobile and web: Flutter interfaces, Laravel back offices, and the data layers that keep both honest.</p>
 
             <div class="hero-actions">
                 <a class="btn btn--primary" href="#projects">
-                    Explore case files
+                    <span data-i18n="hero.ctaProjects">Explore case files</span>
                     <svg
     class="icon"
     width="17"
@@ -214,27 +247,28 @@
 >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
 </svg>
-                    View GitHub
-                    <span class="sr-only">(opens in a new tab)</span>
+                    <span data-i18n="hero.ctaGithub">View GitHub</span>
+                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                 </a>
             </div>
 
             <p class="hero-note">
                 <span class="note-mark" aria-hidden="true">✦</span>
-                Public repositories. Real coursework. Team projects labelled as team projects. No invented clients, metrics, or testimonials.
+                <span data-i18n="hero.note">Public repositories. Real coursework. Team projects labelled as team projects. No invented clients, metrics, or testimonials.</span>
             </p>
         </div>
 
         <figure class="hero-plate" aria-labelledby="hero-art-caption">
             <span class="plate-stamp" aria-hidden="true">
-                <span>PUBLIC</span>
-                <span>WORK</span>
+                <span data-i18n="hero.stampPublic">PUBLIC</span>
+                <span data-i18n="hero.stampWork">WORK</span>
             </span>
 
             <div class="plate-frame">
                 <img
                     src="https://bisminee.github.io/portofolio/images/hero-portrait.svg"
                     alt="Original ink illustration of a hooded figure beneath a gothic arch with a raven — not a photograph of the portfolio owner."
+                    data-i18n-alt="hero.artAlt"
                     width="720"
                     height="900"
                     fetchpriority="high"
@@ -242,8 +276,8 @@
             </div>
 
             <figcaption class="plate-caption" id="hero-art-caption">
-                <span class="caption-label">Original illustration</span>
-                <span class="caption-text">Not a photograph. Ink, halftone, and a raven.</span>
+                <span class="caption-label" data-i18n="hero.artLabel">Original illustration</span>
+                <span class="caption-text" data-i18n="hero.artCaption">Not a photograph. Ink, halftone, and a raven.</span>
             </figcaption>
         </figure>
     </div>
@@ -251,46 +285,210 @@
     <div class="shell hero-foot">
         <a class="scroll-cue" href="#about">
             <span class="scroll-cue-line" aria-hidden="true"></span>
-            Turn the page
+            <span data-i18n="hero.turnPage">Turn the page</span>
         </a>
-        <span class="hero-edition">The repository edition · Vol. I</span>
+        <span class="hero-edition" data-i18n="hero.edition">The repository edition · Vol. I</span>
     </div>
 </section>
 
 <div class="ticker" aria-hidden="true">
-    <div class="ticker-track" aria-hidden="true">
-                    <span class="ticker-item">Flutter</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Laravel</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">PHP</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Dart</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Java</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Python</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Filament</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Git</span>
-            <span class="ticker-sep">◆</span>
-                            <span class="ticker-item">Flutter</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Laravel</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">PHP</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Dart</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Java</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Python</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Filament</span>
-            <span class="ticker-sep">◆</span>
-                    <span class="ticker-item">Git</span>
-            <span class="ticker-sep">◆</span>
+    <div class="ticker-track">
+                    <div class="ticker-group">
+                                                            <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                </div>
+                    <div class="ticker-group">
+                                                            <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                                                <span class="ticker-item">Flutter</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Laravel</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">PHP</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Dart</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Java</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Python</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Filament</span>
+                        <span class="ticker-sep">◆</span>
+                                            <span class="ticker-item">Git</span>
+                        <span class="ticker-sep">◆</span>
+                                                </div>
             </div>
 </div>
     <section class="section about" id="about" aria-labelledby="about-title">
@@ -298,63 +496,63 @@
         <div class="section-head">
     <div class="section-kicker">
         <span class="section-number" aria-hidden="true">01</span>
-        <span class="section-eyebrow">The origin story</span>
+        <span class="section-eyebrow"  data-i18n="about.eyebrow" >The origin story</span>
         <span class="section-rule" aria-hidden="true"></span>
     </div>
 
-    <h2 class="section-title"  id="about-title" >Built in the open.</h2>
+    <h2 class="section-title"  id="about-title"   data-i18n="about.title" >Built in the open.</h2>
 
-            <p class="section-lead">A developer’s record should survive a second look. This one is assembled from public repositories, commit history, and the documentation that came with them.</p>
+            <p class="section-lead"  data-i18n="about.lead" >A developer’s record should survive a second look. This one is assembled from public repositories, commit history, and the documentation that came with them.</p>
     </div>
 
         <div class="about-grid">
             <div class="about-copy">
-                                    <p class="about-lede">My work sits on two surfaces: the phone in someone’s hand and the back office behind it. My public work pairs Flutter interfaces with Laravel systems — routing, state, schema design, admin panels, and the small business rules that keep an application trustworthy.</p>
-                                    <p class="">Most of what is published here began as coursework or a team build. I treat those origins as part of the record: the repositories show the iteration, including the migrations, refactors, and unfinished epics. Where authorship or results are unclear, the case file says so.</p>
-                                    <p class="">The current direction is mobile engineering with a stronger architectural spine: clean boundaries, testable use cases, and on-device intelligence that works without a server round-trip. The Flutter architecture lab is the clearest evidence of that direction so far.</p>
+                                    <p class="about-lede" data-i18n="about.p1">My work sits on two surfaces: the phone in someone’s hand and the back office behind it. My public work pairs Flutter interfaces with Laravel systems — routing, state, schema design, admin panels, and the small business rules that keep an application trustworthy.</p>
+                                    <p class="" data-i18n="about.p2">Most of what is published here began as coursework or a team build. I treat those origins as part of the record: the repositories show the iteration, including the migrations, refactors, and unfinished epics. Where authorship or results are unclear, the case file says so.</p>
+                                    <p class="" data-i18n="about.p3">The current direction is mobile engineering with a stronger architectural spine: clean boundaries, testable use cases, and on-device intelligence that works without a server round-trip. The Flutter architecture lab is the clearest evidence of that direction so far.</p>
                 
                 <div class="caption-box">
-                    <span class="caption-box-label">Editor’s note</span>
-                    <p>Team projects are labelled. Unfinished epics are called unfinished. Results are only claimed when the repository shows them.</p>
+                    <span class="caption-box-label" data-i18n="about.editorLabel">Editor’s note</span>
+                    <p data-i18n="about.editorText">Team projects are labelled. Unfinished epics are called unfinished. Results are only claimed when the repository shows them.</p>
                 </div>
             </div>
 
-            <aside class="about-aside" aria-label="Profile facts">
+            <aside class="about-aside" aria-label="Profile facts" data-i18n-aria-label="about.factsLabel">
                 <div class="field-notes">
-                    <h3 class="panel-title">Field notes</h3>
+                    <h3 class="panel-title" data-i18n="about.notes">Field notes</h3>
                     <dl class="facts">
                                                     <div class="fact">
-                                <dt>Public repositories reviewed</dt>
+                                <dt data-i18n="about.fact.0">Public repositories reviewed</dt>
                                 <dd>28</dd>
                             </div>
                                                     <div class="fact">
-                                <dt>Case files published</dt>
+                                <dt data-i18n="about.fact.1">Case files published</dt>
                                 <dd>05</dd>
                             </div>
                                                     <div class="fact">
-                                <dt>Primary stack</dt>
+                                <dt data-i18n="about.fact.2">Primary stack</dt>
                                 <dd>Flutter · Laravel</dd>
                             </div>
                                                     <div class="fact">
-                                <dt>Based in</dt>
+                                <dt data-i18n="about.fact.3">Based in</dt>
                                 <dd>Indonesia</dd>
                             </div>
                                             </dl>
                 </div>
 
-                <div class="focus-panel" aria-label="Technical focus">
-                    <h3 class="panel-title">Current focus</h3>
+                <div class="focus-panel" aria-label="Technical focus" data-i18n-aria-label="about.focusLabel">
+                    <h3 class="panel-title" data-i18n="about.focusTitle">Current focus</h3>
                     <ul class="focus-list">
                                                     <li>
-                                <span class="focus-label">Mobile</span>
+                                <span class="focus-label" data-i18n="about.focus.0">Mobile</span>
                                 <span class="focus-value">Flutter · Dart · Riverpod</span>
                             </li>
                                                     <li>
-                                <span class="focus-label">Web systems</span>
+                                <span class="focus-label" data-i18n="about.focus.1">Web systems</span>
                                 <span class="focus-value">Laravel · Livewire · Filament</span>
                             </li>
                                                     <li>
-                                <span class="focus-label">Foundation</span>
+                                <span class="focus-label" data-i18n="about.focus.2">Foundation</span>
                                 <span class="focus-value">PHP · Java · SQL · Git</span>
                             </li>
                                             </ul>
@@ -376,7 +574,7 @@
 >
     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
 </svg>
-                    Indonesia. Education and employment details are omitted until confirmed.
+                    <span data-i18n="about.aside">Indonesia. Education and employment details are omitted until confirmed.</span>
                 </p>
             </aside>
         </div>
@@ -387,46 +585,48 @@
         <div class="section-head">
     <div class="section-kicker">
         <span class="section-number" aria-hidden="true">02</span>
-        <span class="section-eyebrow">Featured case files</span>
+        <span class="section-eyebrow"  data-i18n="projects.eyebrow" >Featured case files</span>
         <span class="section-rule" aria-hidden="true"></span>
     </div>
 
-    <h2 class="section-title"  id="projects-title" >Five files. No filler.</h2>
+    <h2 class="section-title"  id="projects-title"   data-i18n="projects.title" >Five files. No filler.</h2>
 
-            <p class="section-lead">Selected for technical depth, documentation, and evidence of implementation — not stars. Team work is marked as team work; coursework is marked as coursework.</p>
+            <p class="section-lead"  data-i18n="projects.lead" >Selected for technical depth, documentation, and evidence of implementation — not stars. Team work is marked as team work; coursework is marked as coursework.</p>
     </div>
 
                     <div class="case-grid">
                                     <article class="case-file is-featured" aria-labelledby="project-pos-tahu-morojoyo">
                         <figure class="case-art">
-                            <span class="art-badge">
+                            <span class="art-badge" data-i18n="projects.illustration">
                                 Illustration · not a screenshot
                             </span>
                             <img
                                 src="https://bisminee.github.io/portofolio/images/project-pos.svg"
                                 alt="Original case-file illustration: a receipt, a cash terminal, tofu cubes, and branch nodes in ink and halftone. Not an application screenshot."
+                                data-project="pos-tahu-morojoyo"
+                                data-project-alt
                                 width="800"
                                 height="600"
                                 loading="eager"
                                 decoding="async"
                             >
-                            <figcaption class="art-caption">
+                            <figcaption class="art-caption" data-i18n="projects.plateIllustration">
                                 Original case-file plate
                             </figcaption>
                         </figure>
 
                         <div class="case-content">
                             <div class="case-meta">
-                                <span class="case-no">Case 01</span>
-                                <span class="tag tag--team">Team project</span>
+                                <span class="case-no"><span data-i18n="projects.case">Case</span> 01</span>
+                                <span class="tag tag--team" data-i18n="ownership.team">Team project</span>
                                                                 <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-pos-tahu-morojoyo">POS Tahu Morojoyo</h3>
-                            <p class="case-subtitle">A multi-branch point-of-sale and attendance system for a family food business</p>
-                            <p class="case-summary">A Laravel 12 point-of-sale system with a Filament admin panel, cashier shifts, face-based attendance, multi-branch stock, and a Google Sheets export path.</p>
+                            <p class="case-subtitle" data-project="pos-tahu-morojoyo" data-project-text="subtitle">A multi-branch point-of-sale and attendance system for a family food business</p>
+                            <p class="case-summary" data-project="pos-tahu-morojoyo" data-project-text="summary">A Laravel 12 point-of-sale system with a Filament admin panel, cashier shifts, face-based attendance, multi-branch stock, and a Google Sheets export path.</p>
 
-                            <ul class="tech-tags" aria-label="Technologies used">
+                            <ul class="tech-tags" aria-label="Technologies used" data-i18n-aria-label="projects.techLabel">
                                                                     <li>Laravel 12</li>
                                                                     <li>PHP 8.2</li>
                                                                     <li>Filament 4</li>
@@ -458,8 +658,8 @@
 >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
 </svg>
-                                    Source
-                                    <span class="sr-only">for POS Tahu Morojoyo (opens in a new tab)</span>
+                                    <span data-i18n="projects.source">Source</span>
+                                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                                 </a>
 
                                 
@@ -467,7 +667,7 @@
 
                             <details class="case-details">
                                 <summary>
-                                    <span>Read the full case file</span>
+                                    <span data-i18n="projects.read">Read the full case file</span>
                                     <span class="summary-mark" aria-hidden="true">
                                         <svg
     class="icon"
@@ -489,52 +689,52 @@
 
                                 <div class="case-body">
                                     <div class="case-block">
-                                        <h4>The problem</h4>
-                                        <p>A tofu food business needs more than a cash register. Sales, shift attendance, branch stock, and owner reporting have to agree with each other — and a cashier should not be able to open the till before checking in.</p>
+                                        <h4 data-i18n="projects.problem">The problem</h4>
+                                        <p data-project="pos-tahu-morojoyo" data-project-text="problem">A tofu food business needs more than a cash register. Sales, shift attendance, branch stock, and owner reporting have to agree with each other — and a cashier should not be able to open the till before checking in.</p>
                                     </div>
 
                                     <div class="case-block">
-                                        <h4>The solution</h4>
-                                        <p>A Laravel application that separates the public storefront from the operational back office. Cashiers authenticate, clock in with a face capture, and only then reach the POS. Owners manage branches, employees, menus, prices, and stock through Filament resources, while attendance is enforced in the route layer.</p>
+                                        <h4 data-i18n="projects.solution">The solution</h4>
+                                        <p data-project="pos-tahu-morojoyo" data-project-text="solution">A Laravel application that separates the public storefront from the operational back office. Cashiers authenticate, clock in with a face capture, and only then reach the POS. Owners manage branches, employees, menus, prices, and stock through Filament resources, while attendance is enforced in the route layer.</p>
                                     </div>
 
                                                                             <div class="case-block">
-                                            <h4>What is in the repository</h4>
+                                            <h4 data-i18n="projects.repoContents">What is in the repository</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Laravel 12 application with PHP 8.2, Livewire, and a Filament 4 administration panel.</li>
-                                                                                                    <li>Route middleware gates the POS behind a completed attendance check-in; the cashier route group also handles checkout and Google Sheets synchronisation.</li>
-                                                                                                    <li>Eloquent models and migrations cover branches, employees, tofu stock, menus, prices, menu composition, stock mutations, transactions, transaction items, shifts, and attendance.</li>
-                                                                                                    <li>Owner-facing screens enrol employee face data and export attendance recaps as CSV.</li>
-                                                                                                    <li>A public-facing section presents the home page, menu, about page, and contact page separately from the admin panel.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="implementation" data-project-index="0">Laravel 12 application with PHP 8.2, Livewire, and a Filament 4 administration panel.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="implementation" data-project-index="1">Route middleware gates the POS behind a completed attendance check-in; the cashier route group also handles checkout and Google Sheets synchronisation.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="implementation" data-project-index="2">Eloquent models and migrations cover branches, employees, tofu stock, menus, prices, menu composition, stock mutations, transactions, transaction items, shifts, and attendance.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="implementation" data-project-index="3">Owner-facing screens enrol employee face data and export attendance recaps as CSV.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="implementation" data-project-index="4">A public-facing section presents the home page, menu, about page, and contact page separately from the admin panel.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Technical decisions</h4>
+                                            <h4 data-i18n="projects.decisions">Technical decisions</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Used Filament resources for back-office CRUD instead of hand-building every admin screen — domain work stays in models, operations stay auditable.</li>
-                                                                                                    <li>Put the attendance requirement in route middleware so the business rule cannot be bypassed by navigating directly to the cashier URL.</li>
-                                                                                                    <li>Modelled stock as both per-piece records and mutation history, leaving an audit trail rather than a single mutable counter.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="decisions" data-project-index="0">Used Filament resources for back-office CRUD instead of hand-building every admin screen — domain work stays in models, operations stay auditable.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="decisions" data-project-index="1">Put the attendance requirement in route middleware so the business rule cannot be bypassed by navigating directly to the cashier URL.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="decisions" data-project-index="2">Modelled stock as both per-piece records and mutation history, leaving an audit trail rather than a single mutable counter.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Challenges</h4>
+                                            <h4 data-i18n="projects.challenges">Challenges</h4>
                                             <ul class="case-list">
-                                                                                                    <li>The schema evolved through many additive migrations (roles, branch ownership, soft-active flags, shift foreign keys, face photos) — the migration history documents that iteration.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="challenges" data-project-index="0">The schema evolved through many additive migrations (roles, branch ownership, soft-active flags, shift foreign keys, face photos) — the migration history documents that iteration.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Verifiable results</h4>
+                                            <h4 data-i18n="projects.results">Verifiable results</h4>
                                             <ul class="case-list">
-                                                                                                    <li>The repository contains the full application, migration set, and Filament resource layer. No production metrics are published, so none are claimed here.</li>
+                                                                                                    <li data-project="pos-tahu-morojoyo" data-project-field="results" data-project-index="0">The repository contains the full application, migration set, and Filament resource layer. No production metrics are published, so none are claimed here.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     <div class="evidence-note">
-                                        <span class="evidence-label">Evidence note</span>
-                                        <p>Team repository. Commits and merges appear under the Bisminee account alongside other contributors; per-feature authorship is not documented, so this case file describes the system rather than claiming sole authorship.</p>
+                                        <span class="evidence-label" data-i18n="projects.evidence">Evidence note</span>
+                                        <p data-project="pos-tahu-morojoyo" data-project-text="evidence_note">Team repository. Commits and merges appear under the Bisminee account alongside other contributors; per-feature authorship is not documented, so this case file describes the system rather than claiming sole authorship.</p>
                                     </div>
                                 </div>
                             </details>
@@ -542,37 +742,39 @@
                     </article>
                                     <article class="case-file " aria-labelledby="project-sera-z">
                         <figure class="case-art">
-                            <span class="art-badge">
+                            <span class="art-badge" data-i18n="projects.illustration">
                                 Illustration · not a screenshot
                             </span>
                             <img
                                 src="https://bisminee.github.io/portofolio/images/project-sera-z.svg"
                                 alt="Original case-file illustration: a phone framing a shirt, with colour swatches and a neural path in ink. Not an application screenshot."
+                                data-project="sera-z"
+                                data-project-alt
                                 width="800"
                                 height="600"
                                 loading="lazy"
                                 decoding="async"
                             >
-                            <figcaption class="art-caption">
+                            <figcaption class="art-caption" data-i18n="projects.plateIllustration">
                                 Original case-file plate
                             </figcaption>
                         </figure>
 
                         <div class="case-content">
                             <div class="case-meta">
-                                <span class="case-no">Case 02</span>
-                                <span class="tag tag--team">Team project</span>
-                                                                    <span class="tag tag--progress">
+                                <span class="case-no"><span data-i18n="projects.case">Case</span> 02</span>
+                                <span class="tag tag--team" data-i18n="ownership.team">Team project</span>
+                                                                    <span class="tag tag--progress" data-i18n="status.progress">
                                         In progress
                                     </span>
                                                                 <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-sera-z">Sera-Z</h3>
-                            <p class="case-subtitle">A Flutter wardrobe assistant that reads clothing from a photograph</p>
-                            <p class="case-summary">A two-person Flutter project: photograph a garment, identify its type and colour, then receive outfit suggestions. A v1.0.0 Android build is published, while the ML pipeline and on-device integration are still in progress on the dev branch.</p>
+                            <p class="case-subtitle" data-project="sera-z" data-project-text="subtitle">A Flutter wardrobe assistant that reads clothing from a photograph</p>
+                            <p class="case-summary" data-project="sera-z" data-project-text="summary">A two-person Flutter project: photograph a garment, identify its type and colour, then receive outfit suggestions. A v1.0.0 Android build is published, while the ML pipeline and on-device integration are still in progress on the dev branch.</p>
 
-                            <ul class="tech-tags" aria-label="Technologies used">
+                            <ul class="tech-tags" aria-label="Technologies used" data-i18n-aria-label="projects.techLabel">
                                                                     <li>Flutter</li>
                                                                     <li>Dart</li>
                                                                     <li>Riverpod</li>
@@ -606,8 +808,8 @@
 >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
 </svg>
-                                    Source
-                                    <span class="sr-only">for Sera-Z (opens in a new tab)</span>
+                                    <span data-i18n="projects.source">Source</span>
+                                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                                 </a>
 
                                                                     <a
@@ -631,16 +833,16 @@
 >
     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>
 </svg>
-                                        Download v1.0.0 APK
-                                        <span class="sr-only">(opens in a new tab)</span>
+                                        <span data-project="sera-z" data-project-text="demo_label">Download v1.0.0 APK</span>
+                                        <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                                     </a>
                                 
-                                                                    <span class="demo-note">Android 7.0+; sideloading required. Foundation release; ML features are still in progress.</span>
+                                                                    <span class="demo-note" data-project="sera-z" data-project-text="demo_note">Android 7.0+; sideloading required. Foundation release; ML features are still in progress.</span>
                                                             </div>
 
                             <details class="case-details">
                                 <summary>
-                                    <span>Read the full case file</span>
+                                    <span data-i18n="projects.read">Read the full case file</span>
                                     <span class="summary-mark" aria-hidden="true">
                                         <svg
     class="icon"
@@ -662,53 +864,53 @@
 
                                 <div class="case-body">
                                     <div class="case-block">
-                                        <h4>The problem</h4>
-                                        <p>Choosing an outfit is a small decision with a lot of hidden context: what is clean, what matches, and what the item actually is. The team set out to turn a single photo into structured wardrobe data.</p>
+                                        <h4 data-i18n="projects.problem">The problem</h4>
+                                        <p data-project="sera-z" data-project-text="problem">Choosing an outfit is a small decision with a lot of hidden context: what is clean, what matches, and what the item actually is. The team set out to turn a single photo into structured wardrobe data.</p>
                                     </div>
 
                                     <div class="case-block">
-                                        <h4>The solution</h4>
-                                        <p>A Flutter client with a feature-first structure and an on-device pipeline under active development: a clothing classifier, a dominant-colour module, and a compatibility scorer. The v1.0.0 release shipped the app foundation and camera flow; the current dev branch adds SQLite and a YOLO11n classifier export while the remaining integration work is tracked openly.</p>
+                                        <h4 data-i18n="projects.solution">The solution</h4>
+                                        <p data-project="sera-z" data-project-text="solution">A Flutter client with a feature-first structure and an on-device pipeline under active development: a clothing classifier, a dominant-colour module, and a compatibility scorer. The v1.0.0 release shipped the app foundation and camera flow; the current dev branch adds SQLite and a YOLO11n classifier export while the remaining integration work is tracked openly.</p>
                                     </div>
 
                                                                             <div class="case-block">
-                                            <h4>What is in the repository</h4>
+                                            <h4 data-i18n="projects.repoContents">What is in the repository</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Contributed the feat/app-foundation branch, merged through pull request #4: app shell, go_router navigation, Riverpod state, Material 3 theme, camera capture, and a refreshed widget smoke test.</li>
-                                                                                                    <li>The Flutter app declares go_router 17.5.0, flutter_riverpod 2.6.1, and camera 0.12.1 in pubspec.yaml.</li>
-                                                                                                    <li>The repository documents ten epics with explicit acceptance criteria. As of 2 November 2026, E1 is complete and E2–E10 are marked partially complete; remaining work stays on the public task board.</li>
-                                                                                                    <li>The dev branch includes SQLite integration and a YOLO11n classifier export (assets/models/yolo11n_cls.tflite), alongside an ML pipeline of dataset preparation, training, evaluation, and export scripts. These are work-in-progress, not presented as finished features.</li>
-                                                                                                    <li>The README publishes a signed APK download and installation notes for Android 7.0 and above.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="implementation" data-project-index="0">Contributed the feat/app-foundation branch, merged through pull request #4: app shell, go_router navigation, Riverpod state, Material 3 theme, camera capture, and a refreshed widget smoke test.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="implementation" data-project-index="1">The Flutter app declares go_router 17.5.0, flutter_riverpod 2.6.1, and camera 0.12.1 in pubspec.yaml.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="implementation" data-project-index="2">The repository documents ten epics with explicit acceptance criteria. As of 2 November 2026, E1 is complete and E2–E10 are marked partially complete; remaining work stays on the public task board.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="implementation" data-project-index="3">The dev branch includes SQLite integration and a YOLO11n classifier export (assets/models/yolo11n_cls.tflite), alongside an ML pipeline of dataset preparation, training, evaluation, and export scripts. These are work-in-progress, not presented as finished features.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="implementation" data-project-index="4">The README publishes a signed APK download and installation notes for Android 7.0 and above.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Technical decisions</h4>
+                                            <h4 data-i18n="projects.decisions">Technical decisions</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Kept the ML pipeline on-device in the plan (TFLite) rather than requiring a backend for every inference.</li>
-                                                                                                    <li>Used feature-oriented branches and pull requests instead of personal branches, with acceptance criteria written before implementation.</li>
-                                                                                                    <li>Documented incomplete epics as incomplete — the public task board is a status record, not a marketing page.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="decisions" data-project-index="0">Kept the ML pipeline on-device in the plan (TFLite) rather than requiring a backend for every inference.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="decisions" data-project-index="1">Used feature-oriented branches and pull requests instead of personal branches, with acceptance criteria written before implementation.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="decisions" data-project-index="2">Documented incomplete epics as incomplete — the public task board is a status record, not a marketing page.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Challenges</h4>
+                                            <h4 data-i18n="projects.challenges">Challenges</h4>
                                             <ul class="case-list">
-                                                                                                    <li>The v1.0.0 APK is a foundation release. The classifier, colour extraction, compatibility scoring, on-device wiring, and QA remain in progress; this case file does not claim a finished end-to-end flow or model accuracy.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="challenges" data-project-index="0">The v1.0.0 APK is a foundation release. The classifier, colour extraction, compatibility scoring, on-device wiring, and QA remain in progress; this case file does not claim a finished end-to-end flow or model accuracy.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Verifiable results</h4>
+                                            <h4 data-i18n="projects.results">Verifiable results</h4>
                                             <ul class="case-list">
-                                                                                                    <li>v1.0.0 release published with an installable sera-z.apk.</li>
-                                                                                                    <li>As of 2 November 2026 the public epic tracker marks E1 complete and E2–E10 partially complete, with the remaining work still tracked in the repository.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="results" data-project-index="0">v1.0.0 release published with an installable sera-z.apk.</li>
+                                                                                                    <li data-project="sera-z" data-project-field="results" data-project-index="1">As of 2 November 2026 the public epic tracker marks E1 complete and E2–E10 partially complete, with the remaining work still tracked in the repository.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     <div class="evidence-note">
-                                        <span class="evidence-label">Evidence note</span>
-                                        <p>Team project by Kelompok 2. The app-foundation contribution is visible under the Bisminee account. The dev-branch ML integration is a team effort and remains in progress; this case file does not claim it as complete or solo work.</p>
+                                        <span class="evidence-label" data-i18n="projects.evidence">Evidence note</span>
+                                        <p data-project="sera-z" data-project-text="evidence_note">Team project by Kelompok 2. The app-foundation contribution is visible under the Bisminee account. The dev-branch ML integration is a team effort and remains in progress; this case file does not claim it as complete or solo work.</p>
                                     </div>
                                 </div>
                             </details>
@@ -716,34 +918,36 @@
                     </article>
                                     <article class="case-file " aria-labelledby="project-flutter-architecture-lab">
                         <figure class="case-art">
-                            <span class="art-badge">
+                            <span class="art-badge" data-i18n="projects.illustration">
                                 Illustration · not a screenshot
                             </span>
                             <img
                                 src="https://bisminee.github.io/portofolio/images/project-mobile-lab.svg"
                                 alt="Original case-file illustration: a phone split into architecture layers beside a test flask and checkmarks. Not an application screenshot."
+                                data-project="flutter-architecture-lab"
+                                data-project-alt
                                 width="800"
                                 height="600"
                                 loading="lazy"
                                 decoding="async"
                             >
-                            <figcaption class="art-caption">
+                            <figcaption class="art-caption" data-i18n="projects.plateIllustration">
                                 Original case-file plate
                             </figcaption>
                         </figure>
 
                         <div class="case-content">
                             <div class="case-meta">
-                                <span class="case-no">Case 03</span>
-                                <span class="tag tag--course">Coursework</span>
+                                <span class="case-no"><span data-i18n="projects.case">Case</span> 03</span>
+                                <span class="tag tag--course" data-i18n="ownership.course">Coursework</span>
                                                                 <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-flutter-architecture-lab">Flutter Architecture Lab</h3>
-                            <p class="case-subtitle">Seven weeks of mobile coursework, ending in a clean-architecture refactor</p>
-                            <p class="case-summary">A large Flutter learning repository: weekly exercises, a notes/announcements/settings app, a feature-first refactor, unit tests against fake repositories, and before/after documentation.</p>
+                            <p class="case-subtitle" data-project="flutter-architecture-lab" data-project-text="subtitle">Seven weeks of mobile coursework, ending in a clean-architecture refactor</p>
+                            <p class="case-summary" data-project="flutter-architecture-lab" data-project-text="summary">A large Flutter learning repository: weekly exercises, a notes/announcements/settings app, a feature-first refactor, unit tests against fake repositories, and before/after documentation.</p>
 
-                            <ul class="tech-tags" aria-label="Technologies used">
+                            <ul class="tech-tags" aria-label="Technologies used" data-i18n-aria-label="projects.techLabel">
                                                                     <li>Flutter</li>
                                                                     <li>Dart</li>
                                                                     <li>Firebase</li>
@@ -774,8 +978,8 @@
 >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
 </svg>
-                                    Source
-                                    <span class="sr-only">for Flutter Architecture Lab (opens in a new tab)</span>
+                                    <span data-i18n="projects.source">Source</span>
+                                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                                 </a>
 
                                 
@@ -783,7 +987,7 @@
 
                             <details class="case-details">
                                 <summary>
-                                    <span>Read the full case file</span>
+                                    <span data-i18n="projects.read">Read the full case file</span>
                                     <span class="summary-mark" aria-hidden="true">
                                         <svg
     class="icon"
@@ -805,46 +1009,46 @@
 
                                 <div class="case-body">
                                     <div class="case-block">
-                                        <h4>The problem</h4>
-                                        <p>Learning Flutter screen by screen produces screens that work but do not scale. The final week asked for a structure that could survive new features and tests.</p>
+                                        <h4 data-i18n="projects.problem">The problem</h4>
+                                        <p data-project="flutter-architecture-lab" data-project-text="problem">Learning Flutter screen by screen produces screens that work but do not scale. The final week asked for a structure that could survive new features and tests.</p>
                                     </div>
 
                                     <div class="case-block">
-                                        <h4>The solution</h4>
-                                        <p>A week-by-week Flutter curriculum that culminates in a deliberate refactor: features grouped by domain, data sources behind repository contracts, use cases tested with fakes, and UI rebuilt against the new boundaries.</p>
+                                        <h4 data-i18n="projects.solution">The solution</h4>
+                                        <p data-project="flutter-architecture-lab" data-project-text="solution">A week-by-week Flutter curriculum that culminates in a deliberate refactor: features grouped by domain, data sources behind repository contracts, use cases tested with fakes, and UI rebuilt against the new boundaries.</p>
                                     </div>
 
                                                                             <div class="case-block">
-                                            <h4>What is in the repository</h4>
+                                            <h4 data-i18n="projects.repoContents">What is in the repository</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Refactored the app into a feature-first clean architecture across notes, announcements, and settings.</li>
-                                                                                                    <li>Added unit tests for use cases using fake repository implementations.</li>
-                                                                                                    <li>Enabled the Google Services plugin and excluded Firebase configuration files from version control.</li>
-                                                                                                    <li>Documented the refactor with a README, an AI-challenge write-up, and before/after screenshots.</li>
-                                                                                                    <li>The repository also records a grep-based audit of three classic architecture violations before the refactor.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="implementation" data-project-index="0">Refactored the app into a feature-first clean architecture across notes, announcements, and settings.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="implementation" data-project-index="1">Added unit tests for use cases using fake repository implementations.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="implementation" data-project-index="2">Enabled the Google Services plugin and excluded Firebase configuration files from version control.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="implementation" data-project-index="3">Documented the refactor with a README, an AI-challenge write-up, and before/after screenshots.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="implementation" data-project-index="4">The repository also records a grep-based audit of three classic architecture violations before the refactor.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Technical decisions</h4>
+                                            <h4 data-i18n="projects.decisions">Technical decisions</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Tested use cases at the boundary rather than mocking widgets, keeping domain tests fast and independent of Flutter rendering.</li>
-                                                                                                    <li>Treated the refactor as documentation work too: screenshots and a violation audit make the change reviewable.</li>
-                                                                                                    <li>Kept secrets out of the repository by ignoring Firebase configuration files and shipping only the plugin wiring.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="decisions" data-project-index="0">Tested use cases at the boundary rather than mocking widgets, keeping domain tests fast and independent of Flutter rendering.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="decisions" data-project-index="1">Treated the refactor as documentation work too: screenshots and a violation audit make the change reviewable.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="decisions" data-project-index="2">Kept secrets out of the repository by ignoring Firebase configuration files and shipping only the plugin wiring.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     
                                                                             <div class="case-block">
-                                            <h4>Verifiable results</h4>
+                                            <h4 data-i18n="projects.results">Verifiable results</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Week 7 commits show the completed refactor, the test suite, and the before/after evidence in the same history.</li>
+                                                                                                    <li data-project="flutter-architecture-lab" data-project-field="results" data-project-index="0">Week 7 commits show the completed refactor, the test suite, and the before/after evidence in the same history.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     <div class="evidence-note">
-                                        <span class="evidence-label">Evidence note</span>
-                                        <p>Solo coursework repository. The claims above come from the week 7 commit history and the repository README; no grades or performance results are asserted.</p>
+                                        <span class="evidence-label" data-i18n="projects.evidence">Evidence note</span>
+                                        <p data-project="flutter-architecture-lab" data-project-text="evidence_note">Solo coursework repository. The claims above come from the week 7 commit history and the repository README; no grades or performance results are asserted.</p>
                                     </div>
                                 </div>
                             </details>
@@ -852,34 +1056,36 @@
                     </article>
                                     <article class="case-file " aria-labelledby="project-machine-learning-practicals">
                         <figure class="case-art">
-                            <span class="art-badge">
+                            <span class="art-badge" data-i18n="projects.illustration">
                                 Illustration · not a screenshot
                             </span>
                             <img
                                 src="https://bisminee.github.io/portofolio/images/project-ml.svg"
                                 alt="Original case-file illustration: a scatter plot, a confusion matrix, and a notebook page in ink. Not an application screenshot."
+                                data-project="machine-learning-practicals"
+                                data-project-alt
                                 width="800"
                                 height="600"
                                 loading="lazy"
                                 decoding="async"
                             >
-                            <figcaption class="art-caption">
+                            <figcaption class="art-caption" data-i18n="projects.plateIllustration">
                                 Original case-file plate
                             </figcaption>
                         </figure>
 
                         <div class="case-content">
                             <div class="case-meta">
-                                <span class="case-no">Case 04</span>
-                                <span class="tag tag--course">Coursework</span>
+                                <span class="case-no"><span data-i18n="projects.case">Case</span> 04</span>
+                                <span class="tag tag--course" data-i18n="ownership.course">Coursework</span>
                                                                 <span class="case-year">2026</span>
                             </div>
 
                             <h3 class="case-title" id="project-machine-learning-practicals">Machine Learning Practicals</h3>
-                            <p class="case-subtitle">Notebooks on preprocessing, classification, and clustering</p>
-                            <p class="case-summary">A semester of Jupyter notebooks covering exploratory analysis, feature scaling, label encoding, classification on the Titanic and Wisconsin breast-cancer datasets, and clustering on Iris and mall-customer data.</p>
+                            <p class="case-subtitle" data-project="machine-learning-practicals" data-project-text="subtitle">Notebooks on preprocessing, classification, and clustering</p>
+                            <p class="case-summary" data-project="machine-learning-practicals" data-project-text="summary">A semester of Jupyter notebooks covering exploratory analysis, feature scaling, label encoding, classification on the Titanic and Wisconsin breast-cancer datasets, and clustering on Iris and mall-customer data.</p>
 
-                            <ul class="tech-tags" aria-label="Technologies used">
+                            <ul class="tech-tags" aria-label="Technologies used" data-i18n-aria-label="projects.techLabel">
                                                                     <li>Python</li>
                                                                     <li>Jupyter</li>
                                                                     <li>pandas</li>
@@ -910,8 +1116,8 @@
 >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
 </svg>
-                                    Source
-                                    <span class="sr-only">for Machine Learning Practicals (opens in a new tab)</span>
+                                    <span data-i18n="projects.source">Source</span>
+                                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                                 </a>
 
                                 
@@ -919,7 +1125,7 @@
 
                             <details class="case-details">
                                 <summary>
-                                    <span>Read the full case file</span>
+                                    <span data-i18n="projects.read">Read the full case file</span>
                                     <span class="summary-mark" aria-hidden="true">
                                         <svg
     class="icon"
@@ -941,45 +1147,45 @@
 
                                 <div class="case-body">
                                     <div class="case-block">
-                                        <h4>The problem</h4>
-                                        <p>Models are only as trustworthy as the preparation behind them. The coursework focuses on the unglamorous middle: cleaning, encoding, scaling, and reading the results honestly.</p>
+                                        <h4 data-i18n="projects.problem">The problem</h4>
+                                        <p data-project="machine-learning-practicals" data-project-text="problem">Models are only as trustworthy as the preparation behind them. The coursework focuses on the unglamorous middle: cleaning, encoding, scaling, and reading the results honestly.</p>
                                     </div>
 
                                     <div class="case-block">
-                                        <h4>The solution</h4>
-                                        <p>Weekly notebooks that pair short explanations with executable Python. Each practical loads a dataset, inspects its shape and dtypes, prepares features, and applies a method appropriate to the task.</p>
+                                        <h4 data-i18n="projects.solution">The solution</h4>
+                                        <p data-project="machine-learning-practicals" data-project-text="solution">Weekly notebooks that pair short explanations with executable Python. Each practical loads a dataset, inspects its shape and dtypes, prepares features, and applies a method appropriate to the task.</p>
                                     </div>
 
                                                                             <div class="case-block">
-                                            <h4>What is in the repository</h4>
+                                            <h4 data-i18n="projects.repoContents">What is in the repository</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Preprocessed the 569-row Wisconsin breast-cancer dataset with pandas, NumPy, LabelEncoder, and StandardScaler.</li>
-                                                                                                    <li>Worked with the Titanic dataset in multiple sessions, including a fixed and a selected feature set.</li>
-                                                                                                    <li>Explored clustering with the Iris and Mall Customers datasets.</li>
-                                                                                                    <li>Kept datasets, notebooks, and written README notes together so the work can be reproduced.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="implementation" data-project-index="0">Preprocessed the 569-row Wisconsin breast-cancer dataset with pandas, NumPy, LabelEncoder, and StandardScaler.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="implementation" data-project-index="1">Worked with the Titanic dataset in multiple sessions, including a fixed and a selected feature set.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="implementation" data-project-index="2">Explored clustering with the Iris and Mall Customers datasets.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="implementation" data-project-index="3">Kept datasets, notebooks, and written README notes together so the work can be reproduced.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Technical decisions</h4>
+                                            <h4 data-i18n="projects.decisions">Technical decisions</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Encoded the target before scaling numeric features, keeping the preprocessing order explicit in the notebook.</li>
-                                                                                                    <li>Separated columns that should and should not be used, rather than throwing every field at a model.</li>
-                                                                                                    <li>Stored the source CSVs alongside the notebooks for reproducibility.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="decisions" data-project-index="0">Encoded the target before scaling numeric features, keeping the preprocessing order explicit in the notebook.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="decisions" data-project-index="1">Separated columns that should and should not be used, rather than throwing every field at a model.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="decisions" data-project-index="2">Stored the source CSVs alongside the notebooks for reproducibility.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     
                                                                             <div class="case-block">
-                                            <h4>Verifiable results</h4>
+                                            <h4 data-i18n="projects.results">Verifiable results</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Six practical folders exist in the public repository, from fundamentals through clustering. No single benchmark score is claimed because the notebooks pursue different tasks.</li>
+                                                                                                    <li data-project="machine-learning-practicals" data-project-field="results" data-project-index="0">Six practical folders exist in the public repository, from fundamentals through clustering. No single benchmark score is claimed because the notebooks pursue different tasks.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     <div class="evidence-note">
-                                        <span class="evidence-label">Evidence note</span>
-                                        <p>Solo coursework repository. Notebook contents were inspected for the preprocessing steps and library usage described here.</p>
+                                        <span class="evidence-label" data-i18n="projects.evidence">Evidence note</span>
+                                        <p data-project="machine-learning-practicals" data-project-text="evidence_note">Solo coursework repository. Notebook contents were inspected for the preprocessing steps and library usage described here.</p>
                                     </div>
                                 </div>
                             </details>
@@ -987,34 +1193,36 @@
                     </article>
                                     <article class="case-file " aria-labelledby="project-java-data-structures">
                         <figure class="case-art">
-                            <span class="art-badge">
+                            <span class="art-badge" data-i18n="projects.illustration">
                                 Illustration · not a screenshot
                             </span>
                             <img
                                 src="https://bisminee.github.io/portofolio/images/project-asd.svg"
                                 alt="Original case-file illustration: linked-list nodes, a stack, and a queue drawn as an ink schematic. Not an application screenshot."
+                                data-project="java-data-structures"
+                                data-project-alt
                                 width="800"
                                 height="600"
                                 loading="lazy"
                                 decoding="async"
                             >
-                            <figcaption class="art-caption">
+                            <figcaption class="art-caption" data-i18n="projects.plateIllustration">
                                 Original case-file plate
                             </figcaption>
                         </figure>
 
                         <div class="case-content">
                             <div class="case-meta">
-                                <span class="case-no">Case 05</span>
-                                <span class="tag tag--course">Coursework</span>
+                                <span class="case-no"><span data-i18n="projects.case">Case</span> 05</span>
+                                <span class="tag tag--course" data-i18n="ownership.course">Coursework</span>
                                                                 <span class="case-year">2024–2025</span>
                             </div>
 
                             <h3 class="case-title" id="project-java-data-structures">Java Data Structures Lab</h3>
-                            <p class="case-subtitle">Linked lists, stacks, queues, and sorting built from scratch</p>
-                            <p class="case-summary">A Java laboratory archive implementing core data structures by hand, with lab reports and a final queue-based academic service simulation.</p>
+                            <p class="case-subtitle" data-project="java-data-structures" data-project-text="subtitle">Linked lists, stacks, queues, and sorting built from scratch</p>
+                            <p class="case-summary" data-project="java-data-structures" data-project-text="summary">A Java laboratory archive implementing core data structures by hand, with lab reports and a final queue-based academic service simulation.</p>
 
-                            <ul class="tech-tags" aria-label="Technologies used">
+                            <ul class="tech-tags" aria-label="Technologies used" data-i18n-aria-label="projects.techLabel">
                                                                     <li>Java</li>
                                                                     <li>Object-oriented programming</li>
                                                                     <li>Data structures</li>
@@ -1043,8 +1251,8 @@
 >
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
 </svg>
-                                    Source
-                                    <span class="sr-only">for Java Data Structures Lab (opens in a new tab)</span>
+                                    <span data-i18n="projects.source">Source</span>
+                                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                                 </a>
 
                                 
@@ -1052,7 +1260,7 @@
 
                             <details class="case-details">
                                 <summary>
-                                    <span>Read the full case file</span>
+                                    <span data-i18n="projects.read">Read the full case file</span>
                                     <span class="summary-mark" aria-hidden="true">
                                         <svg
     class="icon"
@@ -1074,44 +1282,44 @@
 
                                 <div class="case-body">
                                     <div class="case-block">
-                                        <h4>The problem</h4>
-                                        <p>Using a library collection hides the mechanics. The lab required the mechanics: nodes, pointers, resizing, and the cost of each operation.</p>
+                                        <h4 data-i18n="projects.problem">The problem</h4>
+                                        <p data-project="java-data-structures" data-project-text="problem">Using a library collection hides the mechanics. The lab required the mechanics: nodes, pointers, resizing, and the cost of each operation.</p>
                                     </div>
 
                                     <div class="case-block">
-                                        <h4>The solution</h4>
-                                        <p>Implementations written directly in Java, paired with demonstration mains and PDF lab reports. The final exercise models a campus academic-service queue with separate student and service classes.</p>
+                                        <h4 data-i18n="projects.solution">The solution</h4>
+                                        <p data-project="java-data-structures" data-project-text="solution">Implementations written directly in Java, paired with demonstration mains and PDF lab reports. The final exercise models a campus academic-service queue with separate student and service classes.</p>
                                     </div>
 
                                                                             <div class="case-block">
-                                            <h4>What is in the repository</h4>
+                                            <h4 data-i18n="projects.repoContents">What is in the repository</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Implemented singly and doubly linked lists with dedicated node classes and demonstration programs.</li>
-                                                                                                    <li>Built stack implementations, including a conversion stack and a student-task stack.</li>
-                                                                                                    <li>Built queue implementations and used them in an academic service simulation (SIAKAD).</li>
-                                                                                                    <li>Practised sorting algorithms and object-oriented class design across student, lecturer, and course models.</li>
+                                                                                                    <li data-project="java-data-structures" data-project-field="implementation" data-project-index="0">Implemented singly and doubly linked lists with dedicated node classes and demonstration programs.</li>
+                                                                                                    <li data-project="java-data-structures" data-project-field="implementation" data-project-index="1">Built stack implementations, including a conversion stack and a student-task stack.</li>
+                                                                                                    <li data-project="java-data-structures" data-project-field="implementation" data-project-index="2">Built queue implementations and used them in an academic service simulation (SIAKAD).</li>
+                                                                                                    <li data-project="java-data-structures" data-project-field="implementation" data-project-index="3">Practised sorting algorithms and object-oriented class design across student, lecturer, and course models.</li>
                                                                                             </ul>
                                         </div>
                                     
                                                                             <div class="case-block">
-                                            <h4>Technical decisions</h4>
+                                            <h4 data-i18n="projects.decisions">Technical decisions</h4>
                                             <ul class="case-list">
-                                                                                                    <li>Kept each structure in its own class with a separate main, so behaviour can be demonstrated without a framework.</li>
-                                                                                                    <li>Used custom node types rather than language collections to expose pointer manipulation.</li>
+                                                                                                    <li data-project="java-data-structures" data-project-field="decisions" data-project-index="0">Kept each structure in its own class with a separate main, so behaviour can be demonstrated without a framework.</li>
+                                                                                                    <li data-project="java-data-structures" data-project-field="decisions" data-project-index="1">Used custom node types rather than language collections to expose pointer manipulation.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     
                                                                             <div class="case-block">
-                                            <h4>Verifiable results</h4>
+                                            <h4 data-i18n="projects.results">Verifiable results</h4>
                                             <ul class="case-list">
-                                                                                                    <li>The repository preserves the implementations and lab reports from the course, including the queue-based service simulation.</li>
+                                                                                                    <li data-project="java-data-structures" data-project-field="results" data-project-index="0">The repository preserves the implementations and lab reports from the course, including the queue-based service simulation.</li>
                                                                                             </ul>
                                         </div>
                                     
                                     <div class="evidence-note">
-                                        <span class="evidence-label">Evidence note</span>
-                                        <p>Solo coursework repository. File names, implementations, and lab reports were reviewed; no grades are claimed.</p>
+                                        <span class="evidence-label" data-i18n="projects.evidence">Evidence note</span>
+                                        <p data-project="java-data-structures" data-project-text="evidence_note">Solo coursework repository. File names, implementations, and lab reports were reviewed; no grades are claimed.</p>
                                     </div>
                                 </div>
                             </details>
@@ -1120,7 +1328,7 @@
                             </div>
 
             <div class="projects-foot">
-                <p>
+                <p data-i18n="projects.footnote">
                     Every file links to its public repository. Repositories without a verified live deployment do not get a demo link.
                 </p>
                 <a
@@ -1129,7 +1337,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Browse all repositories
+                    <span data-i18n="projects.browse">Browse all repositories</span>
                     <svg
     class="icon"
     width="15"
@@ -1145,7 +1353,7 @@
 >
     <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
 </svg>
-                    <span class="sr-only">(opens in a new tab)</span>
+                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                 </a>
             </div>
             </div>
@@ -1155,20 +1363,20 @@
         <div class="section-head">
     <div class="section-kicker">
         <span class="section-number" aria-hidden="true">03</span>
-        <span class="section-eyebrow">The arsenal</span>
+        <span class="section-eyebrow"  data-i18n="skills.eyebrow" >The arsenal</span>
         <span class="section-rule" aria-hidden="true"></span>
     </div>
 
-    <h2 class="section-title"  id="skills-title" >Tools with receipts.</h2>
+    <h2 class="section-title"  id="skills-title"   data-i18n="skills.title" >Tools with receipts.</h2>
 
-            <p class="section-lead">Grouped from repository evidence. No proficiency percentages, because a language appearing in one repository does not prove mastery.</p>
+            <p class="section-lead"  data-i18n="skills.lead" >Grouped from repository evidence. No proficiency percentages, because a language appearing in one repository does not prove mastery.</p>
     </div>
 
         <div class="skill-grid">
                             <section class="skill-panel" aria-labelledby="skill-0">
                     <span class="skill-number" aria-hidden="true">I</span>
-                    <h3 class="skill-title" id="skill-0">Languages</h3>
-                    <p class="skill-note">Found in public repositories; depth varies by project.</p>
+                    <h3 class="skill-title" id="skill-0" data-i18n="skills.group.0.title">Languages</h3>
+                    <p class="skill-note" data-i18n="skills.group.0.note">Found in public repositories; depth varies by project.</p>
                     <ul class="skill-tags">
                                                     <li>PHP</li>
                                                     <li>Dart</li>
@@ -1179,8 +1387,8 @@
                 </section>
                             <section class="skill-panel" aria-labelledby="skill-1">
                     <span class="skill-number" aria-hidden="true">II</span>
-                    <h3 class="skill-title" id="skill-1">Frameworks &amp; libraries</h3>
-                    <p class="skill-note">Used in application code, not just declared in a manifest.</p>
+                    <h3 class="skill-title" id="skill-1" data-i18n="skills.group.1.title">Frameworks &amp; libraries</h3>
+                    <p class="skill-note" data-i18n="skills.group.1.note">Used in application code, not just declared in a manifest.</p>
                     <ul class="skill-tags">
                                                     <li>Laravel 12</li>
                                                     <li>Filament 4</li>
@@ -1195,8 +1403,8 @@
                 </section>
                             <section class="skill-panel" aria-labelledby="skill-2">
                     <span class="skill-number" aria-hidden="true">III</span>
-                    <h3 class="skill-title" id="skill-2">Data &amp; infrastructure</h3>
-                    <p class="skill-note">Evidence: schema design, migrations, and documented integrations.</p>
+                    <h3 class="skill-title" id="skill-2" data-i18n="skills.group.2.title">Data &amp; infrastructure</h3>
+                    <p class="skill-note" data-i18n="skills.group.2.note">Evidence: schema design, migrations, and documented integrations.</p>
                     <ul class="skill-tags">
                                                     <li>MySQL</li>
                                                     <li>SQLite</li>
@@ -1207,8 +1415,8 @@
                 </section>
                             <section class="skill-panel" aria-labelledby="skill-3">
                     <span class="skill-number" aria-hidden="true">IV</span>
-                    <h3 class="skill-title" id="skill-3">Tools &amp; practice</h3>
-                    <p class="skill-note">The working method visible in commit history and project docs.</p>
+                    <h3 class="skill-title" id="skill-3" data-i18n="skills.group.3.title">Tools &amp; practice</h3>
+                    <p class="skill-note" data-i18n="skills.group.3.note">The working method visible in commit history and project docs.</p>
                     <ul class="skill-tags">
                                                     <li>Git &amp; GitHub</li>
                                                     <li>Composer</li>
@@ -1224,7 +1432,9 @@
 
         <p class="skills-footnote">
             <span aria-hidden="true">◆</span>
-            Evidence base: repository languages, manifests, migrations, README files, and commit history reviewed in October 2026.
+            <span data-i18n="skills.footnote">
+                Evidence base: repository languages, manifests, migrations, README files, and commit history reviewed in October 2026.
+            </span>
         </p>
     </div>
 </section>
@@ -1233,13 +1443,13 @@
         <div class="section-head">
     <div class="section-kicker">
         <span class="section-number" aria-hidden="true">04</span>
-        <span class="section-eyebrow">Interlude</span>
+        <span class="section-eyebrow"  data-i18n="beyond.eyebrow" >Interlude</span>
         <span class="section-rule" aria-hidden="true"></span>
     </div>
 
-    <h2 class="section-title"  id="beyond-title" >Beyond Code</h2>
+    <h2 class="section-title"  id="beyond-title"   data-i18n="beyond.title" >Beyond Code</h2>
 
-            <p class="section-lead">A dedicated space for skills beyond programming.</p>
+            <p class="section-lead"  data-i18n="beyond.subtitle" >A dedicated space for skills beyond programming.</p>
     </div>
 
                     <div class="beyond-blank">
@@ -1268,8 +1478,8 @@
                     </span>
                 </div>
 
-                <p class="blank-note">This panel is intentionally blank.</p>
-                <p class="blank-hint">Entries will appear here once they are added in the studio.</p>
+                <p class="blank-note" data-i18n="beyond.empty">This panel is intentionally blank.</p>
+                <p class="blank-hint" data-i18n="beyond.hint">Entries will appear here once they are added in the studio.</p>
             </div>
             </div>
 </section>
@@ -1278,70 +1488,63 @@
         <div class="section-head">
     <div class="section-kicker">
         <span class="section-number" aria-hidden="true">05</span>
-        <span class="section-eyebrow">The chronicle</span>
+        <span class="section-eyebrow"  data-i18n="journey.eyebrow" >The chronicle</span>
         <span class="section-rule" aria-hidden="true"></span>
     </div>
 
-    <h2 class="section-title"  id="journey-title" >A public record, in order.</h2>
+    <h2 class="section-title"  id="journey-title"   data-i18n="journey.title" >A public record, in order.</h2>
 
-            <p class="section-lead">Compiled from repository activity between August 2024 and October 2026. This is a development timeline, not a CV — employment and education are omitted until confirmed.</p>
+            <p class="section-lead"  data-i18n="journey.lead" >Compiled from repository activity between August 2024 and October 2026. This is a development timeline, not a CV — employment and education are omitted until confirmed.</p>
     </div>
 
         <ol class="timeline">
                             <li class="timeline-item">
-                    <span class="timeline-dot" aria-hidden="true"></span>
-                    <span class="timeline-period">2024</span>
+                    <span class="timeline-period" data-journey-index="0" data-journey-field="period">2024</span>
                     <div class="timeline-body">
-                        <h3>First public repositories</h3>
-                        <p>Java fundamentals and object-oriented coursework enter GitHub: arrays, methods, loops, and class design. The account’s public history begins in August 2024.</p>
+                        <h3 data-journey-index="0" data-journey-field="title">First public repositories</h3>
+                        <p data-journey-index="0" data-journey-field="body">Java fundamentals and object-oriented coursework enter GitHub: arrays, methods, loops, and class design. The account’s public history begins in August 2024.</p>
                     </div>
                 </li>
                             <li class="timeline-item">
-                    <span class="timeline-dot" aria-hidden="true"></span>
-                    <span class="timeline-period">2024–2025</span>
+                    <span class="timeline-period" data-journey-index="1" data-journey-field="period">2024–2025</span>
                     <div class="timeline-body">
-                        <h3>Data structures, by hand</h3>
-                        <p>Singly and doubly linked lists, stacks, queues, sorting, and a queue-based academic service simulation — implemented in Java with lab reports.</p>
+                        <h3 data-journey-index="1" data-journey-field="title">Data structures, by hand</h3>
+                        <p data-journey-index="1" data-journey-field="body">Singly and doubly linked lists, stacks, queues, sorting, and a queue-based academic service simulation — implemented in Java with lab reports.</p>
                     </div>
                 </li>
                             <li class="timeline-item">
-                    <span class="timeline-dot" aria-hidden="true"></span>
-                    <span class="timeline-period">2025</span>
+                    <span class="timeline-period" data-journey-index="2" data-journey-field="period">2025</span>
                     <div class="timeline-body">
-                        <h3>Web foundations and Laravel</h3>
-                        <p>HTML, CSS, and JavaScript coursework gives way to Laravel: routing, migrations, Blade views, and a first point-of-sale schema.</p>
+                        <h3 data-journey-index="2" data-journey-field="title">Web foundations and Laravel</h3>
+                        <p data-journey-index="2" data-journey-field="body">HTML, CSS, and JavaScript coursework gives way to Laravel: routing, migrations, Blade views, and a first point-of-sale schema.</p>
                     </div>
                 </li>
                             <li class="timeline-item">
-                    <span class="timeline-dot" aria-hidden="true"></span>
-                    <span class="timeline-period">2026</span>
+                    <span class="timeline-period" data-journey-index="3" data-journey-field="period">2026</span>
                     <div class="timeline-body">
-                        <h3>Production-shaped web systems</h3>
-                        <p>A multi-branch POS with Filament 4, Livewire, role-aware routes, face attendance, and Google Sheets integration. Schema evolution is visible across 30+ migrations.</p>
+                        <h3 data-journey-index="3" data-journey-field="title">Production-shaped web systems</h3>
+                        <p data-journey-index="3" data-journey-field="body">A multi-branch POS with Filament 4, Livewire, role-aware routes, face attendance, and Google Sheets integration. Schema evolution is visible across 30+ migrations.</p>
                     </div>
                 </li>
                             <li class="timeline-item">
-                    <span class="timeline-dot" aria-hidden="true"></span>
-                    <span class="timeline-period">2026</span>
+                    <span class="timeline-period" data-journey-index="4" data-journey-field="period">2026</span>
                     <div class="timeline-body">
-                        <h3>Mobile development and architecture</h3>
-                        <p>Flutter coursework moves from single screens to a feature-first clean-architecture refactor with unit tests, fake repositories, and before/after documentation.</p>
+                        <h3 data-journey-index="4" data-journey-field="title">Mobile development and architecture</h3>
+                        <p data-journey-index="4" data-journey-field="body">Flutter coursework moves from single screens to a feature-first clean-architecture refactor with unit tests, fake repositories, and before/after documentation.</p>
                     </div>
                 </li>
                             <li class="timeline-item">
-                    <span class="timeline-dot" aria-hidden="true"></span>
-                    <span class="timeline-period">2026</span>
+                    <span class="timeline-period" data-journey-index="5" data-journey-field="period">2026</span>
                     <div class="timeline-body">
-                        <h3>Applied machine learning</h3>
-                        <p>Jupyter notebooks cover preprocessing, classification, and clustering with pandas and scikit-learn — and document the steps rather than just the score.</p>
+                        <h3 data-journey-index="5" data-journey-field="title">Applied machine learning</h3>
+                        <p data-journey-index="5" data-journey-field="body">Jupyter notebooks cover preprocessing, classification, and clustering with pandas and scikit-learn — and document the steps rather than just the score.</p>
                     </div>
                 </li>
                             <li class="timeline-item">
-                    <span class="timeline-dot" aria-hidden="true"></span>
-                    <span class="timeline-period">Oct 2026</span>
+                    <span class="timeline-period" data-journey-index="6" data-journey-field="period">Oct 2026</span>
                     <div class="timeline-body">
-                        <h3>Sera-Z v1.0.0</h3>
-                        <p>A two-person Flutter wardrobe assistant publishes its first Android release, with the app foundation complete and the model pipeline tracked publicly as work in progress.</p>
+                        <h3 data-journey-index="6" data-journey-field="title">Sera-Z v1.0.0</h3>
+                        <p data-journey-index="6" data-journey-field="body">A two-person Flutter wardrobe assistant publishes its first Android release, with the app foundation complete and the model pipeline tracked publicly as work in progress.</p>
                     </div>
                 </li>
                     </ol>
@@ -1352,32 +1555,32 @@
         <div class="section-head">
     <div class="section-kicker">
         <span class="section-number" aria-hidden="true">06</span>
-        <span class="section-eyebrow">The final chapter</span>
+        <span class="section-eyebrow"  data-i18n="contact.eyebrow" >The final chapter</span>
         <span class="section-rule" aria-hidden="true"></span>
     </div>
 
-    <h2 class="section-title"  id="contact-title" >Open the next case.</h2>
+    <h2 class="section-title"  id="contact-title"   data-i18n="contact.title" >Open the next case.</h2>
 
-            <p class="section-lead">A concise invitation: if the work in these files overlaps with a problem you are solving, start a conversation on GitHub.</p>
+            <p class="section-lead"  data-i18n="contact.lead" >A concise invitation: if the work in these files overlaps with a problem you are solving, start a conversation on GitHub.</p>
     </div>
 
         <div class="contact-panel">
             <div class="contact-copy">
-                <p class="contact-kicker">Collaboration invitation</p>
-                <h3>Have a system that needs a spine?</h3>
-                <p class="contact-text">
+                <p class="contact-kicker" data-i18n="contact.kicker">Collaboration invitation</p>
+                <h3 data-i18n="contact.heading">Have a system that needs a spine?</h3>
+                <p class="contact-text" data-i18n="contact.text">
                     I am interested in mobile interfaces, Laravel systems, and the architecture between them.
                     Bring a real problem and an honest scope. The fastest way to reach me is a GitHub issue,
                     discussion, or direct message on the profile below.
                 </p>
                 <p class="contact-availability">
                     <span class="status-dot" aria-hidden="true"></span>
-                    Open to conversations about mobile development, web systems, and full-stack collaboration.
+                    <span data-i18n="contact.availability">Open to conversations about mobile development, web systems, and full-stack collaboration.</span>
                 </p>
             </div>
 
             <div class="contact-plate">
-                <p class="plate-title">Verified channels</p>
+                <p class="plate-title" data-i18n="contact.channels">Verified channels</p>
 
                 <a
                     class="contact-channel"
@@ -1402,7 +1605,7 @@
 </svg>
 </span>
                     <span class="contact-channel-copy">
-                        <span class="channel-label">GitHub</span>
+                        <span class="channel-label" data-i18n="contact.github">GitHub</span>
                         <span class="channel-value">github.com/Bisminee</span>
                     </span>
                     <svg
@@ -1420,7 +1623,7 @@
 >
     <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
 </svg>
-                    <span class="sr-only">(opens in a new tab)</span>
+                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                 </a>
 
                 <div class="contact-channel contact-channel--static">
@@ -1441,12 +1644,12 @@
 </svg>
 </span>
                     <span class="contact-channel-copy">
-                        <span class="channel-label">Based in</span>
+                        <span class="channel-label" data-i18n="contact.basedIn">Based in</span>
                         <span class="channel-value">Indonesia</span>
                     </span>
                 </div>
 
-                <p class="contact-fineprint">
+                <p class="contact-fineprint" data-i18n="contact.fineprint">
                     No contact form and no email address are published here. GitHub is the only verified
                     channel; an email will be added only when one is confirmed.
                 </p>
@@ -1457,7 +1660,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Start a conversation
+                    <span data-i18n="contact.cta">Start a conversation</span>
                     <svg
     class="icon"
     width="17"
@@ -1473,7 +1676,7 @@
 >
     <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
 </svg>
-                    <span class="sr-only">(opens in a new tab)</span>
+                    <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                 </a>
             </div>
         </div>
@@ -1487,30 +1690,33 @@
             <span class="footer-mono" aria-hidden="true">BA</span>
             <div>
                 <p class="footer-name">Bisma Adhiaksa</p>
-                <p class="footer-role">Mobile &amp; Web Developer · Indonesia</p>
+                <p class="footer-role" data-i18n="footer.role">Mobile &amp; Web Developer · Indonesia</p>
             </div>
         </div>
 
-        <nav class="footer-nav" aria-label="Footer">
-            <a href="#about">About</a>
-            <a href="#projects">Case files</a>
-            <a href="#skills">Arsenal</a>
-            <a href="#beyond">Beyond Code</a>
-            <a href="#contact">Contact</a>
+        <nav class="footer-nav" aria-label="Footer" data-i18n-aria-label="footer.navLabel">
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#projects" data-i18n="nav.projects">Case files</a>
+            <a href="#skills" data-i18n="nav.skills">Arsenal</a>
+            <a href="#beyond" data-i18n="nav.beyond">Beyond Code</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
             <a href="https://github.com/Bisminee" target="_blank" rel="noopener noreferrer">
-                GitHub
-                <span class="sr-only">(opens in a new tab)</span>
+                <span data-i18n="nav.github">GitHub</span>
+                <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
             </a>
         </nav>
 
         <div class="footer-meta">
-            <p class="footer-caption">“End of case file. The ink is still wet.”</p>
-            <p>© 2026 Bisma Adhiaksa. Built with Laravel 12.70.2 and Filament.</p>
-            <p class="footer-note">Case illustration artwork is original. Project screenshots are not presented where none exist.</p>
+            <p class="footer-caption" data-i18n="footer.caption">“End of case file. The ink is still wet.”</p>
+            <p>© 2026 Bisma Adhiaksa. <span data-i18n="footer.built">Built with Laravel and Filament.</span></p>
+            <p class="footer-note" data-i18n="footer.note">Case illustration artwork is original. Project screenshots are not presented where none exist.</p>
         </div>
     </div>
 </footer>
 
-    <script src="https://bisminee.github.io/portofolio/js/site.js?v=1.0.0" defer></script>
+    <script type="application/json" id="portfolio-translations">
+        {"ui":{"a11y.skip":"Langsung ke konten","a11y.newTab":"(terbuka di tab baru)","nav.about":"Tentang","nav.projects":"Berkas Kasus","nav.skills":"Perangkat","nav.beyond":"Di Luar Kode","nav.journey":"Kronik","nav.contact":"Kontak","nav.github":"GitHub","nav.primary":"Navigasi utama","nav.language":"Bahasa","nav.open":"Buka navigasi","nav.close":"Tutup navigasi","brand.sub":"Berkas kasus · 2026","hero.case":"Berkas kasus no. 001","hero.location":"Indonesia","hero.year":"2026","hero.role":"Pengembang Mobile \u0026 Web","hero.roleNote":"Flutter · Laravel · PHP · Dart","hero.tagsLabel":"Bidang dan bahasa","hero.lede":"Saya membangun perangkat lunak yang bekerja di mobile dan web: antarmuka Flutter, back office Laravel, serta lapisan data yang menjaga keduanya tetap jujur.","hero.ctaProjects":"Jelajahi berkas kasus","hero.ctaGithub":"Lihat GitHub","hero.note":"Repositori publik. Tugas kuliah nyata. Proyek tim diberi label proyek tim. Tanpa klien, metrik, atau testimoni yang dibuat-buat.","hero.artLabel":"Ilustrasi orisinal","hero.artCaption":"Bukan foto. Tinta, halftone, dan seekor gagak.","hero.artAlt":"Ilustrasi tinta orisinal sosok berjubah di bawah lengkungan gotik dengan gagak — bukan foto pemilik portofolio.","hero.stampPublic":"KARYA","hero.stampWork":"PUBLIK","hero.turnPage":"Balik halaman","hero.edition":"Edisi repositori · Vol. I","about.eyebrow":"Kisah asal","about.title":"Dibangun secara terbuka.","about.lead":"Rekam jejak seorang pengembang harus tetap masuk akal saat diperiksa kedua kali. Ini disusun dari repositori publik, riwayat commit, dan dokumentasi yang menyertainya.","about.p1":"Karya saya berdiri di dua permukaan: ponsel di tangan seseorang dan back office di belakangnya. Karya publik saya memadukan antarmuka Flutter dengan sistem Laravel — routing, state, desain skema, panel admin, dan aturan bisnis kecil yang membuat aplikasi dapat dipercaya.","about.p2":"Sebagian besar yang dipublikasikan di sini dimulai sebagai tugas kuliah atau kerja tim. Saya memperlakukan asal-usul itu sebagai bagian dari catatan: repositori menunjukkan iterasi, termasuk migrasi, refactor, dan epik yang belum selesai. Jika kepemilikan atau hasilnya tidak jelas, berkas kasus menyebutkannya.","about.p3":"Arah saat ini adalah rekayasa mobile dengan tulang punggung arsitektur yang lebih kuat: batas yang jelas, use case yang dapat diuji, dan kecerdasan on-device yang bekerja tanpa bolak-balik ke server. Lab arsitektur Flutter adalah bukti paling jelas dari arah itu sejauh ini.","about.editorLabel":"Catatan editor","about.editorText":"Proyek tim diberi label. Epik yang belum selesai disebut belum selesai. Hasil hanya diklaim jika repositori menunjukkannya.","about.notes":"Catatan lapangan","about.factsLabel":"Fakta profil","about.focusLabel":"Fokus teknis","about.fact.0":"Repositori publik ditinjau","about.fact.1":"Berkas kasus diterbitkan","about.fact.2":"Stack utama","about.fact.3":"Berbasis di","about.focusTitle":"Fokus saat ini","about.focus.0":"Mobile","about.focus.1":"Sistem web","about.focus.2":"Fondasi","about.aside":"Indonesia. Detail pendidikan dan pekerjaan dihilangkan sampai dikonfirmasi.","projects.eyebrow":"Berkas kasus pilihan","projects.title":"Lima berkas. Tanpa isian.","projects.lead":"Dipilih karena kedalaman teknis, dokumentasi, dan bukti implementasi — bukan jumlah bintang. Karya tim ditandai sebagai karya tim; tugas kuliah ditandai sebagai tugas kuliah.","projects.case":"Berkas","projects.source":"Sumber","projects.techLabel":"Teknologi yang digunakan","projects.read":"Baca berkas kasus lengkap","projects.problem":"Masalah","projects.solution":"Solusi","projects.repoContents":"Isi repositori","projects.decisions":"Keputusan teknis","projects.challenges":"Tantangan","projects.results":"Hasil yang dapat diverifikasi","projects.evidence":"Catatan bukti","projects.footnote":"Setiap berkas menautkan ke repositori publiknya. Repositori tanpa deployment langsung yang terverifikasi tidak diberi tautan demo.","projects.browse":"Jelajahi semua repositori","projects.empty":"Belum ada berkas kasus yang diterbitkan. Tambahkan satu di studio.","projects.illustration":"Ilustrasi · bukan tangkapan layar","projects.screenshot":"Tangkapan layar proyek","projects.plateIllustration":"Pelat berkas kasus orisinal","projects.plateScreenshot":"Diambil dari aplikasi","ownership.team":"Proyek tim","ownership.course":"Tugas kuliah","ownership.personal":"Proyek pribadi","status.progress":"Sedang dikerjakan","status.archived":"Diarsipkan","skills.eyebrow":"Perangkat","skills.title":"Alat dengan bukti.","skills.lead":"Dikelompokkan dari bukti repositori. Tanpa persentase kemahiran, karena satu bahasa di satu repositori tidak membuktikan penguasaan.","skills.footnote":"Basis bukti: bahasa repositori, manifest, migrasi, README, dan riwayat commit yang ditinjau pada Oktober 2026.","skills.group.0.title":"Bahasa","skills.group.0.note":"Ditemukan di repositori publik; kedalaman berbeda per proyek.","skills.group.1.title":"Framework \u0026 library","skills.group.1.note":"Digunakan dalam kode aplikasi, bukan hanya dideklarasikan di manifest.","skills.group.2.title":"Data \u0026 infrastruktur","skills.group.2.note":"Bukti: desain skema, migrasi, dan integrasi yang terdokumentasi.","skills.group.3.title":"Alat \u0026 praktik","skills.group.3.note":"Metode kerja yang terlihat di riwayat commit dan dokumentasi proyek.","beyond.eyebrow":"Jeda","beyond.title":"Di Luar Kode","beyond.subtitle":"Ruang khusus untuk keterampilan di luar pemrograman.","beyond.empty":"Panel ini sengaja dibiarkan kosong.","beyond.hint":"Entri akan muncul di sini setelah ditambahkan di studio.","journey.eyebrow":"Kronik","journey.title":"Catatan publik, berurutan.","journey.lead":"Disusun dari aktivitas repositori antara Agustus 2024 dan Oktober 2026. Ini adalah linimasa pengembangan, bukan CV — pekerjaan dan pendidikan dihilangkan sampai dikonfirmasi.","contact.eyebrow":"Bab terakhir","contact.title":"Buka kasus berikutnya.","contact.lead":"Undangan singkat: jika karya dalam berkas ini bersinggungan dengan masalah yang sedang Anda selesaikan, mulailah percakapan di GitHub.","contact.kicker":"Undangan kolaborasi","contact.heading":"Punya sistem yang butuh tulang punggung?","contact.text":"Saya tertarik pada antarmuka mobile, sistem Laravel, dan arsitektur di antara keduanya. Bawa masalah nyata dan lingkup yang jujur. Cara tercepat untuk menghubungi saya adalah issue, diskusi, atau pesan langsung di profil GitHub di bawah.","contact.availability":"Terbuka untuk percakapan tentang pengembangan mobile, sistem web, dan kolaborasi full-stack.","contact.channels":"Saluran terverifikasi","contact.github":"GitHub","contact.basedIn":"Berbasis di","contact.fineprint":"Tidak ada formulir kontak dan tidak ada alamat email yang diterbitkan di sini. GitHub adalah satu-satunya saluran terverifikasi; email akan ditambahkan hanya setelah dikonfirmasi.","contact.cta":"Mulai percakapan","footer.caption":"“Akhir berkas kasus. Tinta masih basah.”","footer.role":"Pengembang Mobile \u0026 Web · Indonesia","footer.built":"Dibangun dengan Laravel dan Filament.","footer.note":"Ilustrasi berkas kasus adalah karya orisinal. Tangkapan layar proyek tidak ditampilkan jika tidak ada.","footer.navLabel":"Navigasi footer","error.eyebrow":"Kesalahan 404","error.missing":"Panel hilang","error.heading":"Halaman ini menghilang ke dalam kabut.","error.text":"Alamatnya mungkin salah, atau panelnya memang tidak pernah dicetak. Kembali ke sampul dan lanjutkan dari sana.","error.cta":"Kembali ke sampul"},"projects":{"pos-tahu-morojoyo":{"subtitle":"Sistem point-of-sale dan absensi multi-cabang untuk bisnis makanan keluarga","summary":"Sistem point-of-sale Laravel 12 dengan panel admin Filament, shift kasir, absensi berbasis wajah, stok multi-cabang, dan jalur ekspor Google Sheets.","problem":"Bisnis tahu membutuhkan lebih dari mesin kasir. Penjualan, absensi shift, stok cabang, dan laporan pemilik harus saling cocok — dan kasir tidak boleh membuka kas sebelum melakukan check-in.","solution":"Aplikasi Laravel yang memisahkan etalase publik dari back office operasional. Kasir melakukan autentikasi, clock-in dengan tangkapan wajah, lalu baru bisa mengakses POS. Pemilik mengelola cabang, karyawan, menu, harga, dan stok melalui resource Filament, sementara aturan absensi ditegakkan di lapisan route.","implementation":["Aplikasi Laravel 12 dengan PHP 8.2, Livewire, dan panel administrasi Filament 4.","Middleware route membatasi POS di balik check-in absensi yang sudah selesai; grup route kasir juga menangani checkout dan sinkronisasi Google Sheets.","Model dan migrasi Eloquent mencakup cabang, karyawan, stok tahu, menu, harga, komposisi menu, mutasi stok, transaksi, item transaksi, shift, dan absensi.","Layar untuk pemilik mendaftarkan data wajah karyawan dan mengekspor rekap absensi sebagai CSV.","Bagian publik menampilkan halaman beranda, menu, tentang, dan kontak secara terpisah dari panel admin."],"decisions":["Menggunakan resource Filament untuk CRUD back office alih-alih membangun setiap layar admin secara manual — pekerjaan domain tetap di model, operasi tetap dapat diaudit.","Menempatkan syarat absensi di middleware route agar aturan bisnis tidak bisa dilewati dengan membuka URL kasir secara langsung.","Memodelkan stok sebagai catatan per potong sekaligus riwayat mutasi, sehingga ada jejak audit, bukan hanya penghitung yang bisa berubah."],"challenges":["Skema berkembang melalui banyak migrasi aditif (role, kepemilikan cabang, flag aktif, foreign key shift, foto wajah) — riwayat migrasi mendokumentasikan iterasi tersebut."],"results":["Repositori berisi aplikasi lengkap, kumpulan migrasi, dan lapisan resource Filament. Tidak ada metrik produksi yang dipublikasikan, jadi tidak ada yang diklaim di sini."],"evidence_note":"Repositori tim. Commit dan merge muncul di akun Bisminee bersama kontributor lain; kepemilikan per fitur tidak terdokumentasi, jadi berkas kasus ini menjelaskan sistem tanpa mengklaim karya tunggal.","art_alt":"Ilustrasi berkas kasus orisinal: struk, terminal kasir, kubus tahu, dan node cabang dalam tinta dan halftone. Bukan tangkapan layar aplikasi."},"sera-z":{"subtitle":"Asisten lemari pakaian Flutter yang membaca pakaian dari sebuah foto","summary":"Proyek Flutter dua orang: foto pakaian, kenali jenis dan warnanya, lalu terima rekomendasi outfit. Build Android v1.0.0 sudah terbit, sementara pipeline ML dan integrasi on-device masih dikerjakan di branch dev.","problem":"Memilih outfit adalah keputusan kecil dengan banyak konteks tersembunyi: apa yang bersih, apa yang cocok, dan apa jenis pakaiannya. Tim ingin mengubah satu foto menjadi data lemari yang terstruktur.","solution":"Klien Flutter dengan struktur feature-first dan pipeline on-device yang sedang dikembangkan: klasifikasi pakaian, modul warna dominan, dan penilai kecocokan. Rilis v1.0.0 mengirim fondasi aplikasi dan alur kamera; branch dev saat ini menambahkan SQLite dan ekspor klasifikasi YOLO11n, sementara integrasi lainnya dilacak secara terbuka.","implementation":["Berkontribusi pada branch feat/app-foundation, di-merge melalui pull request #4: shell aplikasi, navigasi go_router, state Riverpod, tema Material 3, tangkapan kamera, dan widget smoke test yang diperbarui.","Aplikasi Flutter mendeklarasikan go_router 17.5.0, flutter_riverpod 2.6.1, dan camera 0.12.1 di pubspec.yaml.","Repositori mendokumentasikan sepuluh epik dengan kriteria penerimaan eksplisit. Per 2 November 2026, E1 selesai dan E2–E10 ditandai sebagian selesai; pekerjaan tersisa tetap ada di papan tugas publik.","Branch dev mencakup integrasi SQLite dan ekspor klasifikasi YOLO11n (assets/models/yolo11n_cls.tflite), bersama pipeline ML untuk persiapan dataset, pelatihan, evaluasi, dan ekspor. Semua ini masih dikerjakan, bukan disajikan sebagai fitur final.","README menerbitkan unduhan APK bertanda tangan dan catatan pemasangan untuk Android 7.0 ke atas."],"decisions":["Menjaga pipeline ML tetap on-device dalam rencana (TFLite) alih-alih membutuhkan backend untuk setiap inferensi.","Menggunakan branch dan pull request berbasis fitur alih-alih branch pribadi, dengan kriteria penerimaan ditulis sebelum implementasi.","Mendokumentasikan epik yang belum selesai sebagai belum selesai — papan tugas publik adalah catatan status, bukan halaman pemasaran."],"challenges":["APK v1.0.0 adalah rilis fondasi. Klasifikasi, ekstraksi warna, penilaian kecocokan, integrasi on-device, dan QA masih dikerjakan; berkas kasus ini tidak mengklaim alur end-to-end yang selesai atau akurasi model."],"results":["Rilis v1.0.0 diterbitkan dengan sera-z.apk yang dapat dipasang.","Per 2 November 2026, papan epik publik menandai E1 selesai dan E2–E10 sebagian selesai, dengan pekerjaan tersisa masih dilacak di repositori."],"demo_label":"Unduh APK v1.0.0","demo_note":"Android 7.0+; sideload diperlukan. Rilis fondasi; fitur ML masih dikerjakan.","evidence_note":"Proyek tim Kelompok 2. Kontribusi app-foundation terlihat di akun Bisminee. Integrasi ML di branch dev adalah kerja tim dan masih berlangsung; berkas kasus ini tidak mengklaimnya selesai atau dikerjakan sendiri.","art_alt":"Ilustrasi berkas kasus orisinal: ponsel yang membingkai kemeja, dengan contoh warna dan jalur neural dalam tinta. Bukan tangkapan layar aplikasi."},"flutter-architecture-lab":{"subtitle":"Tujuh minggu tugas mobile, ditutup dengan refactor clean architecture","summary":"Repositori pembelajaran Flutter besar: latihan mingguan, aplikasi notes/announcements/settings, refactor feature-first, unit test dengan repository palsu, dan dokumentasi sebelum/sesudah.","problem":"Belajar Flutter layar demi layar menghasilkan layar yang berfungsi tetapi tidak mudah berkembang. Minggu terakhir meminta struktur yang mampu bertahan saat fitur dan test bertambah.","solution":"Kurikulum Flutter mingguan yang berujung pada refactor yang disengaja: fitur dikelompokkan per domain, sumber data di balik kontrak repository, use case diuji dengan fake, dan UI dibangun ulang di atas batas baru.","implementation":["Refactor aplikasi menjadi clean architecture feature-first untuk notes, announcements, dan settings.","Menambahkan unit test untuk use case menggunakan implementasi repository palsu.","Mengaktifkan plugin Google Services dan mengecualikan file konfigurasi Firebase dari kontrol versi.","Mendokumentasikan refactor dengan README, tulisan AI-challenge, dan tangkapan layar sebelum/sesudah.","Repositori juga mencatat audit berbasis grep terhadap tiga pelanggaran arsitektur klasik sebelum refactor."],"decisions":["Menguji use case di batasnya alih-alih mem-mock widget, menjaga test domain tetap cepat dan independen dari rendering Flutter.","Memperlakukan refactor sebagai pekerjaan dokumentasi juga: tangkapan layar dan audit pelanggaran membuat perubahan dapat ditinjau.","Menjaga rahasia tetap di luar repositori dengan mengabaikan file konfigurasi Firebase dan hanya menyertakan wiring plugin."],"results":["Commit minggu 7 menunjukkan refactor selesai, test suite, dan bukti sebelum/sesudah dalam riwayat yang sama."],"evidence_note":"Repositori tugas kuliah solo. Klaim di atas berasal dari riwayat commit minggu 7 dan README repositori; tidak ada nilai atau hasil performa yang diklaim.","art_alt":"Ilustrasi berkas kasus orisinal: ponsel yang terbagi menjadi lapisan arsitektur di samping labu uji dan tanda centang. Bukan tangkapan layar aplikasi."},"machine-learning-practicals":{"subtitle":"Notebook tentang preprocessing, klasifikasi, dan clustering","summary":"Satu semester notebook Jupyter yang mencakup analisis eksploratif, penskalaan fitur, label encoding, klasifikasi pada dataset Titanic dan Wisconsin breast-cancer, serta clustering pada data Iris dan pelanggan mal.","problem":"Model hanya sekuat persiapan di belakangnya. Tugas ini berfokus pada bagian tengah yang tidak menarik: pembersihan, encoding, penskalaan, dan membaca hasil secara jujur.","solution":"Notebook mingguan yang memasangkan penjelasan singkat dengan Python yang dapat dijalankan. Setiap praktikum memuat dataset, memeriksa bentuk dan tipe data, menyiapkan fitur, dan menerapkan metode yang sesuai.","implementation":["Memproses dataset Wisconsin breast-cancer berisi 569 baris dengan pandas, NumPy, LabelEncoder, dan StandardScaler.","Bekerja dengan dataset Titanic dalam beberapa sesi, termasuk set fitur yang diperbaiki dan yang dipilih.","Menjelajahi clustering dengan dataset Iris dan Mall Customers.","Menyimpan dataset, notebook, dan catatan README bersama agar pekerjaan dapat direproduksi."],"decisions":["Meng-encode target sebelum menskalakan fitur numerik, menjaga urutan preprocessing tetap eksplisit di notebook.","Memisahkan kolom yang boleh dan tidak boleh digunakan, alih-alih memberikan semua field ke model.","Menyimpan CSV sumber bersama notebook untuk reproduksibilitas."],"results":["Enam folder praktikum ada di repositori publik, dari dasar hingga clustering. Tidak ada satu skor benchmark yang diklaim karena notebook menangani tugas berbeda."],"evidence_note":"Repositori tugas kuliah solo. Isi notebook diperiksa untuk langkah preprocessing dan penggunaan library yang dijelaskan di sini.","art_alt":"Ilustrasi berkas kasus orisinal: scatter plot, confusion matrix, dan halaman notebook dalam tinta. Bukan tangkapan layar aplikasi."},"java-data-structures":{"subtitle":"Linked list, stack, queue, dan sorting yang dibangun dari nol","summary":"Arsip laboratorium Java yang mengimplementasikan struktur data inti dengan tangan, dilengkapi laporan praktikum dan simulasi layanan akademik berbasis queue.","problem":"Menggunakan collection library menyembunyikan mekanismenya. Laboratorium menuntut mekanismenya: node, pointer, resizing, dan biaya setiap operasi.","solution":"Implementasi ditulis langsung dalam Java, dipasangkan dengan main demonstrasi dan laporan PDF. Latihan terakhir memodelkan antrean layanan akademik kampus dengan kelas mahasiswa dan layanan terpisah.","implementation":["Mengimplementasikan singly dan doubly linked list dengan kelas node khusus serta program demonstrasi.","Membangun implementasi stack, termasuk stack konversi dan stack tugas mahasiswa.","Membangun implementasi queue dan menggunakannya dalam simulasi layanan akademik (SIAKAD).","Berlatih algoritma sorting dan desain kelas berorientasi objek pada model mahasiswa, dosen, dan mata kuliah."],"decisions":["Menjaga setiap struktur di kelasnya sendiri dengan main terpisah, sehingga perilaku dapat didemonstrasikan tanpa framework.","Menggunakan tipe node khusus alih-alih collection bahasa untuk memperlihatkan manipulasi pointer."],"results":["Repositori menyimpan implementasi dan laporan praktikum dari mata kuliah, termasuk simulasi layanan berbasis queue."],"evidence_note":"Repositori tugas kuliah solo. Nama file, implementasi, dan laporan praktikum ditinjau; tidak ada nilai yang diklaim.","art_alt":"Ilustrasi berkas kasus orisinal: node linked-list, stack, dan queue yang digambar sebagai skema tinta. Bukan tangkapan layar aplikasi."}},"journey":[{"period":"2024","title":"Repositori publik pertama","body":"Dasar-dasar Java dan tugas berorientasi objek masuk ke GitHub: array, method, loop, dan desain kelas. Riwayat publik akun dimulai pada Agustus 2024."},{"period":"2024–2025","title":"Struktur data, dikerjakan dengan tangan","body":"Singly dan doubly linked list, stack, queue, sorting, dan simulasi layanan akademik berbasis queue — diimplementasikan dalam Java dengan laporan praktikum."},{"period":"2025","title":"Fondasi web dan Laravel","body":"Tugas HTML, CSS, dan JavaScript berlanjut ke Laravel: routing, migrasi, view Blade, dan skema point-of-sale pertama."},{"period":"2026","title":"Sistem web berskala produksi","body":"POS multi-cabang dengan Filament 4, Livewire, route berbasis role, absensi wajah, dan integrasi Google Sheets. Evolusi skema terlihat di lebih dari 30 migrasi."},{"period":"2026","title":"Pengembangan mobile dan arsitektur","body":"Tugas Flutter berkembang dari layar tunggal menjadi refactor clean architecture feature-first dengan unit test, repository palsu, dan dokumentasi sebelum/sesudah."},{"period":"2026","title":"Machine learning terapan","body":"Notebook Jupyter mencakup preprocessing, klasifikasi, dan clustering dengan pandas dan scikit-learn — serta mendokumentasikan langkahnya, bukan hanya skornya."},{"period":"Okt 2026","title":"Sera-Z v1.0.0","body":"Asisten lemari pakaian Flutter dari dua orang menerbitkan rilis Android pertamanya, dengan fondasi aplikasi selesai dan pipeline model dilacak publik sebagai pekerjaan yang masih berlangsung."}],"meta":{"homeTitle":"Bisma Adhiaksa — Pengembang Mobile \u0026 Web","homeDescription":"Portofolio Bisma Adhiaksa, pengembang mobile dan web dari Indonesia yang bekerja dengan Flutter, Laravel, PHP, Dart, dan Java. Berkas kasus dari repositori nyata, bukan janji kosong.","errorTitle":"Halaman tidak ditemukan — Bisma Adhiaksa","errorDescription":"Halaman yang diminta tidak ditemukan."}}
+    </script>
+    <script src="https://bisminee.github.io/portofolio/js/site.js?v=1.1.0" defer></script>
 </body>
 </html>

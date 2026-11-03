@@ -132,6 +132,11 @@ class PortfolioTest extends TestCase
             );
             $this->assertStringContainsString('POS Tahu Morojoyo', $html);
             $this->assertStringContainsString('This panel is intentionally blank.', $html);
+            $this->assertStringContainsString('id="portfolio-translations"', $html);
+            $this->assertStringContainsString('data-lang-switch', $html);
+            $this->assertStringContainsString('data-i18n="nav.about"', $html);
+            $this->assertStringContainsString('Di Luar Kode', $html);
+            $this->assertStringContainsString('Sedang dikerjakan', $html);
             $this->assertStringNotContainsString('beyond-card', $html);
             $this->assertStringContainsString('This page has vanished into the fog.', $notFound);
         } finally {

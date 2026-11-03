@@ -1,12 +1,12 @@
 @php
     $profile = config('site.profile');
     $navItems = [
-        ['label' => 'About', 'href' => '#about'],
-        ['label' => 'Case Files', 'href' => '#projects'],
-        ['label' => 'Arsenal', 'href' => '#skills'],
-        ['label' => 'Beyond Code', 'href' => '#beyond'],
-        ['label' => 'Chronicle', 'href' => '#journey'],
-        ['label' => 'Contact', 'href' => '#contact'],
+        ['label' => 'About', 'key' => 'nav.about', 'href' => '#about'],
+        ['label' => 'Case Files', 'key' => 'nav.projects', 'href' => '#projects'],
+        ['label' => 'Arsenal', 'key' => 'nav.skills', 'href' => '#skills'],
+        ['label' => 'Beyond Code', 'key' => 'nav.beyond', 'href' => '#beyond'],
+        ['label' => 'Chronicle', 'key' => 'nav.journey', 'href' => '#journey'],
+        ['label' => 'Contact', 'key' => 'nav.contact', 'href' => '#contact'],
     ];
 @endphp
 
@@ -16,7 +16,7 @@
             <span class="brand-mark" aria-hidden="true">BA</span>
             <span class="brand-copy">
                 <span class="brand-name">{{ $profile['name'] }}</span>
-                <span class="brand-sub">Case files · 2026</span>
+                <span class="brand-sub" data-i18n="brand.sub">Case files · 2026</span>
             </span>
         </a>
 
@@ -32,13 +32,32 @@
             <x-site-icon name="close" :size="22" class="nav-toggle-close" />
         </button>
 
-        <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-nav>
+        <nav
+            id="primary-navigation"
+            class="primary-nav"
+            aria-label="Primary"
+            data-i18n-aria-label="nav.primary"
+            data-nav
+        >
             <ul class="nav-list">
                 @foreach ($navItems as $item)
                     <li>
-                        <a class="nav-link" href="{{ $item['href'] }}">{{ $item['label'] }}</a>
+                        <a class="nav-link" href="{{ $item['href'] }}" data-i18n="{{ $item['key'] }}">{{ $item['label'] }}</a>
                     </li>
                 @endforeach
+                <li class="nav-lang">
+                    <div
+                        class="lang-switch"
+                        role="group"
+                        aria-label="Language"
+                        data-i18n-aria-label="nav.language"
+                        data-lang-switch
+                    >
+                        <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true" lang="en">EN</button>
+                        <span class="lang-sep" aria-hidden="true">/</span>
+                        <button type="button" class="lang-btn" data-lang="id" aria-pressed="false" lang="id">ID</button>
+                    </div>
+                </li>
                 <li>
                     <a
                         class="nav-link nav-link--github"
@@ -47,8 +66,8 @@
                         rel="noopener noreferrer"
                     >
                         <x-site-icon name="github" :size="15" />
-                        <span>GitHub</span>
-                        <span class="sr-only">(opens in a new tab)</span>
+                        <span data-i18n="nav.github">GitHub</span>
+                        <span class="sr-only" data-i18n="a11y.newTab">(opens in a new tab)</span>
                     </a>
                 </li>
             </ul>

@@ -6,6 +6,8 @@ A dark-fantasy graphic-novel portfolio built with **Laravel 12** and **Filament 
 
 The content is based on the public GitHub profile [github.com/Bisminee](https://github.com/Bisminee) and its repositories, reviewed in October 2026. Team projects are labelled as team projects, coursework as coursework, and no metrics or testimonials are invented.
 
+The interface includes a persistent **EN / ID** switcher (localStorage), a seamless skills marquee, reduced-motion support, and a timeline whose dates sit on the centre axis. Indonesian copy is centralized in `config/translations.php`.
+
 ## Stack
 
 | Layer | Choice |
@@ -14,8 +16,8 @@ The content is based on the public GitHub profile [github.com/Bisminee](https://
 | Admin | Filament 4 at `/studio` |
 | Templating | Blade components and partials |
 | Styling | Hand-written CSS in `public/css/portfolio.css` |
-| Behaviour | ~50 lines of vanilla JavaScript in `public/js/site.js` |
-| Database | SQLite (local and free-host default) |
+| Behaviour | Vanilla JavaScript for navigation and the EN/ID language switch |
+| Database | SQLite locally; the public site is a static export with no runtime database |
 | Assets | Local WOFF2 fonts, original SVG illustrations, no external CDN |
 | Build | No Node/npm step required |
 
@@ -85,14 +87,14 @@ Static copy lives in `config/site.php`. Update the profile name, email, location
 ## Tests and quality checks
 
 ```bash
-php artisan test                  # 10 tests, 56 assertions
+php artisan test                  # 10 tests, 61 assertions
 vendor/bin/pint --test            # code style
 composer audit                    # dependency advisories
 php artisan optimize              # production caches
 php artisan optimize:clear
 ```
 
-Feature tests cover the public page, seeded projects, the empty Beyond Code state, adding a Beyond Code entry, unpublished projects, the 404 page, the static export, studio authentication, and studio access.
+Feature tests cover the public page, seeded projects, the empty Beyond Code state, adding a Beyond Code entry, unpublished projects, the 404 page, the static export (including translation data and the language switch), studio authentication, and studio access.
 
 Static checks and browser checks performed during the build are listed in [docs/QA-REPORT.md](docs/QA-REPORT.md).
 
@@ -104,6 +106,7 @@ app/
   Http/Controllers/HomeController.php
   Models/Project.php, BeyondSkill.php
 config/site.php                Profile, skills, journey, section copy
+config/translations.php        Centralized EN/ID interface + case-file prose
 database/seeders/              Verified case files + admin account
 resources/views/
   home.blade.php               Page composition
@@ -112,7 +115,7 @@ resources/views/
   errors/404.blade.php
 public/
   css/portfolio.css            Art direction and responsive layout
-  js/site.js                   Mobile navigation + active section state
+  js/site.js                   Mobile navigation + active section state + i18n
   images/                      Original illustrations, OG image, favicon
   fonts/                       Self-hosted WOFF2 files
 site/                          Committed static export for GitHub Pages

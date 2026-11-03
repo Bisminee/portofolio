@@ -28,7 +28,15 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <link rel="preload" href="{{ asset('fonts/anton-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ asset('fonts/lora-400-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{{ asset('css/portfolio.css') }}?v=1.0.0">
+    <link rel="stylesheet" href="{{ asset('css/portfolio.css') }}?v=1.1.0">
+
+    <script>
+        try {
+            if (localStorage.getItem('portfolio-language') === 'id') {
+                document.documentElement.lang = 'id';
+            }
+        } catch (error) {}
+    </script>
 
     <script type="application/ld+json">
     {
@@ -43,8 +51,8 @@
     }
     </script>
 </head>
-<body>
-    <a class="skip-link" href="#main">Skip to content</a>
+<body data-page="@yield('page', 'home')">
+    <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
     <div class="grain" aria-hidden="true"></div>
 
     @include('partials.nav')
@@ -55,6 +63,14 @@
 
     @include('partials.footer')
 
-    <script src="{{ asset('js/site.js') }}?v=1.0.0" defer></script>
+    <script type="application/json" id="portfolio-translations">
+        {!! json_encode([
+            'ui' => config('translations.ui'),
+            'projects' => config('translations.projects'),
+            'journey' => config('translations.journey'),
+            'meta' => config('translations.meta'),
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}
+    </script>
+    <script src="{{ asset('js/site.js') }}?v=1.1.0" defer></script>
 </body>
 </html>
