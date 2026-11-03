@@ -194,6 +194,22 @@ A second polish pass was applied to the existing Laravel/Blade build.
 - Language switching did not restart the animation: currentTime advanced from 667 ms to 1,267 ms across the switch.
 - Reduced motion: `animation-name: none`, `scroll-behavior: auto`.
 
+### Live deployment verification (4 November 2026)
+
+The refined build was pushed to `main` and deployed by GitHub Pages.
+
+- Deployment workflow: **success**.
+- Live HTML contains the language switch, translation payload, and CSS `?v=1.1.0`.
+- EN title: `Bisma Adhiaksa — Mobile & Web Developer`; ID title: `Bisma Adhiaksa — Pengembang Mobile & Web`.
+- Live EN/ID switch and localStorage persistence: pass.
+- Live status badge: `Sedang dikerjakan` in ID.
+- Live axe-core: **0 violations** in EN and ID.
+- Live timeline date-centre delta: **0 px** for all seven entries.
+- Live marquee: group widths **4,913 px**, duration **120s**, boundary gap **0**.
+- Live mobile 390 px: no overflow; language switch works inside the menu.
+- Live 404: HTTP **404** with the custom page, switching correctly to Indonesian.
+- Console errors and failed requests: **0**.
+
 ## Not tested / not claimed
 
 - No Docker build was executed locally (Docker is not installed in this environment). The Dockerfile is optional for self-hosting or a paid Docker host.
