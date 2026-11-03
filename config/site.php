@@ -109,7 +109,7 @@ return [
         [
             'period' => 'Oct 2026',
             'title' => 'Sera-Z v1.0.0',
-            'body' => 'A two-person Flutter wardrobe assistant publishes its first Android release, with the app foundation complete and the model pipeline tracked publicly as work in progress.',
+            'body' => 'The five-person Sera-Z team publishes its first Android release: a Flutter wardrobe assistant with the app foundation complete and the model pipeline tracked publicly as work in progress.',
         ],
     ],
 

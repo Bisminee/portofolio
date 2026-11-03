@@ -171,6 +171,7 @@ A second polish pass was applied to the existing Laravel/Blade build.
 - Persistence verified: ID survived reload; switching EN restored the original English prose.
 - 404 metadata and copy switch correctly.
 - axe-core: **0 violations** in both EN and ID.
+- Indonesian copy was revised contextually, not word-for-word; project names, technology identifiers, and URLs remain untouched. The Sera-Z team size was corrected to **five people** in both languages.
 
 ### Timeline alignment
 

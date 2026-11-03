@@ -77,7 +77,7 @@ class ProjectSeeder extends Seeder
                 'ownership' => 'Team project',
                 'status' => 'In progress',
                 'year' => '2026',
-                'summary' => 'A two-person Flutter project: photograph a garment, identify its type and colour, then receive outfit suggestions. A v1.0.0 Android build is published, while the ML pipeline and on-device integration are still in progress on the dev branch.',
+                'summary' => 'A five-person team project: photograph a garment, identify its type and colour, then receive outfit suggestions. A v1.0.0 Android build is published, while the ML pipeline and on-device integration are still in progress on the dev branch.',
                 'problem' => 'Choosing an outfit is a small decision with a lot of hidden context: what is clean, what matches, and what the item actually is. The team set out to turn a single photo into structured wardrobe data.',
                 'solution' => 'A Flutter client with a feature-first structure and an on-device pipeline under active development: a clothing classifier, a dominant-colour module, and a compatibility scorer. The v1.0.0 release shipped the app foundation and camera flow; the current dev branch adds SQLite and a YOLO11n classifier export while the remaining integration work is tracked openly.',
                 'implementation' => [

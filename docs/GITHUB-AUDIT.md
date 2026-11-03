@@ -27,7 +27,7 @@ All 28 public repositories at the time of review. “Role” is an inference fro
 | # | Repository | Primary language | Updated | Role / evidence | Used in portfolio |
 | --- | --- | --- | --- | --- | --- |
 | 1 | `244107020216-mobile-course` | Dart | 2026-10-20 | Solo coursework; 7-week Flutter progression | Case 03 |
-| 2 | `PBL-Mobile-Kelompok2-Semester5` | Dart | 2026-11-02 | Team project (Kelompok 2); v1.0.0 release; `dev` branch work in progress | Case 02 |
+| 2 | `PBL-Mobile-Kelompok2-Semester5` | Dart | 2026-11-02 | Team project (Kelompok 2, five contributors); v1.0.0 release; `dev` branch work in progress | Case 02 |
 | 3 | `Pembelajaran-Mesin-2026` | Jupyter Notebook | 2026-10-13 | Solo coursework; 6 practical folders | Case 04 |
 | 4 | `Bisma-jobsheet2` | Jupyter Notebook | 2026-08-27 | Early notebook; description “Repository Pertama” | No — too thin |
 | 5 | `android_to_oled` | C++ (Flutter platform) | 2026-07-24 | Small Flutter experiment; starter README | No |
@@ -60,7 +60,7 @@ All 28 public repositories at the time of review. “Role” is an inference fro
 Five case files were chosen for technical depth, relevance, completeness, documentation, and evidence of implementation:
 
 1. **POS Tahu Morojoyo** — largest application, real domain model, Filament admin, authentication, attendance middleware, Google Sheets integration. Team repository.
-2. **Sera-Z** — published v1.0.0 Android release; Flutter, Riverpod, go_router, camera; contribution traceable to the `feat/app-foundation` branch and PR #4. The `dev` branch has newer SQLite/YOLO11n work still in progress. Team repository.
+2. **Sera-Z** — published v1.0.0 Android release; Flutter, Riverpod, go_router, camera; contribution traceable to the `feat/app-foundation` branch and PR #4. The five-person team's `dev` branch has newer SQLite/YOLO11n work still in progress.
 3. **Flutter Architecture Lab** — the clearest evidence of architectural growth: a feature-first refactor, unit tests with fake repositories, Firebase wiring, and before/after documentation.
 4. **Machine Learning Practicals** — consistent, reproducible notebooks covering preprocessing, classification, and clustering.
 5. **Java Data Structures Lab** — foundations implemented by hand, with lab reports and a queue-based simulation.
