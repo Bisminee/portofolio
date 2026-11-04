@@ -3,8 +3,8 @@
     $navItems = [
         ['label' => 'About', 'key' => 'nav.about', 'href' => '#about'],
         ['label' => 'Case Files', 'key' => 'nav.projects', 'href' => '#projects'],
-        ['label' => 'Arsenal', 'key' => 'nav.skills', 'href' => '#skills'],
-        ['label' => 'Beyond Code', 'key' => 'nav.beyond', 'href' => '#beyond'],
+        ['label' => 'Skills', 'key' => 'nav.skills', 'href' => '#skills'],
+        ['label' => 'Activities', 'key' => 'nav.activities', 'href' => '#activities'],
         ['label' => 'Chronicle', 'key' => 'nav.journey', 'href' => '#journey'],
         ['label' => 'Contact', 'key' => 'nav.contact', 'href' => '#contact'],
     ];

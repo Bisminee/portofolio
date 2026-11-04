@@ -47,6 +47,15 @@ return [
             'report' => false,
         ],
 
+        'portfolio' => [
+            'driver' => 'local',
+            'root' => public_path('images/activities'),
+            'url' => env('APP_URL').'/images/activities',
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

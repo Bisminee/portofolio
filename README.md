@@ -1,12 +1,12 @@
 # Bisma Adhiaksa — Portfolio
 
-A dark-fantasy graphic-novel portfolio built with **Laravel 12** and **Filament 4**. The public site is a single-page Blade view; the case files and the “Beyond Code” entries are managed in a private Filament studio at `/studio`.
+A dark-fantasy graphic-novel portfolio built with **Laravel 12** and **Filament 4**. The public site is a single-page Blade view; case files and activities are managed in a private Filament studio at `/studio`.
 
 **Live site:** <https://bisminee.github.io/portofolio/> — a free static snapshot deployed via GitHub Pages. The Filament studio runs locally; see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 The content is based on the public GitHub profile [github.com/Bisminee](https://github.com/Bisminee) and its repositories, reviewed in October 2026. Team projects are labelled as team projects, coursework as coursework, and no metrics or testimonials are invented.
 
-The interface includes a persistent **EN / ID** switcher (localStorage), a seamless skills marquee, reduced-motion support, and a timeline whose dates sit on the centre axis. Indonesian copy is centralized in `config/translations.php`.
+The interface includes a persistent **EN / ID** switcher (localStorage), a seamless skills marquee, reduced-motion support, an activities and involvement section, and a timeline whose dates sit on the centre axis. Indonesian copy is centralized in `config/translations.php`; activity prose is bilingual in the database.
 
 ## Stack
 
@@ -63,22 +63,21 @@ Studio → **Portfolio → Case files**. Each record supports:
 
 Published records appear immediately on the home page. The `ProjectSeeder` is idempotent: it only runs when the table is empty, so studio edits are not overwritten on redeploy.
 
-### Beyond Code
+### Activities & Involvement
 
-Studio → **Portfolio → Beyond Code**. The `beyond_skills` table is **intentionally empty** in the initial seed. The public section therefore shows an intentional blank panel, not sample skills.
+Studio → **Portfolio → Activities**. The six published activities support:
 
-Supported fields:
+- Name, type, organization, role in English and Indonesian.
+- Start/end dates, ongoing status, and generated period labels.
+- Description and up to three highlights in both languages.
+- Technologies/keywords, participation type, priority, publication state, and permission state.
+- Main image plus optional gallery images.
+- Evidence URL.
+- Related activity slug, used for the Robosarema ↔ ROBOTIC UNLIMITED 2026 link.
 
-| Field | Required | Notes |
-| --- | --- | --- |
-| `name` | yes | Skill name |
-| `category` | no | Short grouping label |
-| `description` | no | One or two sentences |
-| `icon` | no | Filament select: quill, spark, book, users, mic, camera, globe, heart, trophy, palette |
-| `sort_order` | yes | Ascending order |
-| `is_visible` | yes | Hide without deleting |
+The public section replaces the previous empty “Beyond Code” panel. The legacy `beyond_skills` table/resource remains in the database but is hidden from the studio navigation and no longer rendered publicly. Only activities marked **approved by owner** and **published** appear.
 
-The section is rendered by the dedicated component `resources/views/components/beyond-code.blade.php`. Once at least one visible record exists, the empty panel is replaced by a responsive card grid. No ratings, percentages, or progress bars are supported or displayed.
+Images uploaded through the studio are stored in `public/images/activities/` and copied into the static export. See [docs/organization-research.md](docs/organization-research.md) for source mapping, verification status, and the documentation that was deliberately excluded for privacy or image-rights reasons.
 
 ### Profile, skills, timeline
 
@@ -87,14 +86,14 @@ Static copy lives in `config/site.php`. Update the profile name, email, location
 ## Tests and quality checks
 
 ```bash
-php artisan test                  # 10 tests, 61 assertions
+php artisan test                  # 12 tests, 75 assertions
 vendor/bin/pint --test            # code style
 composer audit                    # dependency advisories
 php artisan optimize              # production caches
 php artisan optimize:clear
 ```
 
-Feature tests cover the public page, seeded projects, the empty Beyond Code state, adding a Beyond Code entry, unpublished projects, the 404 page, the static export (including translation data and the language switch), studio authentication, and studio access.
+Feature tests cover the public page, seeded projects, the activities section and order, activity dates/ongoing status, permission filtering, bilingual content, unpublished projects and activities, the 404 page, the static export (including activity images and translation data), studio authentication, and studio access.
 
 Static checks and browser checks performed during the build are listed in [docs/QA-REPORT.md](docs/QA-REPORT.md).
 
@@ -102,24 +101,25 @@ Static checks and browser checks performed during the build are listed in [docs/
 
 ```text
 app/
-  Filament/Resources/          Project + Beyond Skill studio resources
+  Filament/Resources/          Project, Activity, and legacy Beyond Skill resources
   Http/Controllers/HomeController.php
-  Models/Project.php, BeyondSkill.php
+  Models/Project.php, Activity.php, BeyondSkill.php
 config/site.php                Profile, skills, journey, section copy
 config/translations.php        Centralized EN/ID interface + case-file prose
-database/seeders/              Verified case files + admin account
+database/seeders/              Verified case files, activities, admin account
 resources/views/
   home.blade.php               Page composition
-  partials/                    Hero, about, projects, skills, journey, contact, footer
-  components/                  site-icon, section-head, beyond-code
+  partials/                    Hero, about, projects, skills, activities, journey, contact, footer
+  components/                  site-icon, section-head, legacy beyond-code
   errors/404.blade.php
 public/
   css/portfolio.css            Art direction and responsive layout
   js/site.js                   Mobile navigation + active section state + i18n
-  images/                      Original illustrations, OG image, favicon
+  images/                      Original illustrations, activity photos, OG image, favicon
+  images/activities/           Optimised activity documentation (WebP)
   fonts/                       Self-hosted WOFF2 files
 site/                          Committed static export for GitHub Pages
-docs/                          Audit, assets, deployment, QA report
+docs/                          Audit, organization research, assets, deployment, QA report
 Dockerfile                     Optional self-hosted/paid Docker deployment
 ```
 

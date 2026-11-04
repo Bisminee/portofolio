@@ -28,6 +28,13 @@ class BeyondSkillResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
+    /**
+     * The public Beyond Code section was replaced by Activities & Involvement.
+     * The legacy table and resource remain available for a future non-coding
+     * skills section, but they are hidden from the studio navigation.
+     */
+    protected static bool $shouldRegisterNavigation = false;
+
     public static function form(Schema $schema): Schema
     {
         return BeyondSkillForm::configure($schema);

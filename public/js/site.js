@@ -12,6 +12,7 @@
     const ui = translations.ui || {};
     const projectTranslations = translations.projects || {};
     const journeyTranslations = translations.journey || [];
+    const activityTranslations = translations.activities || {};
     const meta = translations.meta || {};
     const storageKey = "portfolio-language";
 
@@ -113,6 +114,35 @@
             const field = element.dataset.journeyField;
             const translated = journeyTranslations[index]?.[field];
             element.textContent = isIndonesian && typeof translated === "string" ? translated : original;
+        });
+
+        document.querySelectorAll("[data-activity-text]").forEach((element) => {
+            const original = rememberText(element);
+            const translated = activityTranslations[element.dataset.activity]?.[element.dataset.activityText];
+            element.textContent = isIndonesian && typeof translated === "string" ? translated : original;
+        });
+
+        document.querySelectorAll("[data-activity-field]").forEach((element) => {
+            const original = rememberText(element);
+            const field = element.dataset.activityField;
+            const index = Number(element.dataset.activityIndex);
+            const translated = activityTranslations[element.dataset.activity]?.[field];
+            element.textContent =
+                isIndonesian && Array.isArray(translated) && typeof translated[index] === "string"
+                    ? translated[index]
+                    : original;
+        });
+
+        document.querySelectorAll("[data-activity-alt]").forEach((element) => {
+            const attributes = rememberAttributes(element);
+            if (!("activityAlt" in attributes)) {
+                attributes.activityAlt = element.getAttribute("alt") || "";
+            }
+            const translated = activityTranslations[element.dataset.activity]?.image_alt;
+            element.setAttribute(
+                "alt",
+                isIndonesian && typeof translated === "string" ? translated : attributes.activityAlt,
+            );
         });
 
         const titleKey = page === "error" ? "errorTitle" : "homeTitle";

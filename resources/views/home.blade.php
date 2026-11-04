@@ -5,7 +5,7 @@
     @include('partials.about')
     @include('partials.projects', ['projects' => $projects])
     @include('partials.skills')
-    <x-beyond-code :skills="$beyondSkills" />
+    @include('partials.activities', ['activities' => $activities])
     @include('partials.journey')
     @include('partials.contact')
 @endsection

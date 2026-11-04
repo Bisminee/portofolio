@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\BeyondSkill;
+use App\Models\Activity;
 use App\Models\Project;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -30,7 +30,7 @@ class ExportStatic extends Command
         URL::forceScheme(str_starts_with($baseUrl, 'https://') ? 'https' : 'http');
 
         $projects = Project::query()->published()->ordered()->get();
-        $beyondSkills = BeyondSkill::query()->visible()->ordered()->get();
+        $activities = Activity::query()->published()->ordered()->get();
 
         if (File::exists($output)) {
             File::deleteDirectory($output);
@@ -40,7 +40,7 @@ class ExportStatic extends Command
 
         $html = view('home', [
             'projects' => $projects,
-            'beyondSkills' => $beyondSkills,
+            'activities' => $activities,
         ])->render();
 
         $notFound = view('errors.404')->render();
@@ -64,8 +64,8 @@ class ExportStatic extends Command
             $this->warn('No published case files were exported.');
         }
 
-        if ($beyondSkills->isEmpty()) {
-            $this->line('Beyond Code exported with its intentional empty state.');
+        if ($activities->isEmpty()) {
+            $this->warn('No published activities were exported.');
         }
 
         return self::SUCCESS;

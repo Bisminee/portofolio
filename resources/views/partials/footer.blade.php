@@ -13,8 +13,9 @@
         <nav class="footer-nav" aria-label="Footer" data-i18n-aria-label="footer.navLabel">
             <a href="#about" data-i18n="nav.about">About</a>
             <a href="#projects" data-i18n="nav.projects">Case files</a>
-            <a href="#skills" data-i18n="nav.skills">Arsenal</a>
-            <a href="#beyond" data-i18n="nav.beyond">Beyond Code</a>
+            <a href="#skills" data-i18n="nav.skills">Skills</a>
+            <a href="#activities" data-i18n="nav.activities">Activities</a>
+            <a href="#journey" data-i18n="nav.journey">Chronicle</a>
             <a href="#contact" data-i18n="nav.contact">Contact</a>
             <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer">
                 <span data-i18n="nav.github">GitHub</span>

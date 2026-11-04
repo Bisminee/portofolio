@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\BeyondSkill;
+use App\Models\Activity;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -29,11 +29,14 @@ class PortfolioTest extends TestCase
             ->assertSee('Bisma Adhiaksa')
             ->assertSee('Mobile &amp; Web Developer', false)
             ->assertSee('Five files. No filler.')
-            ->assertSee('Beyond Code')
-            ->assertSee('A dedicated space for skills beyond programming.')
-            ->assertSee('This panel is intentionally blank.')
+            ->assertSee('Activities &amp; Involvement', false)
+            ->assertSee('Robosarema — Search and Rescue Robotics Team')
+            ->assertSee('PL FM — Campus Radio Organization')
+            ->assertSee('December 2024 – Present')
+            ->assertSee('September 2026')
             ->assertSee('In progress')
             ->assertDontSee('not started')
+            ->assertDontSee('This panel is intentionally blank.')
             ->assertSee('github.com/Bisminee');
     }
 
@@ -51,36 +54,54 @@ class PortfolioTest extends TestCase
         });
     }
 
-    public function test_beyond_code_is_empty_and_contains_no_invented_entries(): void
+    public function test_activities_are_published_in_priority_order(): void
     {
-        $this->assertSame(0, BeyondSkill::query()->count());
+        $this->assertSame(6, Activity::query()->published()->count());
 
         $response = $this->get('/');
-        $response->assertOk();
-        $response->assertSee('This panel is intentionally blank.');
-        $response->assertDontSee('beyond-card', false);
-        $response->assertDontSee('beyond-grid', false);
-    }
-
-    public function test_beyond_code_renders_a_real_entry_when_one_is_added(): void
-    {
-        BeyondSkill::create([
-            'name' => 'Mentoring',
-            'category' => 'Community',
-            'description' => 'A temporary test entry.',
-            'icon' => 'users',
-            'sort_order' => 1,
-            'is_visible' => true,
-        ]);
-
-        $response = $this->get('/');
-
         $response
             ->assertOk()
-            ->assertSee('Mentoring')
-            ->assertSee('Community')
-            ->assertSee('A temporary test entry.')
-            ->assertDontSee('This panel is intentionally blank.');
+            ->assertSeeInOrder([
+                'Robosarema — Search and Rescue Robotics Team',
+                'Steering Committee — Manager Off Air',
+                'ROBOTIC UNLIMITED 2026',
+                'Polinema Mengajar',
+                'Staff Creative Media — PL FM',
+                'Product Marketing Team — Kangdjoe (now Keju Artisan)',
+            ])
+            ->assertSee('https://drive.google.com/drive/folders/1n2fDB7SzVXx_C0fcIGOA8__Puf13-U7U')
+            ->assertSee('href="#activity-robosarema-software-division"', false)
+            ->assertSee('images/activities/robosarema-arena.webp', false);
+    }
+
+    public function test_activity_dates_and_scope_are_accurate(): void
+    {
+        $robosarema = Activity::query()->where('slug', 'robosarema-software-division')->firstOrFail();
+        $polinema = Activity::query()->where('slug', 'polinema-mengajar')->firstOrFail();
+        $competition = Activity::query()->where('slug', 'robotic-unlimited-2026')->firstOrFail();
+
+        $this->assertSame('December 2024 – Present', $robosarema->period('en'));
+        $this->assertSame('Desember 2024 – Sekarang', $robosarema->period('id'));
+        $this->assertSame('December 2025 – November 2026', $polinema->period('en'));
+        $this->assertSame('18 September 2026', $competition->period('en'));
+        $this->assertSame('Team', ucfirst($competition->team_type));
+        $this->assertSame('2026-09-18', $competition->end_date?->format('Y-m-d'));
+    }
+
+    public function test_pending_activities_are_hidden(): void
+    {
+        $activity = Activity::query()->where('slug', 'polinema-mengajar')->firstOrFail();
+        $activity->update(['permission_status' => 'pending']);
+
+        $this->get('/')->assertOk()->assertDontSee($activity->name);
+    }
+
+    public function test_unpublished_activities_are_hidden(): void
+    {
+        $activity = Activity::query()->where('slug', 'robotic-unlimited-2026')->firstOrFail();
+        $activity->update(['is_published' => false]);
+
+        $this->get('/')->assertOk()->assertDontSee($activity->name);
     }
 
     public function test_unpublished_case_files_are_hidden(): void
@@ -116,6 +137,8 @@ class PortfolioTest extends TestCase
             $this->assertFileExists($root.'/css/portfolio.css');
             $this->assertFileExists($root.'/js/site.js');
             $this->assertFileExists($root.'/images/hero-portrait.svg');
+            $this->assertFileExists($root.'/images/activities/robosarema-arena.webp');
+            $this->assertFileExists($root.'/images/activities/keju-artisan-cheese-pull.webp');
             $this->assertFileExists($root.'/fonts/anton-latin.woff2');
             $this->assertFileExists($root.'/.nojekyll');
 
@@ -131,13 +154,16 @@ class PortfolioTest extends TestCase
                 $html,
             );
             $this->assertStringContainsString('POS Tahu Morojoyo', $html);
-            $this->assertStringContainsString('This panel is intentionally blank.', $html);
+            $this->assertStringContainsString('Robosarema — Search and Rescue Robotics Team', $html);
+            $this->assertStringContainsString('Activities &amp; Involvement', $html);
+            $this->assertStringContainsString('December 2024 – Present', $html);
             $this->assertStringContainsString('id="portfolio-translations"', $html);
             $this->assertStringContainsString('data-lang-switch', $html);
             $this->assertStringContainsString('data-i18n="nav.about"', $html);
-            $this->assertStringContainsString('Di Luar Kode', $html);
+            $this->assertStringContainsString('Kegiatan', $html);
+            $this->assertStringContainsString('Keterlibatan', $html);
             $this->assertStringContainsString('Sedang dikerjakan', $html);
-            $this->assertStringNotContainsString('beyond-card', $html);
+            $this->assertStringContainsString('images/activities/robosarema-arena.webp', $html);
             $this->assertStringContainsString('This page has vanished into the fog.', $notFound);
         } finally {
             File::deleteDirectory(base_path($output));

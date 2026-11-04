@@ -1,6 +1,6 @@
 # QA report — what was actually run
 
-Date: 30 October 2026
+Date: 5 November 2026
 Environment: Windows, PHP 8.3.30, Composer 2.9.5, Laravel 12.70.2, Filament 4.16.0, SQLite.
 
 ## Automated checks
@@ -9,18 +9,19 @@ Environment: Windows, PHP 8.3.30, Composer 2.9.5, Laravel 12.70.2, Filament 4.16
 
 Command: `php artisan test`
 
-Result: **10 passed, 61 assertions**, 0 failures.
+Result: **12 passed, 75 assertions**, 0 failures.
 
 Coverage of:
 
-- Home page returns 200 and shows the name, title, all major sections, Beyond Code, and the empty-panel message.
+- Home page returns 200 and shows the name, title, all major sections, and six activities.
 - All five seeded case files are published and their repository URLs appear.
-- Beyond Code table is empty after seeding; no `.beyond-card` or `.beyond-grid` is rendered.
-- A temporary Beyond Code row renders correctly (proves the future data path works) — not seeded in production.
+- The activities section renders six records in the required priority order.
+- Robosarema starts December 2024 and remains ongoing; the competition date is 18 September 2026; Polinema Mengajar keeps its supplied period.
+- Pending and unpublished activities are hidden.
 - The Sera-Z case shows **In progress** and no longer contains the stale "not started" claim.
 - Unpublished projects are hidden.
 - Custom 404 page returns 404 and shows the intended copy.
-- Static export writes `index.html`, `404.html`, assets, and the correct canonical URL.
+- Static export writes `index.html`, `404.html`, activity images, assets, and the correct canonical URL.
 - `/studio` redirects unauthenticated visitors to the login page.
 - A seeded admin can open the Filament dashboard.
 
@@ -43,7 +44,8 @@ Live verification:
 - Canonical URL: `https://bisminee.github.io/portofolio/`.
 - Live axe audit: **0 violations**.
 - Live Chrome test: **0 console errors**, **0 failed requests**, no horizontal overflow at 1440 px or 390 px.
-- Mobile “Beyond Code” anchor lands at **84 px** with the menu closed.
+- Mobile “Activities” anchor lands below the header.
+- Activity cards render in the required order; all six activity photos load; the Robosarema and competition cards cross-link.
 
 ### Code style
 
@@ -88,10 +90,12 @@ Tooling: headless Chrome (Puppeteer) at 1440×1000, 820×1100, and 390×844 (2×
 | Mobile menu closes on link, unlocks scroll | Pass |
 | Mobile anchor lands below header | Section top 84 px |
 | External links (GitHub + release APK) | 8/8 returned HTTP 200 |
-| Images loaded | 6/6 after scrolling each section |
-| Beyond Code empty state | 0 rendered skill cards |
-| Beyond Code no invented content | Pass (database count 0) |
-| Featured case artwork when expanded | Stays 4:3 (489 px tall) beside 1,431 px of case content |
+| Images loaded | 12/12 after scrolling each section (6 projects + 6 activities) |
+| Activities rendered | 6/6 in the specified order |
+| Activity photos and alts | Loaded; English and Indonesian alts verified |
+| Activity evidence links | 6/6 point to the shared Drive documentation folder |
+| Activity periods | Robosarema Dec 2024 – Present; competition 18 Sep 2026; Polinema Dec 2025 – Nov 2026 |
+| Featured activity artwork | Stays aligned when details open; no mobile overlap |
 
 ### Filament studio smoke test
 
@@ -100,10 +104,11 @@ Logged in as the local seeded account and checked:
 - `/studio` dashboard — 200, no console errors.
 - `/studio/projects` — 5 rows, team/coursework badges, featured/live indicators.
 - `/studio/projects/1/edit` — all sections rendered; existing repeater items hydrated correctly.
-- `/studio/beyond-skills` — empty table with “No beyond skills”.
-- `/studio/beyond-skills/create` — all future fields present (name, category, description, icon, order, visibility).
+- `/studio/activities` — 6 rows, priority order, periods, approval and live status.
+- `/studio/activities/1/edit` — identity, bilingual content, images, evidence, and related activity fields render; existing values hydrate correctly.
+- Saving an activity preserves `image_path` as a string and `gallery` as an array (verified against SQLite).
 
-No Beyond Code record was created during testing.
+The legacy `beyond_skills` resource is hidden from studio navigation; its public section was replaced by Activities & Involvement.
 
 ### Accessibility
 
@@ -119,7 +124,7 @@ Additional manual checks:
 - Skip-to-content link present and focusable.
 - Semantic landmarks: `header`, `nav`, `main`, `section` with accessible names, `footer`.
 - One `h1`; section `h2`s in order; project `h3`s.
-- All illustrations have descriptive alt text that states they are not screenshots.
+- All illustrations have descriptive alt text that states they are not screenshots; activity photos use genuine documentation and bilingual alt text.
 - Keyboard: menu toggle, links, and native `<details>` case files operable; Escape closes the mobile menu.
 - `prefers-reduced-motion` disables the ticker and transitions and forces non-animated anchor scrolling.
 - Focus-visible outline uses antique gold with a 3 px offset.
@@ -129,9 +134,9 @@ Additional manual checks:
 
 Screenshots were captured and inspected at:
 
-- Desktop 1440 px: hero, about, projects, skills, Beyond Code, journey, contact, an opened case file.
-- Tablet 1024 px and 820 px: navigation fit, timeline, Beyond Code.
-- Mobile 390 px and 320 px: hero, open navigation, language switch, Beyond Code, contact, full page.
+- Desktop 1440 px: hero, about, projects, skills, activities, journey, contact, an opened case file.
+- Tablet 1024 px and 820 px: navigation fit, activities, timeline.
+- Mobile 390 px and 320 px: hero, open navigation, language switch, activities, contact, full page.
 
 Fixes made during review:
 
@@ -164,7 +169,7 @@ A second polish pass was applied to the existing Laravel/Blade build.
 - Added a compact segmented switch to the navigation, plus a full-width variant inside the mobile menu.
 - Centralized all Indonesian copy in `config/translations.php`; components use `data-i18n` keys instead of inline conditionals.
 - Project prose uses `data-project-text` / `data-project-field`; timeline uses `data-journey-field`.
-- Switching updates navigation, headings, hero, case files, details, skills, Beyond Code, timeline, contact, footer, 404, metadata, image alt text, and ARIA labels.
+- Switching updates navigation, headings, hero, case files, details, skills, activities, timeline, contact, footer, 404, metadata, image alt text, and ARIA labels.
 - Preference stored as `portfolio-language` in localStorage; restored on reload.
 - The Indonesian page title is `Bisma Adhiaksa — Pengembang Mobile & Web`.
 - No overflow at **1440, 1024, 820, 768, 390, or 320 px**.
@@ -223,12 +228,12 @@ The refined build was pushed to `main` and deployed by GitHub Pages.
 
 | Command | Result |
 | --- | --- |
-| `php artisan test` | 10 passed, 61 assertions |
+| `php artisan test` | 12 passed, 75 assertions |
 | `vendor/bin/pint --test` | passed |
 | `composer audit` | no advisories |
 | `php artisan optimize` | config, routes, views, events, Blade icons, Filament cached |
 | `php artisan portfolio:export` | static site built; translation JSON included |
 | Local static-server test (`127.0.0.1:8081`) | 200; CSS/fonts loaded; EN/ID persistence and 404 pass |
 | Headless Chrome QA | 0 console errors, 0 axe violations, no horizontal overflow |
-| SQLite state after tests | 5 projects, 0 Beyond Code entries |
+| SQLite state after tests | 5 projects, 6 activities, 0 legacy Beyond Code entries |
 
