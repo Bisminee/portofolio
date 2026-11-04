@@ -38,14 +38,17 @@ Then pushed to `main`; the Pages workflow completed successfully.
 Live verification:
 
 - `https://bisminee.github.io/portofolio/` — **200**, correct title, CSS and fonts applied.
-- `https://bisminee.github.io/portofolio/css/portfolio.css` — **200**, `text/css`.
-- `https://bisminee.github.io/portofolio/images/og-cover.png` — **200**, `image/png`.
+- `https://bisminee.github.io/portofolio/css/portfolio.css?v=1.2.0` — **200**, `text/css`.
+- `https://bisminee.github.io/portofolio/js/site.js?v=1.2.0` — **200**.
+- `https://bisminee.github.io/portofolio/images/activities/robosarema-arena.webp` — **200**, `image/webp`.
+- `https://bisminee.github.io/portofolio/images/activities/keju-artisan-cheese-pull.webp` — **200**, `image/webp`.
 - `https://bisminee.github.io/portofolio/does-not-exist` — **404** with the custom page.
 - Canonical URL: `https://bisminee.github.io/portofolio/`.
-- Live axe audit: **0 violations**.
+- Live axe audit: **0 violations** in EN and ID.
 - Live Chrome test: **0 console errors**, **0 failed requests**, no horizontal overflow at 1440 px or 390 px.
-- Mobile “Activities” anchor lands below the header.
-- Activity cards render in the required order; all six activity photos load; the Robosarema and competition cards cross-link.
+- Mobile “Activities” anchor lands at **83 px** with the menu closed.
+- Six activity cards render in the required order; all six photos load; the Robosarema and competition cards cross-link.
+- Live ID content includes `Kegiatan & Keterlibatan`, `Aktivitas`, and `Desember 2024 – Sekarang`.
 
 ### Code style
 
@@ -82,13 +85,15 @@ Tooling: headless Chrome (Puppeteer) at 1440×1000, 820×1100, and 390×844 (2×
 | Page errors | 0 |
 | Failed network requests | 0 |
 | Horizontal overflow at 1440 px | None (scrollWidth 1440) |
+| Horizontal overflow at 1024 px | None |
 | Horizontal overflow at 820 px | None (scrollWidth 820) |
 | Horizontal overflow at 390 px | None (scrollWidth 390) |
+| Horizontal overflow at 320 px | None |
 | All in-page anchors resolve | 6/6 |
-| Desktop anchor lands below sticky nav | Section top 114 px |
+| Desktop anchor lands below sticky nav | Section top 80 px (activities) |
 | Mobile menu opens, locks scroll, updates `aria-expanded` | Pass |
 | Mobile menu closes on link, unlocks scroll | Pass |
-| Mobile anchor lands below header | Section top 84 px |
+| Mobile anchor lands below header | Section top 83 px |
 | External links (GitHub + release APK) | 8/8 returned HTTP 200 |
 | Images loaded | 12/12 after scrolling each section (6 projects + 6 activities) |
 | Activities rendered | 6/6 in the specified order |
