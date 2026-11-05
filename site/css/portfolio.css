@@ -1767,8 +1767,8 @@ summary {
     position: relative;
     margin: 0;
     overflow: hidden;
-    aspect-ratio: 16 / 9;
-    background: var(--ink);
+    aspect-ratio: 4 / 3;
+    background: var(--ink-soft);
     border-bottom: 1px solid var(--line);
 }
 
@@ -1776,7 +1776,7 @@ summary {
     position: sticky;
     top: 92px;
     align-self: start;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     border-right: 1px solid var(--line);
     border-bottom: 0;
 }
@@ -1785,12 +1785,12 @@ summary {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 500ms ease;
+    padding: clamp(0.35rem, 1.2vw, 0.8rem);
+    object-fit: contain;
 }
 
 .activity-card:hover .activity-art img {
-    transform: scale(1.015);
+    transform: none;
 }
 
 .activity-content {
@@ -2023,8 +2023,9 @@ summary {
 .activity-gallery img {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    padding: 0.35rem;
+    object-fit: contain;
     border: 1px solid var(--line);
     background: var(--ink);
 }
@@ -2573,7 +2574,7 @@ summary {
     .activity-card.is-featured .activity-art {
         position: relative;
         top: auto;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 4 / 3;
         border-right: 0;
         border-bottom: 1px solid var(--line);
     }

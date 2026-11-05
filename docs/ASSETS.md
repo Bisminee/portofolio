@@ -18,16 +18,12 @@ Real project screenshots are still welcome. Place them in `public/images/screens
 
 ## Activity photography
 
-All activity images are genuine documentation from the supplied Google Drive folder. They were resized to a maximum 1400 px edge and converted to WebP.
+All activity images use genuine documentation from the supplied Google Drive folder. The PL FM thumbnail is the organization logo cropped from its Creative Media poster. Images were resized where appropriate and converted to WebP.
 
 | Activity | Main image | Additional image | Source file(s) |
 | --- | --- | --- | --- |
 | Robosarema | `robosarema-arena.webp` | `robosarema-work.webp` | `Lomba Robot.JPG`; `Lomba Robot_Foto Sendiri.JPG` |
-| PL FM — Manager Off Air | `plfm-off-air-meeting.webp` | `plfm-off-air-meeting-2.webp` | `Rapat Koordinasi1.jpg`; `Rapat Koordinasi2.jpg` |
-| ROBOTIC UNLIMITED 2026 | `unlimited-2026-team.webp` | — | `Lomba Robot_Foto Tim.JPG` |
-| Polinema Mengajar | `polinema-mengajar-wellness.webp` | `polinema-mengajar-oday.webp` | `Hasil Edit_Poljar2.png`; `Hasil Edit_Poljar3.png` |
-| PL FM — Creative Media | `plfm-creative-mday.webp` | `plfm-creative-waisak.webp` | `hasil_edit_creativemedia.png`; `hasil_edit_creativemedia2.png` |
-| Kangdjoe / Keju Artisan | `keju-artisan-cheese-pull.webp` | `keju-artisan-halloumi.webp` | `Hasil_Foto3.jpg`; `Hasil_Foto2.jpg` |
+| PL FM — Creative Media & Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-creative-mday.webp` | Logo cropped from `PL FM/Creative Media/hasil_edit_creativemedia.png`; `Rapat Koordinasi1.jpg` |
 
 Source folder: [Data Portofolio — Google Drive](https://drive.google.com/drive/folders/1n2fDB7SzVXx_C0fcIGOA8__Puf13-U7U?usp=sharing).
 
@@ -38,7 +34,7 @@ Source folder: [Data Portofolio — Google Drive](https://drive.google.com/drive
 | `Saat Mengajar.jpg`, `Sebelum Mengajar.jpg` | Show identifiable children; publication consent for their faces was not provided. |
 | `Kangdjoe/Hasil_Edit.jpg` | Contains a third-party celebrity photograph; excluded for image-rights reasons. |
 | `PL FM/Manager Off Air/Salinan dari OFF AIR.png` | Possibly an internal organizational document; excluded pending confirmation. |
-| `Play IT` files | Not part of the six supplied activities. |
+| `Play IT` files | Not part of the five supplied activities. |
 
 ## Still missing / to confirm
 

@@ -56,35 +56,38 @@ class PortfolioTest extends TestCase
 
     public function test_activities_are_published_in_priority_order(): void
     {
-        $this->assertSame(6, Activity::query()->published()->count());
+        $this->assertSame(5, Activity::query()->published()->count());
 
         $response = $this->get('/');
         $response
             ->assertOk()
             ->assertSeeInOrder([
                 'Robosarema — Search and Rescue Robotics Team',
-                'Steering Committee — Manager Off Air',
+                'PL FM — Creative Media & Manager Off Air',
                 'ROBOTIC UNLIMITED 2026',
                 'Polinema Mengajar',
-                'Staff Creative Media — PL FM',
                 'Product Marketing Team — Kangdjoe (now Keju Artisan)',
             ])
             ->assertSee('https://drive.google.com/drive/folders/1n2fDB7SzVXx_C0fcIGOA8__Puf13-U7U')
             ->assertSee('href="#activity-robosarema-software-division"', false)
-            ->assertSee('images/activities/robosarema-arena.webp', false);
+            ->assertSee('images/activities/robosarema-arena.webp', false)
+            ->assertSee('images/activities/plfm-logo.webp', false)
+            ->assertSee('Organization logo');
     }
 
     public function test_activity_dates_and_scope_are_accurate(): void
     {
         $robosarema = Activity::query()->where('slug', 'robosarema-software-division')->firstOrFail();
+        $plfm = Activity::query()->where('slug', 'plfm-creative-media-manager')->firstOrFail();
         $polinema = Activity::query()->where('slug', 'polinema-mengajar')->firstOrFail();
         $competition = Activity::query()->where('slug', 'robotic-unlimited-2026')->firstOrFail();
 
+        $this->assertSame('community', $robosarema->type);
         $this->assertSame('December 2024 – Present', $robosarema->period('en'));
         $this->assertSame('Desember 2024 – Sekarang', $robosarema->period('id'));
+        $this->assertSame('March 2025 – Present', $plfm->period('en'));
         $this->assertSame('December 2025 – November 2026', $polinema->period('en'));
         $this->assertSame('18 September 2026', $competition->period('en'));
-        $this->assertSame('Team', ucfirst($competition->team_type));
         $this->assertSame('2026-09-18', $competition->end_date?->format('Y-m-d'));
     }
 

@@ -158,6 +158,14 @@ class ActivityForm
                         TextInput::make('image_alt_id')
                             ->label('Image alt text (Indonesian)')
                             ->maxLength(220),
+                        TextInput::make('image_label_en')
+                            ->label('Image label (English)')
+                            ->maxLength(120)
+                            ->placeholder('Activity documentation'),
+                        TextInput::make('image_label_id')
+                            ->label('Image label (Indonesian)')
+                            ->maxLength(120)
+                            ->placeholder('Dokumentasi kegiatan'),
                         TextInput::make('evidence_url')
                             ->label('Evidence URL')
                             ->url()

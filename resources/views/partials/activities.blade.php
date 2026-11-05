@@ -53,7 +53,9 @@
                         aria-labelledby="activity-title-{{ $activity->slug }}"
                     >
                         <figure class="activity-art">
-                            <span class="art-badge" data-i18n="activities.documented">Activity documentation</span>
+                            <span class="art-badge" @if ($activity->image_label_en) data-activity="{{ $activity->slug }}" data-activity-text="image_label" @else data-i18n="activities.documented" @endif>
+                                {{ $activity->image_label_en ?? 'Activity documentation' }}
+                            </span>
                             <img
                                 src="{{ asset('images/activities/'.$activity->image_path) }}"
                                 alt="{{ $activity->image_alt_en }}"
@@ -62,7 +64,9 @@
                                 loading="{{ $loop->first ? 'eager' : 'lazy' }}"
                                 decoding="async"
                             >
-                            <figcaption class="art-caption" data-i18n="activities.documented">Activity documentation</figcaption>
+                            <figcaption class="art-caption" @if ($activity->image_label_en) data-activity="{{ $activity->slug }}" data-activity-text="image_label" @else data-i18n="activities.documented" @endif>
+                                {{ $activity->image_label_en ?? 'Activity documentation' }}
+                            </figcaption>
                         </figure>
 
                         <div class="activity-content">

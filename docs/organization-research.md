@@ -71,10 +71,9 @@ Source folder: [Data Portofolio — Google Drive](https://drive.google.com/drive
 | Activity | Main image | Additional image | Source file(s) |
 | --- | --- | --- | --- |
 | Robosarema | `robosarema-arena.webp` | `robosarema-work.webp` | `Robotic Software SAR/Lomba Unlimited/Lomba Robot.JPG`; `Lomba Robot_Foto Sendiri.JPG` |
-| PL FM — Manager Off Air | `plfm-off-air-meeting.webp` | `plfm-off-air-meeting-2.webp` | `PL FM/Manager Off Air/Rapat Koordinasi1.jpg`, `Rapat Koordinasi2.jpg` |
+| PL FM — Creative Media & Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-creative-mday.webp` | Logo from `PL FM/Creative Media/hasil_edit_creativemedia.png`; `Manager Off Air/Rapat Koordinasi1.jpg` |
 | ROBOTIC UNLIMITED 2026 | `unlimited-2026-team.webp` | — | `Robotic Software SAR/Lomba Unlimited/Lomba Robot_Foto Tim.JPG` |
 | Polinema Mengajar | `polinema-mengajar-wellness.webp` | `polinema-mengajar-oday.webp` | `Poljar(Polinema Mengajar)/Hasil Edit_Poljar2.png`, `Hasil Edit_Poljar3.png` |
-| PL FM — Creative Media | `plfm-creative-mday.webp` | `plfm-creative-waisak.webp` | `PL FM/Creative Media/hasil_edit_creativemedia.png`, `hasil_edit_creativemedia2.png` |
 | Kangdjoe / Keju Artisan | `keju-artisan-cheese-pull.webp` | `keju-artisan-halloumi.webp` | `Kangdjoe/Hasil_Foto3.jpg`, `Hasil_Foto2.jpg` |
 
 ### Documentation deliberately not used
@@ -82,10 +81,10 @@ Source folder: [Data Portofolio — Google Drive](https://drive.google.com/drive
 - `Poljar(Polinema Mengajar)/Saat Mengajar.jpg` and `Sebelum Mengajar.jpg`: show identifiable children; no publication permission for their faces was provided.
 - `Kangdjoe/Hasil_Edit.jpg`: contains a third-party celebrity photograph; excluded for image-rights reasons.
 - `PL FM/Manager Off Air/Salinan dari OFF AIR.png`: may contain internal organizational structure; excluded pending confirmation.
-- `Play IT` files: not part of the six supplied activities.
+- `Play IT` files: not part of the five supplied activities.
 
 ## Publication and permission
 
-Bisma explicitly approved publishing these six activities and their organization names in this task. Formal confirmation from each organization has **not** been independently verified. The portfolio therefore publishes text, selected documentation, and role information supplied by Bisma, without implying organizational endorsement.
+Bisma explicitly approved publishing these five activities and their organization names in this task. Formal confirmation from each organization has **not** been independently verified. The portfolio therefore publishes text, selected documentation, and role information supplied by Bisma, without implying organizational endorsement.
 
 No competition rankings, awards, medals, or measurable outcomes are claimed. No private repository code or internal documents are reproduced.

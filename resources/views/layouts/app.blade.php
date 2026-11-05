@@ -28,7 +28,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <link rel="preload" href="{{ asset('fonts/anton-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ asset('fonts/lora-400-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{{ asset('css/portfolio.css') }}?v=1.2.0">
+    <link rel="stylesheet" href="{{ asset('css/portfolio.css') }}?v=1.3.0">
 
     <script>
         try {
@@ -74,6 +74,6 @@
             'meta' => config('translations.meta'),
         ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}
     </script>
-    <script src="{{ asset('js/site.js') }}?v=1.2.0" defer></script>
+    <script src="{{ asset('js/site.js') }}?v=1.3.0" defer></script>
 </body>
 </html>

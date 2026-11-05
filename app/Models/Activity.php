@@ -32,6 +32,8 @@ class Activity extends Model
         'gallery',
         'image_alt_en',
         'image_alt_id',
+        'image_label_en',
+        'image_label_id',
         'permission_status',
         'related_slug',
         'priority',
@@ -123,6 +125,7 @@ class Activity extends Model
             'description' => $this->description_id,
             'highlights' => $this->highlights_id ?? [],
             'image_alt' => $this->image_alt_id,
+            'image_label' => $this->image_label_id,
         ];
     }
 }
