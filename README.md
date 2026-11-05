@@ -65,7 +65,7 @@ Published records appear immediately on the home page. The `ProjectSeeder` is id
 
 ### Activities & Involvement
 
-Studio → **Portfolio → Activities**. The five published activities support:
+Studio → **Portfolio → Activities**. The six published activities support:
 
 - Name, type, organization, role in English and Indonesian.
 - Start/end dates, ongoing status, and generated period labels.
@@ -86,7 +86,7 @@ Static copy lives in `config/site.php`. Update the profile name, email, location
 ## Tests and quality checks
 
 ```bash
-php artisan test                  # 12 tests, 78 assertions
+php artisan test                  # 12 tests, 79 assertions
 vendor/bin/pint --test            # code style
 composer audit                    # dependency advisories
 php artisan optimize              # production caches

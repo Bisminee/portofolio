@@ -9,14 +9,14 @@ Environment: Windows, PHP 8.3.30, Composer 2.9.5, Laravel 12.70.2, Filament 4.16
 
 Command: `php artisan test`
 
-Result: **12 passed, 78 assertions**, 0 failures.
+Result: **12 passed, 79 assertions**, 0 failures.
 
 Coverage of:
 
-- Home page returns 200 and shows the name, title, all major sections, and five activities.
+- Home page returns 200 and shows the name, title, all major sections, and six activities.
 - All five seeded case files are published and their repository URLs appear.
-- The activities section renders five records in the required priority order.
-- Robosarema is typed as **Community**; the two PL FM roles are merged into one record using the PL FM logo as its thumbnail.
+- The activities section renders six records in the required priority order.
+- Robosarema is typed as **Community**; Manager Off Air and Creative Media are separate PL FM records, and both use the PL FM logo from the Drive Creative Media poster as their thumbnail.
 - Activity images use `object-fit: contain`, so posters and photos are no longer cropped; the logo is labelled “Organization logo”.
 - Robosarema starts December 2024 and remains ongoing; the competition date is 18 September 2026; Polinema Mengajar keeps its supplied period.
 - Pending and unpublished activities are hidden.
@@ -49,7 +49,7 @@ Live verification:
 - Live axe audit: **0 violations** in EN and ID.
 - Live Chrome test: **0 console errors**, **0 failed requests**, no horizontal overflow at 1440 px or 390 px.
 - Mobile “Activities” anchor lands at **83 px** with the menu closed.
-- Five activity cards render in the required order; all five photos load; the Robosarema and competition cards cross-link.
+- Six activity cards render in the required order; all six photos load; the Robosarema and competition cards cross-link.
 - Live ID content includes `Kegiatan & Keterlibatan`, `Aktivitas`, and `Desember 2024 – Sekarang`.
 
 ### Code style
@@ -97,10 +97,10 @@ Tooling: headless Chrome (Puppeteer) at 1440×1000, 820×1100, and 390×844 (2×
 | Mobile menu closes on link, unlocks scroll | Pass |
 | Mobile anchor lands below header | Section top 83 px |
 | External links (GitHub + release APK) | 8/8 returned HTTP 200 |
-| Images loaded | 11/11 after scrolling each section (6 projects + 5 activities) |
+| Images loaded | 12/12 after scrolling each section (6 projects + 6 activities) |
 | Activities rendered | 6/6 in the specified order |
 | Activity photos and alts | Loaded; English and Indonesian alts verified; `object-fit: contain` prevents cropping |
-| PL FM thumbnail | Official logo cropped from the Drive Creative Media poster; label switches to “Logo organisasi” |
+| PL FM cards | Both use the official logo cropped from the Drive Creative Media poster; label switches to “Logo organisasi” |
 | Activity evidence links | 6/6 point to the shared Drive documentation folder |
 | Activity periods | Robosarema Dec 2024 – Present; competition 18 Sep 2026; Polinema Dec 2025 – Nov 2026 |
 | Featured activity artwork | Stays aligned when details open; no mobile overlap |
@@ -112,7 +112,7 @@ Logged in as the local seeded account and checked:
 - `/studio` dashboard — 200, no console errors.
 - `/studio/projects` — 5 rows, team/coursework badges, featured/live indicators.
 - `/studio/projects/1/edit` — all sections rendered; existing repeater items hydrated correctly.
-- `/studio/activities` — 5 rows, priority order, periods, approval and live status.
+- `/studio/activities` — 6 rows, priority order, periods, approval and live status.
 - `/studio/activities/1/edit` — identity, bilingual content, images, evidence, and related activity fields render; existing values hydrate correctly.
 - Saving an activity preserves `image_path` as a string and `gallery` as an array (verified against SQLite).
 
@@ -236,12 +236,12 @@ The refined build was pushed to `main` and deployed by GitHub Pages.
 
 | Command | Result |
 | --- | --- |
-| `php artisan test` | 12 passed, 78 assertions |
+| `php artisan test` | 12 passed, 79 assertions |
 | `vendor/bin/pint --test` | passed |
 | `composer audit` | no advisories |
 | `php artisan optimize` | config, routes, views, events, Blade icons, Filament cached |
 | `php artisan portfolio:export` | static site built; translation JSON included |
 | Local static-server test (`127.0.0.1:8081`) | 200; CSS/fonts loaded; EN/ID persistence and 404 pass |
 | Headless Chrome QA | 0 console errors, 0 axe violations, no horizontal overflow |
-| SQLite state after tests | 5 projects, 5 activities, 0 legacy Beyond Code entries |
+| SQLite state after tests | 5 projects, 6 activities, 0 legacy Beyond Code entries |
 
