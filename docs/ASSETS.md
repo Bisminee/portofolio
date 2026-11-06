@@ -18,11 +18,11 @@ Real project screenshots are still welcome. Place them in `public/images/screens
 
 ## Activity photography
 
-All activity images use genuine documentation from the supplied Google Drive folder, except the organization logos below. The Drive folder did not contain standalone logo files, so the matching official logos were taken from the organizations’ public profiles: the PL FM Facebook page (859 px logo), the Polinema Mengajar YouTube channel (900 px logo), and the Robosarema GitHub organization avatar (460 px logo). The logo plates are 1200 × 900 and preserve the full mark without stretching or cropping; activity cards do not display an image-label overlay.
+All activity images use genuine documentation from the supplied Google Drive folder, except the organization logos below. The Drive folder did not contain standalone logo files. The PL FM and Polinema Mengajar logos were taken from their official public profiles (859 px and 900 px respectively); the Robosarema logo is the official 2000 × 666 PNG supplied by Bisma. The logo plates are 1200 × 900 and preserve the full mark without stretching or cropping; activity cards do not display an image-label overlay.
 
 | Activity | Main image | Additional image | Source file(s) |
 | --- | --- | --- | --- |
-| Robosarema | `robosarema-logo.webp` | `robosarema-arena.webp`; `robosarema-work.webp` | Official Robosarema GitHub avatar; `Lomba Robot.JPG`, `Lomba Robot_Foto Sendiri.JPG` |
+| Robosarema | `robosarema-logo.webp` | `robosarema-arena.webp`; `robosarema-work.webp` | User-supplied official Robosarema logo (2000 × 666 PNG); `Lomba Robot.JPG`, `Lomba Robot_Foto Sendiri.JPG` |
 | PL FM — Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-off-air-meeting-2.webp` | Official PL FM Facebook page logo; `Rapat Koordinasi1.jpg`, `Rapat Koordinasi2.jpg` |
 | ROBOTIC UNLIMITED 2026 | `unlimited-2026-team.webp` | — | `Lomba Robot_Foto Tim.JPG` |
 | Polinema Mengajar | `polinema-logo.webp` | `polinema-mengajar-wellness.webp`; `polinema-mengajar-oday.webp` | Official Polinema Mengajar YouTube channel logo; `Hasil Edit_Poljar2.png`, `Hasil Edit_Poljar3.png` |

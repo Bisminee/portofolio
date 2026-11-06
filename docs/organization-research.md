@@ -68,11 +68,11 @@ This document separates **organizational context** from **Bisma’s personal inv
 
 Source folder: [Data Portofolio — Google Drive](https://drive.google.com/drive/folders/1n2fDB7SzVXx_C0fcIGOA8__Puf13-U7U?usp=sharing)
 
-The Drive folder contains photos, posters, and documents, but no standalone logo files. The matching official logos were therefore taken from the organizations’ public profiles: the PL FM Facebook page (859 px logo), the Polinema Mengajar YouTube channel (900 px logo), and the Robosarema GitHub organization avatar (460 px logo).
+The Drive folder contains photos, posters, and documents, but no standalone logo files. The PL FM and Polinema Mengajar logos were taken from their official public profiles (859 px and 900 px respectively); the Robosarema logo is the official 2000 × 666 PNG supplied by Bisma.
 
 | Activity | Main image | Additional image | Source file(s) |
 | --- | --- | --- | --- |
-| Robosarema | `robosarema-logo.webp` | `robosarema-arena.webp`; `robosarema-work.webp` | Official GitHub avatar; `Robotic Software SAR/Lomba Unlimited/Lomba Robot.JPG`, `Lomba Robot_Foto Sendiri.JPG` |
+| Robosarema | `robosarema-logo.webp` | `robosarema-arena.webp`; `robosarema-work.webp` | User-supplied official Robosarema logo (2000 × 666 PNG); `Robotic Software SAR/Lomba Unlimited/Lomba Robot.JPG`, `Lomba Robot_Foto Sendiri.JPG` |
 | PL FM — Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-off-air-meeting-2.webp` | Official PL FM Facebook page logo; `Manager Off Air/Rapat Koordinasi1.jpg`, `Rapat Koordinasi2.jpg` |
 | ROBOTIC UNLIMITED 2026 | `unlimited-2026-team.webp` | — | `Robotic Software SAR/Lomba Unlimited/Lomba Robot_Foto Tim.JPG` |
 | Polinema Mengajar | `polinema-logo.webp` | `polinema-mengajar-wellness.webp`; `polinema-mengajar-oday.webp` | Official Polinema Mengajar YouTube channel logo; `Poljar(Polinema Mengajar)/Hasil Edit_Poljar2.png`, `Hasil Edit_Poljar3.png` |
