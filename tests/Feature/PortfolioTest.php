@@ -75,7 +75,8 @@ class PortfolioTest extends TestCase
             ->assertSee('images/activities/plfm-logo.webp', false)
             ->assertSee('images/activities/polinema-logo.webp', false)
             ->assertSee('images/activities/robosarema-logo.webp', false)
-            ->assertSee('Organization logo');
+            ->assertDontSee('Organization logo')
+            ->assertDontSee('Logo organisasi');
     }
 
     public function test_activity_dates_and_scope_are_accurate(): void
