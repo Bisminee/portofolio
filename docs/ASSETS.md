@@ -18,15 +18,15 @@ Real project screenshots are still welcome. Place them in `public/images/screens
 
 ## Activity photography
 
-All activity images use genuine documentation from the supplied Google Drive folder. The two PL FM records use the organization logo cropped from its Creative Media poster as their thumbnail. Images were resized where appropriate and converted to WebP.
+All activity images use genuine documentation from the supplied Google Drive folder, except the organization logos below. The Drive folder did not contain standalone logo files, so the matching official logos were taken from each organization’s public profile: PL FM (`@radioplfm`), Polinema Mengajar (`@polinema.mengajar`), and Robosarema (GitHub organization avatar).
 
 | Activity | Main image | Additional image | Source file(s) |
 | --- | --- | --- | --- |
-| Robosarema | `robosarema-arena.webp` | `robosarema-work.webp` | `Lomba Robot.JPG`; `Lomba Robot_Foto Sendiri.JPG` |
-| PL FM — Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-off-air-meeting-2.webp` | Logo from `PL FM/Creative Media/hasil_edit_creativemedia.png`; `Manager Off Air/Rapat Koordinasi1.jpg`, `Rapat Koordinasi2.jpg` |
+| Robosarema | `robosarema-logo.webp` | `robosarema-arena.webp`; `robosarema-work.webp` | Official Robosarema GitHub avatar; `Lomba Robot.JPG`, `Lomba Robot_Foto Sendiri.JPG` |
+| PL FM — Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-off-air-meeting-2.webp` | Official `@radioplfm` logo; `Rapat Koordinasi1.jpg`, `Rapat Koordinasi2.jpg` |
 | ROBOTIC UNLIMITED 2026 | `unlimited-2026-team.webp` | — | `Lomba Robot_Foto Tim.JPG` |
-| Polinema Mengajar | `polinema-mengajar-wellness.webp` | `polinema-mengajar-oday.webp` | `Hasil Edit_Poljar2.png`; `Hasil Edit_Poljar3.png` |
-| PL FM — Creative Media | `plfm-logo.webp` | `plfm-creative-mday.webp`; `plfm-creative-waisak.webp` | Logo from `PL FM/Creative Media/hasil_edit_creativemedia.png`; `hasil_edit_creativemedia.png`, `hasil_edit_creativemedia2.png` |
+| Polinema Mengajar | `polinema-logo.webp` | `polinema-mengajar-wellness.webp`; `polinema-mengajar-oday.webp` | Official `@polinema.mengajar` logo; `Hasil Edit_Poljar2.png`, `Hasil Edit_Poljar3.png` |
+| PL FM — Creative Media | `plfm-logo.webp` | `plfm-creative-mday.webp`; `plfm-creative-waisak.webp` | Official `@radioplfm` logo; `hasil_edit_creativemedia.png`, `hasil_edit_creativemedia2.png` |
 | Kangdjoe / Keju Artisan | `keju-artisan-cheese-pull.webp` | `keju-artisan-halloumi.webp` | `Hasil_Foto3.jpg`; `Hasil_Foto2.jpg` |
 
 Source folder: [Data Portofolio — Google Drive](https://drive.google.com/drive/folders/1n2fDB7SzVXx_C0fcIGOA8__Puf13-U7U?usp=sharing).

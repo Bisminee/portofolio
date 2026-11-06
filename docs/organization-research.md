@@ -68,13 +68,15 @@ This document separates **organizational context** from **Bisma’s personal inv
 
 Source folder: [Data Portofolio — Google Drive](https://drive.google.com/drive/folders/1n2fDB7SzVXx_C0fcIGOA8__Puf13-U7U?usp=sharing)
 
+The Drive folder contains photos, posters, and documents, but no standalone logo files. The matching official logos were therefore taken from the public profiles of PL FM (`@radioplfm`), Polinema Mengajar (`@polinema.mengajar`), and Robosarema (GitHub organization avatar).
+
 | Activity | Main image | Additional image | Source file(s) |
 | --- | --- | --- | --- |
-| Robosarema | `robosarema-arena.webp` | `robosarema-work.webp` | `Robotic Software SAR/Lomba Unlimited/Lomba Robot.JPG`; `Lomba Robot_Foto Sendiri.JPG` |
-| PL FM — Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-off-air-meeting-2.webp` | Logo from `PL FM/Creative Media/hasil_edit_creativemedia.png`; `Manager Off Air/Rapat Koordinasi1.jpg`, `Rapat Koordinasi2.jpg` |
+| Robosarema | `robosarema-logo.webp` | `robosarema-arena.webp`; `robosarema-work.webp` | Official GitHub avatar; `Robotic Software SAR/Lomba Unlimited/Lomba Robot.JPG`, `Lomba Robot_Foto Sendiri.JPG` |
+| PL FM — Manager Off Air | `plfm-logo.webp` | `plfm-off-air-meeting.webp`; `plfm-off-air-meeting-2.webp` | Official `@radioplfm` logo; `Manager Off Air/Rapat Koordinasi1.jpg`, `Rapat Koordinasi2.jpg` |
 | ROBOTIC UNLIMITED 2026 | `unlimited-2026-team.webp` | — | `Robotic Software SAR/Lomba Unlimited/Lomba Robot_Foto Tim.JPG` |
-| Polinema Mengajar | `polinema-mengajar-wellness.webp` | `polinema-mengajar-oday.webp` | `Poljar(Polinema Mengajar)/Hasil Edit_Poljar2.png`, `Hasil Edit_Poljar3.png` |
-| PL FM — Creative Media | `plfm-logo.webp` | `plfm-creative-mday.webp`; `plfm-creative-waisak.webp` | Logo from `PL FM/Creative Media/hasil_edit_creativemedia.png`; `hasil_edit_creativemedia.png`, `hasil_edit_creativemedia2.png` |
+| Polinema Mengajar | `polinema-logo.webp` | `polinema-mengajar-wellness.webp`; `polinema-mengajar-oday.webp` | Official `@polinema.mengajar` logo; `Poljar(Polinema Mengajar)/Hasil Edit_Poljar2.png`, `Hasil Edit_Poljar3.png` |
+| PL FM — Creative Media | `plfm-logo.webp` | `plfm-creative-mday.webp`; `plfm-creative-waisak.webp` | Official `@radioplfm` logo; `PL FM/Creative Media/hasil_edit_creativemedia.png`, `hasil_edit_creativemedia2.png` |
 | Kangdjoe / Keju Artisan | `keju-artisan-cheese-pull.webp` | `keju-artisan-halloumi.webp` | `Kangdjoe/Hasil_Foto3.jpg`, `Hasil_Foto2.jpg` |
 | ROBOTIC UNLIMITED 2026 | `unlimited-2026-team.webp` | — | `Robotic Software SAR/Lomba Unlimited/Lomba Robot_Foto Tim.JPG` |
 | Polinema Mengajar | `polinema-mengajar-wellness.webp` | `polinema-mengajar-oday.webp` | `Poljar(Polinema Mengajar)/Hasil Edit_Poljar2.png`, `Hasil Edit_Poljar3.png` |

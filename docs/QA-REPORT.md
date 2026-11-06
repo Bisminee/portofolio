@@ -9,14 +9,15 @@ Environment: Windows, PHP 8.3.30, Composer 2.9.5, Laravel 12.70.2, Filament 4.16
 
 Command: `php artisan test`
 
-Result: **12 passed, 79 assertions**, 0 failures.
+Result: **12 passed, 81 assertions**, 0 failures.
 
 Coverage of:
 
 - Home page returns 200 and shows the name, title, all major sections, and six activities.
 - All five seeded case files are published and their repository URLs appear.
 - The activities section renders six records in the required priority order.
-- Robosarema is typed as **Community**; Manager Off Air and Creative Media are separate PL FM records, and both use the PL FM logo from the Drive Creative Media poster as their thumbnail.
+- Robosarema is typed as **Community**; Manager Off Air and Creative Media are separate PL FM records.
+- PL FM, Polinema Mengajar, and Robosarema use their official organization logos as card thumbnails; the logos are labelled “Organization logo” / “Logo organisasi”.
 - Activity images use `object-fit: contain`, so posters and photos are no longer cropped; the logo is labelled “Organization logo”.
 - Robosarema starts December 2024 and remains ongoing; the competition date is 18 September 2026; Polinema Mengajar keeps its supplied period.
 - Pending and unpublished activities are hidden.
@@ -100,7 +101,7 @@ Tooling: headless Chrome (Puppeteer) at 1440×1000, 820×1100, and 390×844 (2×
 | Images loaded | 12/12 after scrolling each section (6 projects + 6 activities) |
 | Activities rendered | 6/6 in the specified order |
 | Activity photos and alts | Loaded; English and Indonesian alts verified; `object-fit: contain` prevents cropping |
-| PL FM cards | Both use the official logo cropped from the Drive Creative Media poster; label switches to “Logo organisasi” |
+| PL FM / Polinema / Robosarema marks | Official logos; labels switch to “Logo organisasi” |
 | Activity evidence links | 6/6 point to the shared Drive documentation folder |
 | Activity periods | Robosarema Dec 2024 – Present; competition 18 Sep 2026; Polinema Dec 2025 – Nov 2026 |
 | Featured activity artwork | Stays aligned when details open; no mobile overlap |
@@ -236,7 +237,7 @@ The refined build was pushed to `main` and deployed by GitHub Pages.
 
 | Command | Result |
 | --- | --- |
-| `php artisan test` | 12 passed, 79 assertions |
+| `php artisan test` | 12 passed, 81 assertions |
 | `vendor/bin/pint --test` | passed |
 | `composer audit` | no advisories |
 | `php artisan optimize` | config, routes, views, events, Blade icons, Filament cached |

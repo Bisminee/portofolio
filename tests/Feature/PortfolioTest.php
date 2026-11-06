@@ -73,6 +73,8 @@ class PortfolioTest extends TestCase
             ->assertSee('href="#activity-robosarema-software-division"', false)
             ->assertSee('images/activities/robosarema-arena.webp', false)
             ->assertSee('images/activities/plfm-logo.webp', false)
+            ->assertSee('images/activities/polinema-logo.webp', false)
+            ->assertSee('images/activities/robosarema-logo.webp', false)
             ->assertSee('Organization logo');
     }
 

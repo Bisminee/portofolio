@@ -86,7 +86,7 @@ Static copy lives in `config/site.php`. Update the profile name, email, location
 ## Tests and quality checks
 
 ```bash
-php artisan test                  # 12 tests, 79 assertions
+php artisan test                  # 12 tests, 81 assertions
 vendor/bin/pint --test            # code style
 composer audit                    # dependency advisories
 php artisan optimize              # production caches
