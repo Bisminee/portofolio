@@ -41,8 +41,8 @@ Then pushed to `main`; the Pages workflow completed successfully.
 Live verification:
 
 - `https://bisminee.github.io/portofolio/` — **200**, correct title, CSS and fonts applied.
-- `https://bisminee.github.io/portofolio/css/portfolio.css?v=1.3.0` — **200**, `text/css`.
-- `https://bisminee.github.io/portofolio/js/site.js?v=1.3.0` — **200**.
+- `https://bisminee.github.io/portofolio/css/portfolio.css?v=1.4.0` — **200**, `text/css`.
+- `https://bisminee.github.io/portofolio/js/site.js?v=1.4.0` — **200**.
 - `https://bisminee.github.io/portofolio/images/activities/robosarema-arena.webp` — **200**, `image/webp`.
 - `https://bisminee.github.io/portofolio/images/activities/keju-artisan-cheese-pull.webp` — **200**, `image/webp`.
 - `https://bisminee.github.io/portofolio/does-not-exist` — **404** with the custom page.
@@ -105,6 +105,7 @@ Tooling: headless Chrome (Puppeteer) at 1440×1000, 820×1100, and 390×844 (2×
 | Activity evidence links | 6/6 point to the shared Drive documentation folder |
 | Activity periods | Robosarema Dec 2024 – Present; competition 18 Sep 2026; Polinema Dec 2025 – Nov 2026 |
 | Featured activity artwork | Stays aligned when details open; no mobile overlap |
+| Scroll reveal | Hero and section heads reveal once with a 480–520 ms ink/letterpress transition; no horizontal overflow or layout shift |
 
 ### Filament studio smoke test
 
@@ -135,7 +136,7 @@ Additional manual checks:
 - One `h1`; section `h2`s in order; project `h3`s.
 - All illustrations have descriptive alt text that states they are not screenshots; activity photos use genuine documentation and bilingual alt text.
 - Keyboard: menu toggle, links, and native `<details>` case files operable; Escape closes the mobile menu.
-- `prefers-reduced-motion` disables the ticker and transitions and forces non-animated anchor scrolling.
+- `prefers-reduced-motion` disables the scroll reveal and ticker, and forces non-animated anchor scrolling. With JavaScript disabled, all reveal content remains visible.
 - Focus-visible outline uses antique gold with a 3 px offset.
 - Text contrast uses bone `#F0E6D2` on obsidian/charcoal and gold `#B99A63` for secondary labels; red is not used for small body text on dark backgrounds.
 

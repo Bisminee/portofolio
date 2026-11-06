@@ -65,6 +65,7 @@
     --shell: 1280px;
     --gutter: clamp(1.25rem, 4vw, 3.25rem);
     --shadow-ink: 8px 8px 0 rgba(0, 0, 0, 0.55);
+    --ease-ink: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 *,
@@ -2815,6 +2816,40 @@ summary {
     }
 }
 
+/* Scroll reveal ------------------------------------------------------------ */
+
+html.motion-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    clip-path: inset(0 0 10% 0);
+    transition:
+        opacity 480ms var(--ease-ink) var(--reveal-delay, 0ms),
+        transform 520ms var(--ease-ink) var(--reveal-delay, 0ms),
+        clip-path 520ms var(--ease-ink) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+html.motion-ready [data-reveal="hero-plate"] {
+    --reveal-delay: 120ms;
+}
+
+html.motion-ready [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+    will-change: auto;
+}
+
+html.motion-ready [data-reveal="head"] .section-rule {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 560ms var(--ease-ink) 180ms;
+}
+
+html.motion-ready [data-reveal="head"].is-revealed .section-rule {
+    transform: scaleX(1);
+}
+
 /* Motion & print ----------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2845,6 +2880,14 @@ summary {
     .hero-actions,
     .contact-plate .btn {
         display: none !important;
+    }
+
+    html.motion-ready [data-reveal],
+    html.motion-ready [data-reveal="head"] .section-rule {
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+        will-change: auto !important;
     }
 
     body {

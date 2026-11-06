@@ -7,7 +7,7 @@
     <div class="hero-halftone" aria-hidden="true"></div>
 
     <div class="shell hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy" data-reveal="hero">
             <div class="hero-meta">
                 <span class="meta-rule" aria-hidden="true"></span>
                 <span data-i18n="hero.case">Case file no. 001</span>
@@ -58,7 +58,7 @@
             </p>
         </div>
 
-        <figure class="hero-plate" aria-labelledby="hero-art-caption">
+        <figure class="hero-plate" data-reveal="hero-plate" aria-labelledby="hero-art-caption">
             <span class="plate-stamp" aria-hidden="true">
                 <span data-i18n="hero.stampPublic">PUBLIC</span>
                 <span data-i18n="hero.stampWork">WORK</span>

@@ -267,3 +267,41 @@
         });
     }
 })();
+
+// Ink-print reveal for section headings and the hero.
+(() => {
+    const root = document.documentElement;
+    const items = [...document.querySelectorAll("[data-reveal]")];
+
+    if (
+        !items.length ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        !("IntersectionObserver" in window)
+    ) {
+        return;
+    }
+
+    root.classList.add("motion-ready");
+
+    const reveal = (element) => element.classList.add("is-revealed");
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                reveal(entry.target);
+                observer.unobserve(entry.target);
+            });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+    );
+
+    window.requestAnimationFrame(() => {
+        items.forEach((item) => {
+            if (item.getBoundingClientRect().top < window.innerHeight * 0.92) {
+                reveal(item);
+            } else {
+                observer.observe(item);
+            }
+        });
+    });
+})();
